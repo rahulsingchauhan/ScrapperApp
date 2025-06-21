@@ -104,24 +104,25 @@ const styles = StyleSheet.create({
   },
   skipButton: {
     position: 'absolute',
-    top: 50,
+    top: 20,
     right: 20,
     zIndex: 10,
   },
   skipText: {
-    color: '#666',
+    color: 'black',
     fontSize: 16,
+    fontWeight: 'bold',
   },
   slide: {
     width,
     alignItems: 'center',
-    paddingTop: 80,
+    paddingTop: 120,
     paddingHorizontal: 20,
   },
   image: {
     height: height * 0.4,
     width: width * 0.8,
-    marginBottom: 30,
+    marginBottom: 45,
   },
   title: {
     fontSize: 20,
@@ -155,10 +156,10 @@ const styles = StyleSheet.create({
     width: 16,
   },
   nextButton: {
-    backgroundColor: '#FF5722',
-    paddingHorizontal: 60,
+    backgroundColor: '#FB5B2B',
+    paddingHorizontal: 140,
     paddingVertical: 12,
-    borderRadius: 25,
+    borderRadius: 15,
   },
   nextText: {
     color: '#fff',

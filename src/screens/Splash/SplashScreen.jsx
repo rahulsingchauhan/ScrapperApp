@@ -13,7 +13,7 @@ const SplashScreen = () => {
     const timeout = setTimeout(() => {
       // 👇 Navigate to MainDrawer after 3 seconds (replace to avoid back to splash)
       navigation.replace('WelcomeScreen');
-    }, 3000);
+    }, 1000);
 
     return () => clearTimeout(timeout);
   }, []);
