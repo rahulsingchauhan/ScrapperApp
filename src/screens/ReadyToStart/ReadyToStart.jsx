@@ -1,8 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const ChooseYourRole = () => {
+const ReadyToStart = () => {
   return (
     <View style={styles.container}>
       {/* LOGO */}
@@ -12,34 +11,34 @@ const ChooseYourRole = () => {
         resizeMode="contain"
       />
 
-      {/* Title */}
-      <Text style={styles.title}>Choose Your Role</Text>
-      <Text style={styles.subtitle}>Select how you want to use ScrapApp</Text>
-
       {/* Illustration */}
       <Image
-        source={require('../../assets/images/undraw_selection.png')}
+        source={require('../../assets/images/Ready.png')}
         style={styles.illustration}
         resizeMode="contain"
       />
 
+      {/* Title */}
+      <Text style={styles.title}>Ready To Start ?</Text>
+      <Text style={styles.subtitle}>Sign in or create an account to unlock all Features!</Text>
+
+      
+
       {/* Role Buttons */}
       <View style={styles.buttonRow}>
-        <TouchableOpacity style={styles.roleButton}>
-          <Ionicons name="person" size={24} color="#ff5c00" />
-          <Text style={styles.buttonText}>Customer</Text>
+        <TouchableOpacity style={styles.SignUpButton}>
+          <Text style={styles.buttonText}>Sign Up</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.roleButton}>
-          <Ionicons name="construct" size={24} color="#ff5c00" />
-          <Text style={styles.buttonText}>Scrapper</Text>
+        <TouchableOpacity style={styles.SignInButton}>
+          <Text style={styles.buttonText}>Sign In</Text>
         </TouchableOpacity>
       </View>
     </View>
   );
 };
 
-export default ChooseYourRole;
+export default ReadyToStart;
 
 const styles = StyleSheet.create({
   container: {
@@ -54,12 +53,12 @@ const styles = StyleSheet.create({
     marginBottom: 60,
   },
   title: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 24,
+    fontWeight: '700',
     marginBottom: 6,
   },
   subtitle: {
-    fontSize: 13,
+    fontSize: 18,
     marginBottom: 30,
     textAlign: 'center',
   },
@@ -73,16 +72,26 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     width: '100%',
     paddingHorizontal: 5,
+    paddingTop:30,
   },
-  roleButton: {
+  SignUpButton: {
     borderWidth: 1,
-    borderColor: '#ff5c00',
-    paddingVertical: 30,
-    paddingHorizontal: 20,
+    borderColor: '#FB5B2B',
     borderRadius: 15,
     alignItems: 'center',
     justifyContent: 'center',
-    width: '45%',
+    width: '47%',
+    height: '40%',
+    backgroundColor: '#FB5B2B',
+  },
+    SignInButton: {
+     borderWidth: 1,
+    borderColor: '#FB5B2B',
+    borderRadius: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '47%',
+    height: '40%',
     backgroundColor: '#fff',
   },
   buttonText: {
