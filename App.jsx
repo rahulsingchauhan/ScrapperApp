@@ -1,11 +1,12 @@
 import { StyleSheet,View } from 'react-native'
 import React from 'react'
-import LoginScreen from './src/auth/Login/LoginScreen'
+import SignUpScreen from './src/auth/SignUp/SignUpScreen'
+
 
 const App = () => {
   return (
     <View style={styles.container}>
-    <LoginScreen/>
+  <SignUpScreen/>
     </View>
   )
 }
