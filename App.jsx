@@ -1,21 +1,21 @@
-import { StyleSheet,View } from 'react-native'
-import React from 'react'
-import SignUpScreen from './src/auth/SignUp/SignUpScreen'
+import { StatusBar} from 'react-native';
+import React from 'react';
 
+import { NavigationContainer } from '@react-navigation/native';
+import StackNavigator from './src/navigation/StackNavigator';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const App = () => {
   return (
-    <View style={styles.container}>
-  <SignUpScreen/>
-    </View>
-  )
-}
+     <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+      <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+      <NavigationContainer >
+        <StackNavigator />
+      </NavigationContainer>
+      
+    </SafeAreaView>
+  );
+};
 
-export default App
+export default App;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-})

@@ -1,10 +1,10 @@
 // src/screens/Splash/SplashScreen.jsx
 
 import React, { useEffect } from 'react';
-import { View, Image, StyleSheet, Dimensions } from 'react-native';
+import { View, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { styles } from './Styles';
 
-const { width, height } = Dimensions.get('window');
 
 const SplashScreen = () => {
   const navigation = useNavigation();
@@ -30,16 +30,3 @@ const SplashScreen = () => {
 };
 
 export default SplashScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#ffffff', // Background of splash screen
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  logo: {
-    width: width * 0.5,
-    height: height * 0.3,
-  },
-});
