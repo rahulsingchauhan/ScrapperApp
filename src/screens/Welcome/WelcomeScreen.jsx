@@ -8,6 +8,8 @@ import {
   Dimensions,
 } from 'react-native';
 import { styles } from './Styles';
+import screenNames from '../../utils/screenName';
+import { ImageIndex } from '../../assets/ImageIndex';
 
 const { width, height } = Dimensions.get('window');
 const slides = [
@@ -16,14 +18,14 @@ const slides = [
     title: 'Welcome to Scrapapp',
     description:
       'ScrapApp connects people who need to get rid of scrap with scrappers who will pick it up for free.',
-    image: require('../../assets/images/slide1.png'), // 📌 Add your image path
+    image: ImageIndex.slide1, 
   },
   {
     key: '2',
     title: 'Pick Up Scrap for Free!',
     description:
       'Browse nearby listings, accept pickups, and recycle for a greener world!',
-    image: require('../../assets/images/slide2.png'), // 📌 Add your image path
+    image: ImageIndex.slide2 ,
   },
 ];
 
@@ -43,11 +45,11 @@ const WelcomeScreen = ({ navigation }) => {
       flatListRef.current.scrollToIndex({ index: nextIndex });
     } else {
       // Finish onboarding
-      navigation.replace('ChooseYourRole');
+      navigation.replace(screenNames.ONBOARDING.CHOOSE_ROLE);
     }
   };
 
-  const skip = () => navigation.replace('ChooseYourRole');
+  const skip = () => navigation.replace(screenNames.ONBOARDING.CHOOSE_ROLE);
 
   const Slide = ({ item }) => (
     <View style={styles.slide}>

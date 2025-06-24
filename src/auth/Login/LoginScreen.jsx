@@ -17,6 +17,8 @@ import Feather from 'react-native-vector-icons/Feather';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { styles } from './Styles';
+import screenNames from '../../utils/screenName';
+import { ImageIndex } from '../../assets/ImageIndex';
 
 const { width } = Dimensions.get('window');
 
@@ -47,7 +49,7 @@ const LoginScreen = ({navigation}) => {
           <View style={styles.container}>
             {/* LOGO */}
             <Image
-              source={require('../../assets/images/LOGO.png')}
+              source={ImageIndex.logo}
               style={styles.logo}
               resizeMode="contain"
             />
@@ -145,7 +147,7 @@ const LoginScreen = ({navigation}) => {
                   {/* Bottom Text */}
                   <View style={styles.bottomTextWrapper}>
                     <Text style={styles.bottomText}>Don’t have an account? </Text>
-                    <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
+                    <TouchableOpacity onPress={() => navigation.navigate(screenNames.AUTH.SIGNUP)}>
                       <Text style={styles.signup}>Sign up</Text>
                     </TouchableOpacity>
                   </View>

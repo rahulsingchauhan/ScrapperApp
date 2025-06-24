@@ -1,9 +1,10 @@
 import { StyleSheet } from "react-native";
+import Colors from "../../theme/colors";
 
 export const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.backGround,
   },
   scrollWrapper: {
     flexGrow: 1,
@@ -27,11 +28,12 @@ export const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: '700',
     marginBottom: 5,
+    color: Colors.title,
   },
   subtitle: {
     fontSize: 16,
     textAlign: 'center',
-    color: '#999999',
+    color: Colors.subTitle,
   },
   signUpForm: {
     width: '100%',
@@ -42,7 +44,7 @@ export const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F2F2F2',
+    backgroundColor: '#F2F2F2', // No value in constants for this light gray, so keeping as is
     borderRadius: 12,
     paddingHorizontal: 15,
     height: 55,
@@ -51,7 +53,7 @@ export const styles = StyleSheet.create({
   input: {
     flex: 1,
     fontSize: 16,
-    color: '#000',
+    color: Colors.black,
   },
   icon: {
     marginRight: 8,
@@ -61,7 +63,7 @@ export const styles = StyleSheet.create({
   },
   signUpButton: {
     width: '100%',
-    backgroundColor: '#FB5B2B',
+    backgroundColor: Colors.primary,
     borderRadius: 15,
     paddingVertical: 15,
     alignItems: 'center',
@@ -69,12 +71,12 @@ export const styles = StyleSheet.create({
     marginBottom: 15,
   },
   signUpText: {
-    color: '#fff',
+    color: Colors.backGround,
     fontWeight: 'bold',
     fontSize: 16,
   },
   error: {
-    color: 'red',
+    color: Colors.red,
     fontSize: 12,
     alignSelf: 'flex-start',
     marginBottom: 5,
@@ -86,11 +88,11 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   bottomText: {
-    color: '#999',
+    color: Colors.subTitle,
     fontSize: 14,
   },
   login: {
-    color: '#000',
+    color: Colors.title,
     fontWeight: 'bold',
     fontSize: 14,
     textDecorationLine: 'underline',

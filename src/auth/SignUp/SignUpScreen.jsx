@@ -18,6 +18,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { styles } from './Styles';
 import LoginScreen from '../Login/LoginScreen';
+import screenNames from '../../utils/screenName';
 
 const { width } = Dimensions.get('window');
 
@@ -165,7 +166,7 @@ const SignUpScreen = ({navigation}) => {
                   </TouchableOpacity>
                 <View style={styles.bottomTextWrapper}>
                     <Text style={styles.bottomText}>Alredy have an account? </Text>
-                    <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+                    <TouchableOpacity onPress={() => navigation.navigate(screenNames.AUTH.LOGIN)}>
                       <Text style={styles.login}>Login</Text>
                     </TouchableOpacity>
                   </View>

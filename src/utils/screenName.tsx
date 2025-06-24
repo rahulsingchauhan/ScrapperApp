@@ -1,10 +1,17 @@
-export const SCREENS = {
+const screenNames = {
   AUTH: {
-    LOGIN: 'LoginScreen',
-    REGISTER: 'RegisterScreen',
+    LOGIN: 'Login',
+    SIGNUP: 'SignUp',
   },
-  MAIN: {
-    HOME: 'HomeScreen',
-    PROFILE: 'ProfileScreen',
+  ONBOARDING: {
+    SPLASH: 'Splash',
+    WELCOME: 'WelcomeScreen',
+    CHOOSE_ROLE: 'ChooseYourRole',
+    READY_TO_START: 'ReadyToStart',
+  },
+  APP: {
+    MAIN_DRAWER: 'MainDrawer',
   },
 };
+
+export default screenNames;

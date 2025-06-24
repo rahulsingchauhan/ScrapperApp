@@ -4,6 +4,8 @@ import React, { useEffect } from 'react';
 import { View, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from './Styles';
+import screenNames from '../../utils/screenName';
+import { ImageIndex } from '../../assets/ImageIndex';
 
 
 const SplashScreen = () => {
@@ -12,7 +14,8 @@ const SplashScreen = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       // 👇 Navigate to MainDrawer after 3 seconds (replace to avoid back to splash)
-      navigation.replace('WelcomeScreen');
+    
+      navigation.replace(screenNames.ONBOARDING.WELCOME);
     }, 1000);
 
     return () => clearTimeout(timeout);
@@ -21,7 +24,7 @@ const SplashScreen = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../../assets/images/splash_logo.png')}
+        source={ImageIndex.splashLogo}
         style={styles.logo}
         resizeMode="contain"
       />

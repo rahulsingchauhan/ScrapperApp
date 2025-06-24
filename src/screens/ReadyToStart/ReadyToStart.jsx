@@ -1,20 +1,22 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { styles } from './Styles';
+import screenNames from '../../utils/screenName';
+import { ImageIndex } from '../../assets/ImageIndex';
 
 const ReadyToStart = ({ navigation }) => {
   return (
     <View style={styles.container}>
       {/* LOGO */}
       <Image
-        source={require('../../assets/images/LOGO.png')}
+        source={ImageIndex.logo}
         style={styles.logo}
         resizeMode="contain"
       />
 
       {/* Illustration */}
       <Image
-        source={require('../../assets/images/Ready.png')}
+        source={ImageIndex.ready}
         style={styles.illustration}
         resizeMode="contain"
       />
@@ -29,14 +31,14 @@ const ReadyToStart = ({ navigation }) => {
       <View style={styles.buttonRow}>
         <TouchableOpacity
           style={styles.SignUpButton}
-          onPress={() => navigation.navigate('SignUp')}
+          onPress={() => navigation.navigate(screenNames.AUTH.SIGNUP)}
         >
           <Text style={styles.buttonText}>Sign Up</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.SignInButton}
-          onPress={() => navigation.navigate('Login')}
+          onPress={() => navigation.navigate(screenNames.AUTH.LOGIN)}
         >
           <Text style={styles.buttonText}>Sign In</Text>
         </TouchableOpacity>

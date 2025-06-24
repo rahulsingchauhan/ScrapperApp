@@ -1,15 +1,20 @@
-// src/shared/theme/colors.js
+// src/constants/colors.js
 
-const colors = {
-  PRIMARY: '#1E90FF',
-  SECONDARY: '#FF6F61',
-  BACKGROUND: '#FFFFFF',
-  TEXT_PRIMARY: '#000000',
-  TEXT_SECONDARY: '#6E6E6E',
-  SUCCESS: '#28a745',
-  ERROR: '#dc3545',
-  WARNING: '#ffc107',
-  DISABLED: '#d3d3d3',
+const Colors = {
+  // Brand / Primary
+  primary: '#FB5B2B',       // Main brand color used extensively
+
+  // Text
+  title: '#000000',         // For headings or main titles
+  subTitle: '#A8A8A8', // For subtitles, labels, etc.
+  backGround: '#FFFFFF',         // For button text or light backgrounds
+
+  
+  red: '#FF0000',
+  green: '#15BE77', 
+
+
+   black: '#000000',
 };
 
-export default colors;
+export default Colors;

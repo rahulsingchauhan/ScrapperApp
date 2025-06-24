@@ -1,10 +1,12 @@
 import { Dimensions, StyleSheet } from "react-native";
+import Colors from "../../theme/colors";
 
 const { width, height } = Dimensions.get('window');
+
 export const styles = StyleSheet.create({
-      container: {
+  container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.backGround,
   },
   skipButton: {
     position: 'absolute',
@@ -13,7 +15,7 @@ export const styles = StyleSheet.create({
     zIndex: 10,
   },
   skipText: {
-    color: 'black',
+    color: Colors.title,
     fontSize: 16,
     fontWeight: 'bold',
   },
@@ -33,11 +35,12 @@ export const styles = StyleSheet.create({
     fontWeight: '700',
     textAlign: 'center',
     marginBottom: 10,
+    color: Colors.title,
   },
   description: {
     fontSize: 14,
     textAlign: 'center',
-    color: '#666',
+    color: Colors.subTitle,
     lineHeight: 22,
   },
   footer: {
@@ -51,22 +54,22 @@ export const styles = StyleSheet.create({
   dot: {
     height: 8,
     width: 8,
-    backgroundColor: '#ccc',
+    backgroundColor: Colors.subTitle,
     marginHorizontal: 5,
     borderRadius: 4,
   },
   activeDot: {
-    backgroundColor: '#FF5722',
+    backgroundColor: Colors.black,
     width: 16,
   },
   nextButton: {
-    backgroundColor: '#FB5B2B',
+    backgroundColor: Colors.primary,
     paddingHorizontal: 140,
     paddingVertical: 12,
     borderRadius: 15,
   },
   nextText: {
-    color: '#fff',
+    color: Colors.backGround,
     fontWeight: '600',
     fontSize: 16,
   },

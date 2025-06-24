@@ -1,30 +1,28 @@
-// src/navigation/StackNavigator.jsx
-
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import SplashScreen from '../screens/Splash/SplashScreen'; // 👈 Import splash screen
-import DrawerNavigator from './DrawerNavigator'; // 👈 Import drawer nav
+import SplashScreen from '../screens/Splash/SplashScreen';
+import DrawerNavigator from './DrawerNavigator';
 import WelcomeScreen from '../screens/Welcome/WelcomeScreen';
 import ReadyToStart from '../screens/ReadyToStart/ReadyToStart';
 import SignUpScreen from '../auth/SignUp/SignUpScreen';
 import LoginScreen from '../auth/Login/LoginScreen';
 import ChooseYourRole from '../screens/ChooseRoles/ChooseYourRole';
+import screenNames from '../utils/screenName';
+
+
 
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      {/* 👇 Splash screen shown first */}
-      <Stack.Screen name="Splash" component={SplashScreen} />
-
-      {/* 👇 MainDrawer includes Home and other drawer items */}
-      <Stack.Screen name="MainDrawer" component={DrawerNavigator} screenOptions />
-      <Stack.Screen name="WelcomeScreen" component={WelcomeScreen}/>
-      <Stack.Screen name ="ChooseYourRole" component={ChooseYourRole}/>
-      <Stack.Screen name="ReadyToStart" component={ReadyToStart}/>
-      <Stack.Screen name="SignUp" component={SignUpScreen}/>
-      <Stack.Screen name="Login"  component={LoginScreen}/>
+      <Stack.Screen name={screenNames.ONBOARDING.SPLASH} component={SplashScreen} />
+      <Stack.Screen name={screenNames.APP.MAIN_DRAWER} component={DrawerNavigator} />
+      <Stack.Screen name={screenNames.ONBOARDING.WELCOME} component={WelcomeScreen} />
+      <Stack.Screen name={screenNames.ONBOARDING.CHOOSE_ROLE} component={ChooseYourRole} />
+      <Stack.Screen name={screenNames.ONBOARDING.READY_TO_START} component={ReadyToStart} />
+      <Stack.Screen name={screenNames.AUTH.SIGNUP} component={SignUpScreen} />
+      <Stack.Screen name={screenNames.AUTH.LOGIN} component={LoginScreen} />
     </Stack.Navigator>
   );
 };
