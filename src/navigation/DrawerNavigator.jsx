@@ -8,8 +8,8 @@ const Drawer = createDrawerNavigator();
 
 const DrawerNavigator = () => {
   return (
-    <Drawer.Navigator initialRouteName="Home" >
-      <Drawer.Screen name={screenNames.APP.HomeScreen} component={HomeScreen} />
+    <Drawer.Navigator initialRouteName={screenNames.APP.HOMESCREEN} >
+      <Drawer.Screen name={screenNames.APP.HOMESCREEN} component={HomeScreen} />
 
     </Drawer.Navigator>
   );

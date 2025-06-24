@@ -5,4 +5,6 @@ export const ImageIndex = {
     slide1:require('./images/slide1.png'),
     slide2:require('./images/slide2.png'),
     role:require('./images/undraw_selection.png'),
+    back:require('./images/BackButton.png'),
+    email:require('./images/Emailicon.png')
 };

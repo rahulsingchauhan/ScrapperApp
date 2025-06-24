@@ -2,84 +2,60 @@ import React from 'react';
 import {
   View,
   Text,
+  Image,
   TouchableOpacity,
   StyleSheet,
-  SafeAreaView,
   Platform,
-  StatusBar
+  StatusBar,
+  Dimensions,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Colors from '../../theme/colors';
+import { ImageIndex } from '../../assets/ImageIndex';
 
-const CustomHeader = ({
-  title = 'Dashboard',
-  onLeftPress,
-  onRightPress,
-  leftIcon = 'chevron-back',
-  rightIcon = 'notifications-outline',
-  showLeftIcon = true,
-  showRightIcon = true,
-}) => {
+const { width } = Dimensions.get('window');
+
+const CustomHeader = ({ title, onBackPress, backIcon }) => {
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <View style={styles.headerWrapper}>
-        <View style={styles.container}>
-          {showLeftIcon ? (
-            <TouchableOpacity onPress={onLeftPress} style={styles.iconBtn}>
-              <Icon name={leftIcon} size={26} color="#ffffff" />
-            </TouchableOpacity>
-          ) : <View style={styles.iconPlaceholder} />}
-          
-          <Text style={styles.title}>{title}</Text>
-          
-          {showRightIcon ? (
-            <TouchableOpacity onPress={onRightPress} style={styles.iconBtn}>
-              <Icon name={rightIcon} size={26} color="#ffffff" />
-            </TouchableOpacity>
-          ) : <View style={styles.iconPlaceholder} />}
-        </View>
-      </View>
-    </SafeAreaView>
+    <View style={styles.headerContainer}>
+      <TouchableOpacity onPress={onBackPress} style={styles.backButton}>
+        {backIcon ? (
+          <Image source={ImageIndex.back} style={styles.backIcon} resizeMode="contain" />
+        ) : null}
+      </TouchableOpacity>
+
+      <Text style={styles.headerTitle}>{title}</Text>
+
+      {/* Invisible View to balance layout */}
+      <View style={styles.backButton} />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  safeArea: {
-    backgroundColor: '#0f172a', // Dark Navy
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-  },
-  headerWrapper: {
-    marginHorizontal: 16,
-    marginVertical: 10,
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-    borderRadius: 16,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.1)',
-    shadowColor: '#000',
-    shadowOpacity: 0.2,
-    shadowOffset: { width: 0, height: 4 },
-    shadowRadius: 8,
-    elevation: 8,
-  },
-  container: {
+  headerContainer: {
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 44,
+    paddingHorizontal: 16,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    height: 90,
+    
   },
-  title: {
-    fontSize: 22,
-    color: '#fff',
-    fontWeight: '700',
-    letterSpacing: 1,
+  backButton: {
+    width: 40,
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  iconBtn: {
-    padding: 6,
-    borderRadius: 100,
-    backgroundColor: 'rgba(255,255,255,0.1)',
+  backIcon: {
+    width: 24,
+    height: 24,
   },
-  iconPlaceholder: {
-    width: 38,
+  headerTitle: {
+    fontSize: width * 0.05,
+    fontWeight: '600',
+    color: '#000',
+    textAlign: 'center',
   },
 });
 
