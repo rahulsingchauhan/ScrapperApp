@@ -7,28 +7,35 @@ import { ImageIndex } from '../../assets/ImageIndex';
 const ReadyToStart = ({ navigation }) => {
   return (
     <View style={styles.container}>
+
       {/* LOGO */}
-      <Image
-        source={ImageIndex.logo}
-        style={styles.logo}
-        resizeMode="contain"
-      />
+      <View style={styles.logoContainer}>
+        <Image
+          source={ImageIndex.logo}
+          style={styles.logo}
+          resizeMode="contain"
+        />
+      </View>
 
       {/* Illustration */}
-      <Image
-        source={ImageIndex.ready}
-        style={styles.illustration}
-        resizeMode="contain"
-      />
+      <View style={styles.illustrationContainer}>
+        <Image
+          source={ImageIndex.ready}
+          style={styles.illustration}
+          resizeMode="contain"
+        />
+      </View>
 
-      {/* Title */}
-      <Text style={styles.title}>Ready To Start ?</Text>
-      <Text style={styles.subtitle}>
-        Sign in or create an account to unlock all Features!
-      </Text>
+      {/* Text Area */}
+      <View style={styles.textContainer}>
+        <Text style={styles.title}>Ready To Start ?</Text>
+        <Text style={styles.subtitle}>
+          Sign in or create an account to unlock all Features!
+        </Text>
+      </View>
 
-      {/* Role Buttons */}
-      <View style={styles.buttonRow}>
+      {/* Buttons */}
+      <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={styles.SignUpButton}
           onPress={() => navigation.navigate(screenNames.AUTH.SIGNUP)}
@@ -43,6 +50,7 @@ const ReadyToStart = ({ navigation }) => {
           <Text style={styles.buttonText}>Sign In</Text>
         </TouchableOpacity>
       </View>
+      
     </View>
   );
 };

@@ -9,34 +9,52 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 20,
     backgroundColor: Colors.backGround,
   },
+
+  // Logo Section
+  logoContainer: {
+    alignItems: 'center',
+    marginBottom: 100,
+  },
   logo: {
     width: 120,
     height: 60,
-    marginBottom: 60,
+  },
+
+  // Illustration Section
+  illustrationContainer: {
+    alignItems: 'center',
+    marginBottom: 30,
+  },
+  illustration: {
+    width: 420,
+    height: 220,
+    resizeMode: 'contain',
+  },
+
+  // Text Section
+  textContainer: {
+    alignItems: 'center',
+    marginTop: 60,
   },
   title: {
     fontSize: 24,
     fontWeight: '700',
-    marginBottom: 6,
     color: Colors.title,
   },
   subtitle: {
     fontSize: 18,
-    marginBottom: 30,
     textAlign: 'center',
     color: Colors.subTitle,
+    marginTop: 6,
   },
-  illustration: {
-    width: 220,
-    height: 160,
-    marginBottom: 40,
-  },
-  buttonRow: {
+
+  // Buttons Section
+  buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '100%',
     paddingHorizontal: 5,
-    paddingTop: 30,
+    marginTop: 120,
   },
   SignUpButton: {
     borderWidth: 1,
@@ -45,7 +63,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: '47%',
-    height: '40%',
+    height: 48,
     backgroundColor: Colors.primary,
   },
   SignInButton: {
@@ -55,14 +73,12 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: '47%',
-    height: '40%',
+    height: 48,
     backgroundColor: Colors.backGround,
-
   },
   buttonText: {
     fontSize: 14,
     fontWeight: 'bold',
-    marginTop: 5,
-    color: Colors.black, 
+    color: Colors.black,
   },
 });

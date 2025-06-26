@@ -1,15 +1,63 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import {
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  ActivityIndicator,
+} from 'react-native';
 import Colors from '../../theme/colors';
 
-const PrimaryButton = ({ title, onPress, style, textStyle }) => {
+const PrimaryButton = ({
+  title = 'Button',
+  onPress,
+  style,
+  textStyle,
+  backgroundColor = Colors.primary,
+  textColor = Colors.backGround,
+  borderRadius = 15,
+  fontSize = 17,
+  fontWeight = '600',
+  paddingVertical = 16,
+  width = '100%',
+  disabled = false,
+  loading = false,
+  loaderColor = Colors.backGround,
+  activeOpacity = 0.8,
+}) => {
   return (
     <TouchableOpacity
-      style={[styles.button, style]} 
+      style={[
+        styles.button,
+        {
+          backgroundColor: backgroundColor,
+          borderRadius: borderRadius,
+          paddingVertical: paddingVertical,
+          width: width,
+          opacity: disabled || loading ? 0.6 : 1,
+        },
+        style,
+      ]}
       onPress={onPress}
-      activeOpacity={0.8}
+      disabled={disabled || loading}
+      activeOpacity={activeOpacity}
     >
-      <Text style={[styles.buttonText, textStyle]}>{title}</Text>
+      {loading ? (
+        <ActivityIndicator color={loaderColor} />
+      ) : (
+        <Text
+          style={[
+            styles.buttonText,
+            {
+              color: textColor,
+              fontSize: fontSize,
+              fontWeight: fontWeight,
+            },
+            textStyle,
+          ]}
+        >
+          {title}
+        </Text>
+      )}
     </TouchableOpacity>
   );
 };
@@ -18,16 +66,11 @@ export default PrimaryButton;
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: Colors.primary,
-    paddingVertical: 16,
-    borderRadius: 15,
     alignItems: 'center',
-    marginBottom: 16, 
-    width:'100%'// good for bottom alignment
+    justifyContent: 'center',
+    marginBottom: 16,
   },
   buttonText: {
-    color: Colors.backGround,
-    fontSize: 17,
-    fontWeight: '600',
+    textAlign: 'center',
   },
 });
