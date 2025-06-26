@@ -2,6 +2,9 @@ const screenNames = {
   AUTH: {
     LOGIN: 'Login',
     SIGNUP: 'SignUp',
+    FORGET_PASSWORD: 'ForgetPassword',
+    EMAIL_OTP : 'EmailOtp',
+    NEW_PASSWORD : 'NewPassword'
   },
   ONBOARDING: {
     SPLASH: 'Splash',

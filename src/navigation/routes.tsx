@@ -9,6 +9,11 @@ import SignUpScreen from "../auth/SignUp/SignUpScreen";
 import LoginScreen from "../auth/Login/LoginScreen";
 import HomeScreen from "../screens/Home/HomeScreen";
 import screenNames from "../utils/screenName";
+import ForgetPassword from "../auth/ForgetPassword/ForgetPassword";
+import EmailOtp from "../auth/EmailOtp/EmailOtp";
+import NewPassword from "../auth/NewPassword/NewPassword";
+
+
 
 export const routes = {
   StackNavigator: [
@@ -37,17 +42,28 @@ export const routes = {
       name: screenNames.AUTH.LOGIN,
       component: LoginScreen,
     },
+    {
+      name: screenNames.AUTH.FORGET_PASSWORD,
+      component: ForgetPassword,
+    },
+    {
+      name: screenNames.AUTH.EMAIL_OTP,
+      component: EmailOtp,
+    },
       {
       name: screenNames.APP.MAIN_DRAWER,
       component: DrawerNavigator,
     },
+    {
+name: screenNames.AUTH.NEW_PASSWORD,
+ component: NewPassword,
+    },
   ],
-
   DrawerNavigator: [
     {
       name: screenNames.APP.HOMESCREEN,
       component: HomeScreen,
     },
-    // Add more drawer screens here if needed
+  
   ],
 };

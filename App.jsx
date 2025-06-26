@@ -4,13 +4,15 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import StackNavigator from './src/navigation/StackNavigator';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import ForgetPassword from './src/auth/ForgetPassword/ForgetPassword';
+import NewPassword from './src/auth/NewPassword/NewPassword';
 
 const App = () => {
   return (
      <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
-      <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-      <ForgetPassword/>
+      <StatusBar barStyle="dark-content"/>
+      <NavigationContainer>
+        <StackNavigator/>
+      </NavigationContainer>
       
     </SafeAreaView>
   );

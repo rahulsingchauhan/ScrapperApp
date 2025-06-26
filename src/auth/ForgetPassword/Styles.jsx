@@ -5,7 +5,6 @@ export const styles = StyleSheet.create({
   // Outer container that takes full screen space
   container: {
     flex: 1,
-    backgroundColor: Colors.backGround,
     paddingHorizontal: 16, // horizontal padding makes content breathable on all screens
     paddingTop: 16, // some top padding for content separation
   },
@@ -73,19 +72,5 @@ export const styles = StyleSheet.create({
     color: Colors.subTitle,
   },
 
-  // Button placed at bottom – works well on all devices
-  button: {
-    backgroundColor: Colors.primary,
-    paddingVertical: 16, // vertical padding for click area
-    alignItems: 'center',
-    borderRadius: 24,
-    marginBottom: 16, // spacing from bottom edge of screen
-  },
-
-  // Submit text on button
-  buttonText: {
-    color: Colors.subTitle,
-    fontSize: 17,
-    fontWeight: '600',
-  },
+  
 });

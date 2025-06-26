@@ -6,8 +6,6 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
-  Dimensions,
-  Platform,
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
   Keyboard,
@@ -17,12 +15,9 @@ import Feather from 'react-native-vector-icons/Feather';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { styles } from './Styles';
-import LoginScreen from '../Login/LoginScreen';
 import screenNames from '../../utils/screenName';
 
-const { width } = Dimensions.get('window');
-
-const SignUpScreen = ({navigation}) => {
+const SignUpScreen = ({ navigation }) => {
   const [secureText, setSecureText] = useState(true);
 
   const SignUpSchema = Yup.object().shape({
@@ -41,25 +36,19 @@ const SignUpScreen = ({navigation}) => {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <KeyboardAvoidingView
-        style={styles.root}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        keyboardVerticalOffset={Platform.OS === 'ios' ? 60 : 20}
-      >
+      <KeyboardAvoidingView style={styles.root}>
         <ScrollView
           keyboardShouldPersistTaps="handled"
           contentContainerStyle={styles.scrollWrapper}
           showsVerticalScrollIndicator={false}
         >
           <View style={styles.container}>
-            {/* LOGO */}
             <Image
               source={require('../../assets/images/LOGO.png')}
               style={styles.logo}
               resizeMode="contain"
             />
 
-            {/* Title & Subtitle */}
             <View style={styles.textWrapper}>
               <Text style={styles.title}>Sign Up</Text>
               <Text style={styles.subtitle}>
@@ -83,7 +72,6 @@ const SignUpScreen = ({navigation}) => {
                 touched,
               }) => (
                 <View style={styles.signUpForm}>
-                  {/* Full Name Input */}
                   <View style={styles.inputWrapper}>
                     <Icon
                       name="account"
@@ -104,7 +92,6 @@ const SignUpScreen = ({navigation}) => {
                     <Text style={styles.error}>{errors.fullName}</Text>
                   )}
 
-                  {/* Email Input */}
                   <View style={styles.inputWrapper}>
                     <Icon
                       name="email-outline"
@@ -125,7 +112,6 @@ const SignUpScreen = ({navigation}) => {
                     <Text style={styles.error}>{errors.email}</Text>
                   )}
 
-                  {/* Password Input */}
                   <View style={styles.inputWrapper}>
                     <Feather
                       name="lock"
@@ -157,16 +143,22 @@ const SignUpScreen = ({navigation}) => {
                     <Text style={styles.error}>{errors.password}</Text>
                   )}
 
-                  {/* Sign Up Button */}
                   <TouchableOpacity
                     style={styles.signUpButton}
                     onPress={handleSubmit}
                   >
                     <Text style={styles.signUpText}>Sign Up</Text>
                   </TouchableOpacity>
-                <View style={styles.bottomTextWrapper}>
-                    <Text style={styles.bottomText}>Alredy have an account? </Text>
-                    <TouchableOpacity onPress={() => navigation.navigate(screenNames.AUTH.LOGIN)}>
+
+                  <View style={styles.bottomTextWrapper}>
+                    <Text style={styles.bottomText}>
+                      Already have an account?{' '}
+                    </Text>
+                    <TouchableOpacity
+                      onPress={() =>
+                        navigation.navigate(screenNames.AUTH.LOGIN)
+                      }
+                    >
                       <Text style={styles.login}>Login</Text>
                     </TouchableOpacity>
                   </View>
@@ -181,4 +173,3 @@ const SignUpScreen = ({navigation}) => {
 };
 
 export default SignUpScreen;
-

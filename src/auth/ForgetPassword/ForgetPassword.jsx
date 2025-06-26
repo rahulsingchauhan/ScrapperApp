@@ -1,9 +1,11 @@
 import React from 'react';
-import { Text, View, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { Text, View, Image, ScrollView } from 'react-native';
 import { styles } from './Styles';
 
 import { ImageIndex } from '../../assets/ImageIndex';
 import CustomHeader from '../../components/Header/CustomHeader ';
+import PrimaryButton from '../../components/Buttons/PrimaryButton';
+import screenNames from '../../utils/screenName';
 
 const ForgetPassword = ({ navigation }) => {
   return (
@@ -43,9 +45,10 @@ const ForgetPassword = ({ navigation }) => {
         </ScrollView>
 
         {/* Sticky Bottom Button – always at bottom regardless of screen size or orientation */}
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Submit</Text>
-        </TouchableOpacity>
+        <PrimaryButton
+  title="Submit"
+  onPress={() => navigation.navigate(screenNames.AUTH.EMAIL_OTP)}
+/>
       </View>
     </View>
   );

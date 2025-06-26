@@ -34,11 +34,12 @@ const CustomHeader = ({ title, onBackPress, backIcon }) => {
 const styles = StyleSheet.create({
   headerContainer: {
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 44,
-    paddingHorizontal: 16,
+    paddingHorizontal: 15,
+    paddingVertical:30,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    height: 90,
+    height: '5',
     
   },
   backButton: {
