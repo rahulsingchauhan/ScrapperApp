@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
   },
   logo: {
     width: 120,
-    height: 60,
+    height: 100,
     marginBottom: 60,
   },
   title: {
@@ -24,11 +24,11 @@ export const styles = StyleSheet.create({
     fontSize: 13,
     marginBottom: 30,
     textAlign: 'center',
-    color: Colors.subTitle,
+    color: Colors.black,
   },
   illustration: {
-    width: 220,
-    height: 160,
+    width: '100%',
+    height: '40%',
     marginBottom: 40,
   },
   buttonRow: {
@@ -38,20 +38,31 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 5,
   },
   roleButton: {
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: Colors.primary,
-    paddingVertical: 30,
-    paddingHorizontal: 20,
-    borderRadius: 15,
+    paddingVertical: 10,
+    
+    borderRadius: 20,
     alignItems: 'center',
     justifyContent: 'center',
     width: '45%',
     backgroundColor: Colors.backGround,
   },
+  roleIcon: {
+  width: 76,
+  height: 76,
+  marginBottom: 5,
+},
+
   buttonText: {
     fontSize: 14,
     fontWeight: 'bold',
     marginTop: 5,
     color: Colors.title,
   },
+  textWrapper: {
+  marginTop: 20, // adjust this value as needed
+  alignItems: 'center',
+},
+
 });

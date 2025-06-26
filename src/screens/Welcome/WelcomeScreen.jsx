@@ -10,6 +10,7 @@ import {
 import { styles } from './Styles';
 import screenNames from '../../utils/screenName';
 import { ImageIndex } from '../../assets/ImageIndex';
+import PrimaryButton from '../../components/Buttons/PrimaryButton';
 
 const { width, height } = Dimensions.get('window');
 const slides = [
@@ -90,10 +91,13 @@ const WelcomeScreen = ({ navigation }) => {
         </View>
 
         {/* Next Button */}
-        <TouchableOpacity style={styles.nextButton} onPress={goToNextSlide}>
+        {/* <TouchableOpacity style={styles.nextButton} onPress={goToNextSlide}>
           <Text style={styles.nextText}>Next</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
+
+       <PrimaryButton title={"Next"} onPress={goToNextSlide}  />
       </View>
+       
     </View>
   );
 };

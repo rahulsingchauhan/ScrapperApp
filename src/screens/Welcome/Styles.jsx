@@ -22,13 +22,14 @@ export const styles = StyleSheet.create({
   slide: {
     width,
     alignItems: 'center',
-    paddingTop: 120,
+    paddingTop: height * 0.12, // ✅ pushed content slightly lower responsively
     paddingHorizontal: 20,
   },
   image: {
     height: height * 0.4,
     width: width * 0.8,
-    marginBottom: 45,
+    marginBottom: 50,
+   
   },
   title: {
     fontSize: 20,
@@ -40,37 +41,31 @@ export const styles = StyleSheet.create({
   description: {
     fontSize: 14,
     textAlign: 'center',
-    color: Colors.subTitle,
+    color: Colors.black,
     lineHeight: 22,
+
   },
   footer: {
+    paddingHorizontal: 16,
+    paddingTop: 20, // ✅ corrected typo and added spacing
+    paddingBottom: 10, // ✅ added to push the button down
+    justifyContent: 'center',
     alignItems: 'center',
-    paddingBottom: 30,
   },
   indicatorContainer: {
     flexDirection: 'row',
-    marginBottom: 15,
   },
   dot: {
     height: 8,
     width: 8,
     backgroundColor: Colors.subTitle,
     marginHorizontal: 5,
+    marginBottom: 60, // ✅ reduced to lift the dots a bit
     borderRadius: 4,
   },
   activeDot: {
     backgroundColor: Colors.black,
     width: 16,
   },
-  nextButton: {
-    backgroundColor: Colors.primary,
-    paddingHorizontal: 140,
-    paddingVertical: 12,
-    borderRadius: 15,
-  },
-  nextText: {
-    color: Colors.backGround,
-    fontWeight: '600',
-    fontSize: 16,
-  },
+ 
 });
