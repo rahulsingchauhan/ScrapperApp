@@ -9,7 +9,7 @@ import NewPassword from './src/auth/NewPassword/NewPassword';
 const App = () => {
   return (
      <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
-      <StatusBar barStyle="dark-content"/>
+      <StatusBar />
       <NavigationContainer>
         <StackNavigator/>
       </NavigationContainer>

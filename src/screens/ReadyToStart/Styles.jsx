@@ -1,51 +1,55 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import Colors from '../../theme/colors';
+
+// Get screen dimensions
+const { width, height } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    paddingTop: 80,
-    paddingHorizontal: 20,
+    paddingTop: height * 0.10, // ~80px
+    paddingHorizontal: width * 0.05, // ~20px
     backgroundColor: Colors.backGround,
   },
 
   // Logo Section
   logoContainer: {
     alignItems: 'center',
-    marginBottom: 100,
+    marginBottom: height * 0.12, // ~100px
   },
   logo: {
-    width: 120,
-    height: 60,
+    width: width * 0.3, // ~120px
+    height: height * 0.075, // ~60px
+    resizeMode: 'contain',
   },
 
   // Illustration Section
   illustrationContainer: {
     alignItems: 'center',
-    marginBottom: 30,
+    marginBottom: height * 0.035, // ~30px
   },
   illustration: {
-    width: 420,
-    height: 220,
+    width: width * 0.9, // ~420px
+    height: height * 0.25, // ~220px
     resizeMode: 'contain',
   },
 
   // Text Section
   textContainer: {
     alignItems: 'center',
-    marginTop: 60,
+    marginTop: height * 0.07, // ~60px
   },
   title: {
-    fontSize: 24,
+    fontSize: width * 0.06, // ~24px
     fontWeight: '700',
     color: Colors.title,
   },
   subtitle: {
-    fontSize: 18,
+    fontSize: width * 0.045, // ~18px
     textAlign: 'center',
     color: Colors.subTitle,
-    marginTop: 6,
+    marginTop: height * 0.007, // ~6px
   },
 
   // Buttons Section
@@ -53,32 +57,14 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '100%',
-    paddingHorizontal: 5,
-    marginTop: 120,
+    paddingHorizontal: width * 0.012, // ~5px
+    marginTop: height * 0.14, // ~120px
   },
-  SignUpButton: {
-    borderWidth: 1,
-    borderColor: Colors.primary,
-    borderRadius: 15,
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '47%',
-    height: 48,
-    backgroundColor: Colors.primary,
-  },
-  SignInButton: {
-    borderWidth: 1,
-    borderColor: Colors.primary,
-    borderRadius: 15,
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '47%',
-    height: 48,
-    backgroundColor: Colors.backGround,
-  },
-  buttonText: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    color: Colors.black,
+
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: width * 0.05, // ~20px
+    marginTop: height * 0.025, // ~20px
   },
 });
