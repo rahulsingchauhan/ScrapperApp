@@ -12,6 +12,7 @@ import screenNames from "../utils/screenName";
 import ForgetPassword from "../auth/ForgetPassword/ForgetPassword";
 import EmailOtp from "../auth/EmailOtp/EmailOtp";
 import NewPassword from "../auth/NewPassword/NewPassword";
+import DetailsScreen from "../screens/Details/DetailsScreen";
 
 
 
@@ -57,6 +58,14 @@ export const routes = {
     {
 name: screenNames.AUTH.NEW_PASSWORD,
  component: NewPassword,
+    },
+        {
+name: screenNames.APP.DETAILSCREEN,
+ component: DetailsScreen,
+    },
+      {
+      name: screenNames.APP.HOMESCREEN,
+      component: HomeScreen,
     },
   ],
   DrawerNavigator: [

@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 16,
+   
   },
   buttonText: {
     textAlign: 'center',

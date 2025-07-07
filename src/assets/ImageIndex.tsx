@@ -9,4 +9,9 @@ export const ImageIndex = {
     email:require('./images/Emailicon.png'),
     customer:require('./images/Customer.png'),
     scrapper:require('./images/Scrapper.png'),
+    search:require('./images/Search.png'),
+      filter:require('./images/Filter.png'),
+    metal:require('./images/Metal.png'),
+    clock:require('./images/clock.png'),
+    location:require('./images/location.png'),
 };

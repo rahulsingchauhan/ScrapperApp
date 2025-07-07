@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { styles } from './Styles';
 import screenNames from '../../utils/screenName';
 import { ImageIndex } from '../../assets/ImageIndex';
+import PrimaryButton from '../../components/Buttons/PrimaryButton';
 
 const ReadyToStart = ({ navigation }) => {
   return (
@@ -36,7 +37,7 @@ const ReadyToStart = ({ navigation }) => {
 
       {/* Buttons */}
       <View style={styles.buttonContainer}>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={styles.SignUpButton}
           onPress={() => navigation.navigate(screenNames.AUTH.SIGNUP)}
         >
@@ -48,7 +49,9 @@ const ReadyToStart = ({ navigation }) => {
           onPress={() => navigation.navigate(screenNames.AUTH.LOGIN)}
         >
           <Text style={styles.buttonText}>Sign In</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
+        <PrimaryButton width='48%' title='Sign Up' onPress={() => navigation.navigate(screenNames.AUTH.SIGNUP)}/>
+        <PrimaryButton width='48%' title='Sign In' onPress={() => navigation.navigate(screenNames.AUTH.LOGIN)}/>
       </View>
       
     </View>

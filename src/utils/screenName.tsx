@@ -15,6 +15,7 @@ const screenNames = {
   APP: {
     MAIN_DRAWER: 'MainDrawer',
     HOMESCREEN: 'Home',
+    DETAILSCREEN: 'Details'
   },
 };
 
