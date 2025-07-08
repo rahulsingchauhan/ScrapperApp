@@ -15,5 +15,12 @@ export const ImageIndex = {
     clock:require('./images/clock.png'),
     location:require('./images/location.png'),
     upload:require('./images/Upload.png'),
-    downArrow:require('./images/DropDown.png')
+    downArrow:require('./images/DropDown.png'),
+  subscription:require('./images/subscription.png'),
+  changePassword:require('./images/ChangePassword.png'),
+  notification:require('./images/notification.png'),
+  legal:require('./images/Legal.png'),
+  help:require('./images/Help.png'),
+  logout:require('./images/logout.png'),
+  rightArrow:require('./images/rightArrow.png'),
 };

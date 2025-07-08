@@ -14,7 +14,7 @@ const DrawerNavigator = () => {
         headerShown: false,
         drawerStyle: {
           backgroundColor: '#fff',
-          width: 250,
+          width: 300,
           borderTopRightRadius: 20,
           borderBottomRightRadius: 20,
         },

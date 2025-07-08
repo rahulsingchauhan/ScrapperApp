@@ -5,17 +5,15 @@ import {
   TouchableOpacity,
   StyleSheet,
   Image,
-  ScrollView,
 } from 'react-native';
 import { DrawerContentScrollView } from '@react-navigation/drawer';
-import { ImageIndex } from '../../assets/ImageIndex'; // your icons here
+import { ImageIndex } from '../../assets/ImageIndex';
 import screenNames from '../../utils/screenName';
+import Colors from '../../theme/colors';
 
 const DrawerItem = ({ icon, label, onPress }) => (
   <TouchableOpacity style={styles.item} onPress={onPress}>
-    <View style={styles.iconCircle}>
-      <Image source={icon} style={styles.icon} />
-    </View>
+    <Image source={icon} style={styles.icon} />
     <Text style={styles.label}>{label}</Text>
     <Image source={ImageIndex.rightArrow} style={styles.arrowIcon} />
   </TouchableOpacity>
@@ -30,42 +28,41 @@ const CustomDrawer = ({ navigation }) => {
       >
         {/* Logo */}
         <View style={styles.logoContainer}>
-          <Image source={ImageIndex.logo} style={styles.logo} />
+          <Image source={ImageIndex.splashLogo} style={styles.logo} />
         </View>
 
         <DrawerItem
           icon={ImageIndex.subscription}
           label="Subscription"
-          onPress={() => {}}
+          onPress={() => navigation.navigate('Subscription')}
         />
         <DrawerItem
-          icon={ImageIndex.password}
+          icon={ImageIndex.changePassword}
           label="Change Password"
-          onPress={() => {}}
+          onPress={() => navigation.navigate('ChangePassword')}
         />
         <DrawerItem
           icon={ImageIndex.notification}
           label="Notification"
-          onPress={() => {}}
+          onPress={() => navigation.navigate('Notification')}
         />
         <DrawerItem
           icon={ImageIndex.legal}
           label="Legal and Policies"
-          onPress={() => {}}
+          onPress={() => navigation.navigate('Legal')}
         />
         <DrawerItem
           icon={ImageIndex.help}
           label="Help & Support"
-          onPress={() => {}}
+          onPress={() => navigation.navigate('Help')}
         />
       </DrawerContentScrollView>
 
       {/* Logout */}
-      <TouchableOpacity style={styles.logout}>
-        <View style={styles.iconCircle}>
-          <Image source={ImageIndex.logout} style={styles.icon} />
-        </View>
+      <TouchableOpacity style={styles.logout} onPress={() => navigation.navigate(screenNames.AUTH.LOGIN)}>
+        <Image source={ImageIndex.logout} style={styles.icon} />
         <Text style={styles.logoutText}>Log Out</Text>
+        
       </TouchableOpacity>
     </View>
   );
@@ -92,31 +89,22 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 14,
-    paddingHorizontal: 16,
-  },
-  iconCircle: {
-    width: 32,
-    height: 32,
-    backgroundColor: '#FF5A3C',
-    borderRadius: 16,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 16,
+    paddingHorizontal: 4,
   },
   icon: {
-    width: 18,
-    height: 18,
-    tintColor: '#fff',
+    width: 30,
+    height: 30,
+    resizeMode: 'contain',
+    marginRight: 16,
   },
   arrowIcon: {
     marginLeft: 'auto',
-    width: 14,
-    height: 14,
-    tintColor: '#C4C4C4',
+    width: 20,
+    height: 20,
   },
   label: {
-    fontSize: 15,
-    color: '#333',
+    fontSize: 18,
+    color: Colors.black,
   },
   logout: {
     flexDirection: 'row',
@@ -126,7 +114,7 @@ const styles = StyleSheet.create({
     borderColor: '#f0f0f0',
   },
   logoutText: {
-    fontSize: 15,
+    fontSize: 18,
     color: '#FF5A3C',
     marginLeft: 16,
   },
