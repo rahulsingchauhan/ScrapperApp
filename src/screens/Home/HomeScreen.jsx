@@ -3,6 +3,7 @@ import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
 import { styles } from './Styles';
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
 import { ImageIndex } from '../../assets/ImageIndex';
+import screenNames from '../../utils/screenName';
 
 const HomeScreen = ({ navigation }) => {
   const cardData = {
@@ -49,7 +50,7 @@ const HomeScreen = ({ navigation }) => {
       </TouchableOpacity>
 
       {/* Floating Button */}
-      <TouchableOpacity style={styles.fab} onPress={() => console.log('FAB Pressed')}>
+      <TouchableOpacity style={styles.fab} onPress={() => navigation.navigate(screenNames.APP.POSTSCRAP)}>
         <Text style={styles.fabIcon}>+</Text>
       </TouchableOpacity>
     </View>

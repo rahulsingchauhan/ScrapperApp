@@ -14,4 +14,6 @@ export const ImageIndex = {
     metal:require('./images/Metal.png'),
     clock:require('./images/clock.png'),
     location:require('./images/location.png'),
+    upload:require('./images/Upload.png'),
+    downArrow:require('./images/DropDown.png')
 };

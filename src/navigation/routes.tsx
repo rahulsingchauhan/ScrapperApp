@@ -13,6 +13,7 @@ import ForgetPassword from "../auth/ForgetPassword/ForgetPassword";
 import EmailOtp from "../auth/EmailOtp/EmailOtp";
 import NewPassword from "../auth/NewPassword/NewPassword";
 import DetailsScreen from "../screens/Details/DetailsScreen";
+import PostScrapItem from "../screens/Post Scrap Item/PostScrapItem";
 
 
 
@@ -66,6 +67,10 @@ name: screenNames.APP.DETAILSCREEN,
       {
       name: screenNames.APP.HOMESCREEN,
       component: HomeScreen,
+    },
+          {
+      name: screenNames.APP.POSTSCRAP,
+      component: PostScrapItem,
     },
   ],
   DrawerNavigator: [

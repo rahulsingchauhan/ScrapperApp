@@ -11,7 +11,7 @@ const DetailsScreen = ({ route , navigation }) => {
   const { data } = route.params;
 
   return (
-    <SafeAreaView style={{ flex: 1 }} edges={[]}>
+    <SafeAreaView style={{ flex: 1 }} >
     <View style={styles.container}>
       {/* Product Image */}
       <Image source={data.image} style={styles.image} />
@@ -57,14 +57,14 @@ const DetailsScreen = ({ route , navigation }) => {
           backgroundColor="red"
           width="45%"
           textColor="#fff"
-          onPress={() =>navigation.navigate(screenNames.APP.HOMESCREEN)
-          }
+          onPress={() => navigation.goBack()}
         />
         <PrimaryButton
           title="Accept"
           backgroundColor="green"
           width="45%"
           textColor="#fff"
+          onPress={() => navigation.goBack()}
         />
       </View>
     </View>

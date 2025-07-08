@@ -4,6 +4,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import StackNavigator from './src/navigation/StackNavigator';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import PostScrapItem from './src/screens/Post Scrap Item/PostScrapItem';
 
 
 const App = () => {
@@ -13,7 +14,7 @@ const App = () => {
       <NavigationContainer>
         <StackNavigator/>
       </NavigationContainer>
-      
+     
     </SafeAreaView>
   );
 };
