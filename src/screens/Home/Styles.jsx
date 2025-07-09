@@ -4,9 +4,8 @@ import Colors from '../../theme/colors';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 16,
-    paddingTop: 16,
-    backgroundColor: Colors.backGround,
+    paddingHorizontal: 15,
+    backgroundColor:'#fff'
   },
 
   titleView: {
@@ -140,7 +139,9 @@ export const styles = StyleSheet.create({
 
 fabIcon: {
   fontSize: 50,
+  lineHeight:80,
   color: '#fff',
+  // backgroundColor:'green'
   
 },
 

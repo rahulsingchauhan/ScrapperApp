@@ -18,6 +18,14 @@ const screenNames = {
     DETAILSCREEN: 'Details',
     POSTSCRAP: 'PostScrap'
   },
+  DRAWER:{
+SUBSCRIPTION: 'Subscription',
+CHANGE_PASSWORD: 'ChangePassword',
+NOTIFICATION: 'Notification',
+LEGAL_AND_POLICIES: 'Legal',
+HELP_AND_SUPPORT: 'Help',
+  },  
+
 };
 
 export default screenNames;

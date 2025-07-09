@@ -1,9 +1,12 @@
-import React from 'react';
-import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Image, TextInput, TouchableOpacity, StatusBar } from 'react-native';
 import { styles } from './Styles';
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
 import { ImageIndex } from '../../assets/ImageIndex';
 import screenNames from '../../utils/screenName';
+import CustomHeader from '../../components/Header/CustomHeader ';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import Colors from '../../theme/colors';
 
 const HomeScreen = ({ navigation }) => {
   const cardData = {
@@ -13,8 +16,16 @@ const HomeScreen = ({ navigation }) => {
     image:ImageIndex.metal, 
   };
 
+  const [active, setActive] = useState('0')
+
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <StatusBar backgroundColor={'#fff'} barStyle={'dark-content'}/>
+      <CustomHeader
+        title="Home"
+        onPress={() => navigation.openDrawer()}
+        Icon={ImageIndex.primaryDrawerIcon}
+      />
       {/* Title */}
       <View style={styles.titleView}>
         <Text style={styles.title}>Hi, Ronaldo</Text>
@@ -23,8 +34,8 @@ const HomeScreen = ({ navigation }) => {
 
       {/* Buttons */}
       <View style={styles.buttonView}>
-        <PrimaryButton title="Active Listing" width="47%" />
-        <PrimaryButton title="Past Listing" width="47%" />
+        <PrimaryButton title="Active Listing" width="47%" onPress={()=>setActive('0')}  backgroundColor={active ==='0' ? Colors.primary :'white'} textColor={active ==='0' ? '#FFF' :  'black'}  />
+        <PrimaryButton title="Past Listing" width="47%" onPress={()=>setActive('1')}   backgroundColor={active ==='1' ? Colors.primary :'white'} textColor={active ==='1' ? '#FFF' :  'black'}  />
       </View>
 
       {/* Search */}
@@ -35,8 +46,7 @@ const HomeScreen = ({ navigation }) => {
           <Image source={ImageIndex.filter} style={styles.icon} />
         </TouchableOpacity>
       </View>
-
-      {/* Card */}
+{active === '0'?
       <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('Details', { data: cardData })}>
         <Image source={cardData.image} style={styles.cardImage} />
         <View style={styles.textContainer}>
@@ -48,12 +58,17 @@ const HomeScreen = ({ navigation }) => {
           </View>
         </View>
       </TouchableOpacity>
+:
 
+<View>
+  
+</View>
+}
       {/* Floating Button */}
       <TouchableOpacity style={styles.fab} onPress={() => navigation.navigate(screenNames.APP.POSTSCRAP)}>
         <Text style={styles.fabIcon}>+</Text>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 };
 

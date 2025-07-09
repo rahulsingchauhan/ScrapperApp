@@ -2,54 +2,38 @@ import { StyleSheet } from 'react-native';
 import Colors from '../../theme/colors';
 
 export const styles = StyleSheet.create({
- 
   container: {
     flex: 1,
-    paddingHorizontal: 16, 
+    paddingHorizontal: 16,
     paddingTop: 16,
-    backgroundColor:'white',
+    backgroundColor: '#FFFFFF',
   },
 
- 
   scrollContent: {
-    flexGrow: 1, 
+    flexGrow: 1,
+    paddingBottom: 24,
   },
 
- 
-  titleView: {
-    marginBottom: 40,
-    gap: 8, 
+
+  formContainer: {
+    gap: 20,
   },
 
-  
-  title: {
-    fontWeight: '700',
-    fontSize: 24, 
-    color: Colors.black,
-  },
-
-  
-  subTitle: {
-    color: Colors.subTitle,
-    fontSize: 16,
-  },
-inputWrapper: {
+  inputWrapper: {
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#F2F2F2',
-    borderRadius: 12,
+    borderRadius: 40,
     paddingHorizontal: 18,
-  
     height: 60,
-    marginBottom: 18,
-    
   },
 
   input: {
     flex: 1,
     fontSize: 17,
-    color: '#000',
+    color: '#000000',
+    paddingVertical: 10,
   },
 
   icon: {
@@ -60,5 +44,11 @@ inputWrapper: {
     marginLeft: 10,
   },
 
-  
+  errorText: {
+    color: 'red',
+    fontSize: 13,
+    marginTop: -12,
+    marginBottom: 8,
+    marginLeft: 5,
+  },
 });

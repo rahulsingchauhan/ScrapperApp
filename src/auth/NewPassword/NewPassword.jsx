@@ -5,6 +5,7 @@ import {
   ScrollView,
   TextInput,
   TouchableOpacity,
+  StatusBar,
 } from 'react-native';
 import { styles } from './Styles';
 import { Formik } from 'formik';
@@ -14,6 +15,7 @@ import { ImageIndex } from '../../assets/ImageIndex';
 import CustomHeader from '../../components/Header/CustomHeader ';
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
 import screenNames from '../../utils/screenName';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const NewPassword = ({ navigation, onSubmit }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -29,7 +31,8 @@ const NewPassword = ({ navigation, onSubmit }) => {
   });
 
   return (
-    <View style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1 , backgroundColor:'#fff'}}>
+      <StatusBar />
       <CustomHeader
         onBackPress={() => navigation.goBack()}
         backIcon={ImageIndex.back}
@@ -124,7 +127,7 @@ const NewPassword = ({ navigation, onSubmit }) => {
           onPress={() => navigation.navigate(screenNames.APP.MAIN_DRAWER)}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

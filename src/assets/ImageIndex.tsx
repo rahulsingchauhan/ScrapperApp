@@ -23,4 +23,6 @@ export const ImageIndex = {
   help:require('./images/Help.png'),
   logout:require('./images/logout.png'),
   rightArrow:require('./images/rightArrow.png'),
+  primaryDrawerIcon:require('./images/primaryDrawerIcon.png'),
+  helpIlustrator:require('./images/HelpIlustrator.png')
 };

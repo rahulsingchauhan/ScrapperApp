@@ -14,12 +14,12 @@ import { ImageIndex } from '../../assets/ImageIndex';
 
 const { width } = Dimensions.get('window');
 
-const CustomHeader = ({ title, onBackPress, backIcon }) => {
+const CustomHeader = ({ title, onPress, Icon ,  }) => {
   return (
     <View style={styles.headerContainer}>
-      <TouchableOpacity onPress={onBackPress} style={styles.backButton}>
-        {backIcon ? (
-          <Image source={ImageIndex.back} style={styles.backIcon} resizeMode="contain" />
+      <TouchableOpacity onPress={onPress} style={styles.backButton}>
+        {Icon ? (
+          <Image source={Icon} style={styles.backIcon} resizeMode="contain" />
         ) : null}
       </TouchableOpacity>
 
@@ -33,19 +33,16 @@ const CustomHeader = ({ title, onBackPress, backIcon }) => {
 
 const styles = StyleSheet.create({
   headerContainer: {
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 44,
-    paddingHorizontal: 15,
-    paddingVertical:30,
+    
+    paddingHorizontal: 5,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    height: '5',
-    
+    backgroundColor:'white'
   },
   backButton: {
     width: 40,
     height: 40,
-    justifyContent: 'center',
     alignItems: 'center',
   },
   backIcon: {
@@ -56,7 +53,6 @@ const styles = StyleSheet.create({
     fontSize: width * 0.05,
     fontWeight: '600',
     color: '#000',
-    textAlign: 'center',
   },
 });
 

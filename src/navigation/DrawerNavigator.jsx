@@ -2,7 +2,10 @@ import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import HomeScreen from '../screens/Home/HomeScreen';
 import screenNames from '../utils/screenName';
-import CustomDrawer from '../components/Drawer/CustomDrawer'; // custom drawer
+import CustomDrawer from '../components/Drawer/CustomDrawer';
+import ChangePassword from '../screens/ChangePassword/ChangePassword';
+import Help from '../screens/HelpAndSupport/Help';
+import LegalAndPolicies from '../screens/LegalAndPolicies/LegalAndPolicies';
 
 const Drawer = createDrawerNavigator();
 
@@ -22,6 +25,9 @@ const DrawerNavigator = () => {
       initialRouteName={screenNames.APP.HOMESCREEN}
     >
       <Drawer.Screen name={screenNames.APP.HOMESCREEN} component={HomeScreen} />
+       <Drawer.Screen name={screenNames.DRAWER.CHANGE_PASSWORD} component={ChangePassword} />
+       <Drawer.Screen name={screenNames.DRAWER.HELP_AND_SUPPORT} component={Help}/>
+      
     </Drawer.Navigator>
   );
 };

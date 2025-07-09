@@ -39,7 +39,7 @@ const CustomDrawer = ({ navigation }) => {
         <DrawerItem
           icon={ImageIndex.changePassword}
           label="Change Password"
-          onPress={() => navigation.navigate('ChangePassword')}
+          onPress={() => navigation.navigate(screenNames.DRAWER.CHANGE_PASSWORD)}
         />
         <DrawerItem
           icon={ImageIndex.notification}
@@ -72,8 +72,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    borderTopRightRadius: 20,
-    borderBottomRightRadius: 20,
     overflow: 'hidden',
   },
   logoContainer: {
