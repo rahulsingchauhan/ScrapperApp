@@ -25,8 +25,9 @@ const DrawerNavigator = () => {
       initialRouteName={screenNames.APP.HOMESCREEN}
     >
       <Drawer.Screen name={screenNames.APP.HOMESCREEN} component={HomeScreen} />
-       <Drawer.Screen name={screenNames.DRAWER.CHANGE_PASSWORD} component={ChangePassword} />
        <Drawer.Screen name={screenNames.DRAWER.HELP_AND_SUPPORT} component={Help}/>
+       <Drawer.Screen name={screenNames.DRAWER.CHANGE_PASSWORD} component={ChangePassword} />
+<Drawer.Screen name={screenNames.DRAWER.LEGAL_AND_POLICIES} component={LegalAndPolicies}/>
       
     </Drawer.Navigator>
   );

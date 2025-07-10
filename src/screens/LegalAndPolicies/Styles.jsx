@@ -1,41 +1,40 @@
 import { StyleSheet, Dimensions } from 'react-native';
-import Colors from '../../theme/colors';
 
 const { width } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingHorizontal: 16,
-    paddingTop: 10,
-    backgroundColor: '#FFFFFF',
-  },
   scrollContent: {
     flexGrow: 1,
     paddingBottom: 24,
+    paddingHorizontal: 16,
+    backgroundColor: '#FFFFFF',
   },
-  imageView: {
-    alignItems: 'center', },
-  helpImage: {
+  illustrator: {
+    alignItems: 'center',
+    marginVertical: 20,
+  },
+  illustrationImage: {
     width: width * 0.8,
-    height: 350,
- 
+    height: 250,
   },
-  inputView: {
-    borderWidth: 1.5,
-    borderColor: '#f15b41',
-    borderRadius: 12,
-    padding: 20,
-    backgroundColor: '#fff',
+  textContainer: {
+    paddingHorizontal: 8,
   },
-  label: {
-    color: '#f15b41',
+  heading: {
+    fontSize: 22,
     fontWeight: 'bold',
-    fontSize: 16,
-  },
-  textInput: {
-    fontSize: 15,
+    marginBottom: 8,
     color: '#000',
-    minHeight: 100,
+  },
+  subText: {
+    fontSize: 15,
+    color: '#666',
+    marginBottom: 16,
+  },
+  paragraph: {
+    fontSize: 14,
+    color: '#444',
+    marginBottom: 12,
+    lineHeight: 22,
   },
 });
