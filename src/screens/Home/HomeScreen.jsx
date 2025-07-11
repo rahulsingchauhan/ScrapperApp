@@ -11,9 +11,10 @@ import { styles } from './Styles';
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
 import { ImageIndex } from '../../assets/ImageIndex';
 import screenNames from '../../utils/screenName';
-import CustomHeader from '../../components/Header/CustomHeader ';
+
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Colors from '../../theme/colors';
+import CustomHeader from '../../components/Header/CustomHeader ';
 
 const HomeScreen = ({ navigation }) => {
   const [active, setActive] = useState('0');

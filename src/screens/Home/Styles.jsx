@@ -30,10 +30,17 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 20,
-    padding: 12,
     borderRadius: 15,
     backgroundColor: '#fff',
     gap: 15,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 10,
+    elevation: 2,
+     marginHorizontal: 16,
   },
 
   searchView: {
@@ -141,7 +148,7 @@ fabIcon: {
   fontSize: 50,
   lineHeight:80,
   color: '#fff',
-  // backgroundColor:'green'
+
   
 },
 

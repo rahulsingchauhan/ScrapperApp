@@ -9,21 +9,57 @@ import {
 } from 'react-native';
 import { styles } from './Styles';
 import { ImageIndex } from '../../assets/ImageIndex';
-import CustomHeader from '../../components/Header/CustomHeader ';
+
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
 import screenNames from '../../utils/screenName';
 import MapView, { Marker } from 'react-native-maps';
+import BottomSheetModal from '../../components/Modal/BottomSheetModal';
+import ImagePicker from 'react-native-image-crop-picker';
+import CustomHeader from '../../components/Header/CustomHeader ';
 
 const PostScrapItem = ({ navigation }) => {
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const [isAvailabilityOpen, setIsAvailabilityOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('Category');
-  const [selectedAvailability, setSelectedAvailability] = useState(
-    'Set Item Availability',
-  );
+  const [selectedAvailability, setSelectedAvailability] = useState('Set Item Availability');
+  const [imageModalVisible, setImageModalVisible] = useState(false);
 
   const categoryOptions = ['Plastic', 'Metal', 'Electronics', 'Glass'];
   const availabilityOptions = ['Available', 'Not Available'];
+
+  const handleOpenCamera = async () => {
+    try {
+      setImageModalVisible(false); // Close modal first
+      setTimeout(async () => {
+        const image = await ImagePicker.openCamera({
+          width: 300,
+          height: 400,
+          cropping: true,
+          mediaType: 'photo',
+        });
+        console.log('Camera Image:', image);
+      }, 300);
+    } catch (err) {
+      console.warn('Camera cancelled or error:', err.message || err);
+    }
+  };
+
+  const handleOpenGallery = async () => {
+    try {
+      setImageModalVisible(false); // Close modal first
+      setTimeout(async () => {
+        const image = await ImagePicker.openPicker({
+          width: 300,
+          height: 400,
+          cropping: true,
+          mediaType: 'photo',
+        });
+        console.log('Gallery Image:', image);
+      }, 300);
+    } catch (err) {
+      console.warn('Gallery cancelled or error:', err.message || err);
+    }
+  };
 
   return (
     <View style={{ flex: 1 }}>
@@ -34,13 +70,10 @@ const PostScrapItem = ({ navigation }) => {
       />
 
       <View style={styles.container}>
-        <ScrollView
-          contentContainerStyle={styles.scrollContent}
-          showsVerticalScrollIndicator={false}
-        >
+        <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
           <View style={styles.scrapView}>
             {/* Upload Image */}
-            <TouchableOpacity style={styles.uploadBox}>
+            <TouchableOpacity style={styles.uploadBox} onPress={() => setImageModalVisible(true)}>
               <Image source={ImageIndex.upload} style={styles.uploadIcon} />
               <Text style={styles.uploadText}>Upload Image</Text>
             </TouchableOpacity>
@@ -51,14 +84,11 @@ const PostScrapItem = ({ navigation }) => {
               <TextInput style={styles.input} placeholder="Enter item name" />
             </View>
 
-            {/* Description Input */}
+            {/* Description */}
             <View style={styles.inputBox}>
               <Text style={styles.inputLabel}>Description</Text>
               <TextInput
-                style={[
-                  styles.input,
-                  { height: 120, textAlignVertical: 'top' },
-                ]}
+                style={[styles.input, { height: 120, textAlignVertical: 'top' }]}
                 placeholder="Enter description"
                 multiline
               />
@@ -74,10 +104,7 @@ const PostScrapItem = ({ navigation }) => {
                 }}
               >
                 <Text style={styles.dropdownText}>{selectedCategory}</Text>
-                <Image
-                  source={ImageIndex.downArrow}
-                  style={styles.dropdownIcon}
-                />
+                <Image source={ImageIndex.downArrow} style={styles.dropdownIcon} />
               </TouchableOpacity>
 
               {isCategoryOpen &&
@@ -88,8 +115,7 @@ const PostScrapItem = ({ navigation }) => {
                       paddingVertical: 10,
                       paddingHorizontal: 12,
                       backgroundColor: '#f0f0f0',
-                      borderBottomWidth:
-                        index !== categoryOptions.length - 1 ? 1 : 0,
+                      borderBottomWidth: index !== categoryOptions.length - 1 ? 1 : 0,
                       borderColor: '#ccc',
                     }}
                     onPress={() => {
@@ -97,20 +123,18 @@ const PostScrapItem = ({ navigation }) => {
                       setIsCategoryOpen(false);
                     }}
                   >
-                    <Text style={{ fontSize: 16, color: '#444' }}>
-                      {option}
-                    </Text>
+                    <Text style={{ fontSize: 16, color: '#444' }}>{option}</Text>
                   </TouchableOpacity>
                 ))}
             </View>
 
-            {/* Location Input */}
+            {/* Location */}
             <View style={styles.inputBox}>
               <Text style={styles.inputLabel}>Location</Text>
               <TextInput style={styles.input} placeholder="Enter location" />
             </View>
 
-            {/* Map View */}
+            {/* Map */}
             <View style={styles.mapContainer}>
               <MapView
                 style={styles.map}
@@ -121,10 +145,7 @@ const PostScrapItem = ({ navigation }) => {
                   longitudeDelta: 0.01,
                 }}
               >
-                <Marker
-                  coordinate={{ latitude: 28.6139, longitude: 77.209 }}
-                  title="Location"
-                />
+                <Marker coordinate={{ latitude: 28.6139, longitude: 77.209 }} title="Location" />
               </MapView>
             </View>
 
@@ -138,10 +159,7 @@ const PostScrapItem = ({ navigation }) => {
                 }}
               >
                 <Text style={styles.dropdownText}>{selectedAvailability}</Text>
-                <Image
-                  source={ImageIndex.downArrow}
-                  style={styles.dropdownIcon}
-                />
+                <Image source={ImageIndex.downArrow} style={styles.dropdownIcon} />
               </TouchableOpacity>
 
               {isAvailabilityOpen &&
@@ -152,8 +170,7 @@ const PostScrapItem = ({ navigation }) => {
                       paddingVertical: 10,
                       paddingHorizontal: 12,
                       backgroundColor: '#f0f0f0',
-                      borderBottomWidth:
-                        index !== availabilityOptions.length - 1 ? 1 : 0,
+                      borderBottomWidth: index !== availabilityOptions.length - 1 ? 1 : 0,
                       borderColor: '#ccc',
                     }}
                     onPress={() => {
@@ -161,19 +178,34 @@ const PostScrapItem = ({ navigation }) => {
                       setIsAvailabilityOpen(false);
                     }}
                   >
-                    <Text style={{ fontSize: 16, color: '#444' }}>
-                      {option}
-                    </Text>
+                    <Text style={{ fontSize: 16, color: '#444' }}>{option}</Text>
                   </TouchableOpacity>
                 ))}
             </View>
           </View>
         </ScrollView>
 
-        <PrimaryButton
-          title="Submit"
-          onPress={() => navigation.navigate(screenNames.APP.HOMESCREEN)}
-        />
+        {/* Submit Button */}
+        <PrimaryButton title="Submit" onPress={() => navigation.navigate(screenNames.APP.HOMESCREEN)} />
+
+        {/* BottomSheetModal for Image Source */}
+        <BottomSheetModal visible={imageModalVisible} onClose={() => setImageModalVisible(false)}>
+          <Text style={{ fontSize: 18, marginBottom: 20, textAlign: 'center' }}>Select Image Source</Text>
+
+          <TouchableOpacity
+            style={{ padding: 12, backgroundColor: '#eee', borderRadius: 10, marginBottom: 10 }}
+            onPress={handleOpenCamera}
+          >
+            <Text style={{ fontSize: 16 }}>Camera</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={{ padding: 12, backgroundColor: '#eee', borderRadius: 10 }}
+            onPress={handleOpenGallery}
+          >
+            <Text style={{ fontSize: 16 }}>Gallery</Text>
+          </TouchableOpacity>
+        </BottomSheetModal>
       </View>
     </View>
   );

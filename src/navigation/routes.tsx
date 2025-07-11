@@ -18,6 +18,7 @@ import ChangePassword from '../screens/ChangePassword/ChangePassword';
 import Notifications from '../screens/Notifications/Notifications';
 import Help from '../screens/HelpAndSupport/Help';
 import LegalAndPolicies from '../screens/LegalAndPolicies/LegalAndPolicies';
+import BottomSheetModal from '../components/Modal/BottomSheetModal';
 
 export const routes = {
   StackNavigator: [
@@ -90,6 +91,10 @@ export const routes = {
      {
       name: screenNames.DRAWER.LEGAL_AND_POLICIES,
       component: LegalAndPolicies,
+    },
+      {
+      name: screenNames.COMPONENT.MODAL,
+      component: BottomSheetModal,
     },
   ],
   DrawerNavigator: [

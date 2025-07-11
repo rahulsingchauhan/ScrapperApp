@@ -10,6 +10,7 @@ import PostScrapItem from './src/screens/Post Scrap Item/PostScrapItem';
 const App = () => {
   return (
      <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+  
       <NavigationContainer>
         <StackNavigator/>
       </NavigationContainer>

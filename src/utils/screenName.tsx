@@ -17,6 +17,7 @@ const screenNames = {
     HOMESCREEN: 'Home',
     DETAILSCREEN: 'Details',
     POSTSCRAP: 'PostScrap'
+    
   },
   DRAWER:{
 SUBSCRIPTION: 'Subscription',
@@ -25,7 +26,10 @@ NOTIFICATION: 'Notification',
 LEGAL_AND_POLICIES: 'Legal',
 HELP_AND_SUPPORT: 'Help',
   },  
+COMPONENT:{
+MODAL: 'Modal',
 
+}
 };
 
 export default screenNames;

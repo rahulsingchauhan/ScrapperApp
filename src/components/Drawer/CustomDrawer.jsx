@@ -90,8 +90,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 4,
   },
   icon: {
-    width: 30,
-    height: 30,
+    width: 35,
+    height: 35,
     resizeMode: 'contain',
     marginRight: 16,
   },
