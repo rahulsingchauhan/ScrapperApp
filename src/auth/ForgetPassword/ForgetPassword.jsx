@@ -12,8 +12,8 @@ const ForgetPassword = ({ navigation }) => {
     <View style={{ flex: 1 }}>
       {/* Custom Header at top with back button */}
       <CustomHeader
-        onBackPress={() => navigation.goBack()}
-        backIcon={ImageIndex.back}
+        onPress={() => navigation.goBack()}
+        Icon={ImageIndex.back}
       />
 
       <View style={styles.container}>

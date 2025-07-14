@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   View,
   Text,
@@ -11,14 +11,30 @@ import { styles } from './Styles';
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
 import { ImageIndex } from '../../assets/ImageIndex';
 import screenNames from '../../utils/screenName';
-
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Colors from '../../theme/colors';
 import CustomHeader from '../../components/Header/CustomHeader ';
 
-const HomeScreen = ({ navigation }) => {
+
+
+// Debounce function to delay API/search calls until user stops typing
+const debounce = (func, delay) => {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => func(...args), delay);
+  };
+};
+
+const HomeScreen = ({navigation}) => {
+  // Active tab: '0' = Active Listings, '1' = Past Listings
   const [active, setActive] = useState('0');
 
+  // State for search query and filtered result
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredData, setFilteredData] = useState([]);
+
+  // Sample data for active listings
   const activeListings = [
     {
       title: 'Old Metal Pipes',
@@ -34,6 +50,7 @@ const HomeScreen = ({ navigation }) => {
     },
   ];
 
+  // Sample data for past listings
   const pastListings = [
     {
       title: 'Broken Washing Machine',
@@ -49,6 +66,28 @@ const HomeScreen = ({ navigation }) => {
     },
   ];
 
+  // Get current tab data based on `active` state
+  const currentList = active === '0' ? activeListings : pastListings;
+
+  // Debounced search function to filter listing based on `title`
+  const handleSearch = useMemo(
+    () =>
+      debounce((text) => {
+        const filtered = currentList.filter((item) =>
+          item.title.toLowerCase().includes(text.toLowerCase())
+        );
+        setFilteredData(filtered);
+      }, 300),
+    [active]
+  );
+
+  // Called on every keystroke in search bar
+  const onChangeSearch = (text) => {
+    setSearchQuery(text);
+    handleSearch(text);
+  };
+
+  // Renders each card (listing)
   const renderCard = (item) => (
     <TouchableOpacity
       key={item.title}
@@ -68,57 +107,71 @@ const HomeScreen = ({ navigation }) => {
   );
 
   return (
+    
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor={'#fff'} barStyle={'dark-content'} />
-      <CustomHeader
-        title="Home"
-        onPress={() => navigation.openDrawer()}
-        Icon={ImageIndex.primaryDrawerIcon}
-      />
 
-      {/* Title */}
+      {/* Header with drawer icon */}
+    <CustomHeader
+  title="Home"
+  onPress={ () => navigation.openDrawer()}
+  Icon={ImageIndex.primaryDrawerIcon}
+/>
+
+
+      {/* Welcome text */}
       <View style={styles.titleView}>
         <Text style={styles.title}>Hi, Ronaldo</Text>
         <Text style={styles.subTitle}>Welcome Back</Text>
       </View>
 
-      {/* Buttons */}
+      {/* Tab buttons to switch between Active & Past listings */}
       <View style={styles.buttonView}>
         <PrimaryButton
           title="Active Listing"
           width="47%"
-          onPress={() => setActive('0')}
+          onPress={() => {
+            setActive('0');
+            setFilteredData([]);
+            setSearchQuery('');
+          }}
           backgroundColor={active === '0' ? Colors.primary : 'white'}
           textColor={active === '0' ? '#FFF' : 'black'}
         />
         <PrimaryButton
           title="Past Listing"
           width="47%"
-          onPress={() => setActive('1')}
+          onPress={() => {
+            setActive('1');
+            setFilteredData([]);
+            setSearchQuery('');
+          }}
           backgroundColor={active === '1' ? Colors.primary : 'white'}
           textColor={active === '1' ? '#FFF' : 'black'}
         />
       </View>
 
-      {/* Search */}
+      {/* Search bar with debounced input */}
       <View style={styles.searchView}>
         <Image source={ImageIndex.search} style={styles.icon} />
         <TextInput
           style={styles.input}
           placeholder="Search"
           placeholderTextColor="#000"
+          value={searchQuery}
+          onChangeText={onChangeSearch}
         />
         <TouchableOpacity>
           <Image source={ImageIndex.filter} style={styles.icon} />
         </TouchableOpacity>
       </View>
 
-      {/* Listings */}
+      {/* Listing cards based on tab and search */}
       <View>
-        {(active === '0' ? activeListings : pastListings).map(renderCard)}
+        {(searchQuery.length > 0 ? filteredData : currentList).map(renderCard)}
       </View>
 
-      {/* Floating Button */}
+      {/* Floating action button to post new scrap */}
       <TouchableOpacity
         style={styles.fab}
         onPress={() => navigation.navigate(screenNames.APP.POSTSCRAP)}

@@ -141,7 +141,9 @@ const LoginScreen = ({navigation}) => {
                   {/* Sign In Button */}
                   <TouchableOpacity
                     style={styles.signInButton}
-                    onPress={handleSubmit}
+                    // onPress={handleSubmit} API Calling ke Time Ye Wala Chalaenge
+                    onPress={() => navigation.navigate(screenNames.APP.HOMESCREEN)} // ye sirf abhi ke liye hai..
+
                   >
                     <Text style={styles.signInText}>Sign In</Text>
                   </TouchableOpacity>

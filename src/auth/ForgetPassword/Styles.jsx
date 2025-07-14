@@ -7,6 +7,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 16, // horizontal padding makes content breathable on all screens
     paddingTop: 16, // some top padding for content separation
+    backgroundColor:'white',
   },
 
   // Makes ScrollView grow only as needed, so that layout adapts based on screen height
@@ -17,7 +18,7 @@ export const styles = StyleSheet.create({
   // Title and subtitle section styling
   titleView: {
     marginBottom: 16,
-    gap: 8, // consistent spacing between title and subtitle
+    gap: 10, // consistent spacing between title and subtitle
   },
 
   // Main heading text

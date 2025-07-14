@@ -34,8 +34,8 @@ const NewPassword = ({ navigation, onSubmit }) => {
     <SafeAreaView style={{ flex: 1 , backgroundColor:'#fff'}}>
       <StatusBar />
       <CustomHeader
-        onBackPress={() => navigation.goBack()}
-        backIcon={ImageIndex.back}
+        onPress={() => navigation.goBack()}
+        Icon={ImageIndex.back}
       />
 
       <View style={styles.container}>

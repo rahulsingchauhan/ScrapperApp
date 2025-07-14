@@ -46,8 +46,8 @@ const EmailOtp = ({ navigation }) => {
   return (
     <View style={{ flex: 1 }}>
       <CustomHeader
-        onBackPress={() => navigation.goBack()}
-        backIcon={ImageIndex.back}
+        onPress={() => navigation.goBack()}
+        Icon={ImageIndex.back}
       />
       <View style={styles.container}>
         <ScrollView
