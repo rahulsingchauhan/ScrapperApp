@@ -1,77 +1,69 @@
 import { StyleSheet } from 'react-native';
 import Colors from '../../theme/colors';
+import fonts from '../../utils/fonts';
 
 export const styles = StyleSheet.create({
-  // Outer container that takes full screen space
   container: {
     flex: 1,
-    paddingHorizontal: 16, // horizontal padding makes content breathable on all screens
-    paddingTop: 16, // some top padding for content separation
-    backgroundColor:'white',
+    paddingHorizontal: 15,
+    paddingTop: 25,
+    backgroundColor: 'white',
+    paddingBottom: 25,
   },
 
-  // Makes ScrollView grow only as needed, so that layout adapts based on screen height
   scrollContent: {
-    flexGrow: 1, // critical for vertical scroll to work on small & landscape screens
+    flexGrow: 1,
   },
 
-  // Title and subtitle section styling
   titleView: {
     marginBottom: 16,
-    gap: 10, // consistent spacing between title and subtitle
+    gap: 10,
   },
 
-  // Main heading text
   title: {
-    fontWeight: '700',
-    fontSize: 24, // readable size across devices
+    fontSize: 24,
     color: Colors.black,
+    fontFamily: fonts.BOLD,
   },
 
-  // Subtitle below title
   subTitle: {
     color: Colors.subTitle,
     fontSize: 16,
+    fontFamily: fonts.REGULAR,
   },
 
-  // Responsive row block with border and padding
   infoRow: {
     borderRadius: 20,
     borderWidth: 2,
     borderColor: Colors.primary,
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 16, // consistent padding that works on all screen sizes
-    marginBottom: 24, // spacing below row
+    padding: 16,
+    marginBottom: 24,
     backgroundColor: Colors.backGround,
   },
 
-  // Email icon
   icon: {
     width: 50,
     height: 50,
-    marginRight: 12, // spacing between icon and text
+    marginRight: 12,
   },
 
-  // Text section inside info row
   textContainer: {
     flexDirection: 'column',
     justifyContent: 'center',
-    flexShrink: 1, // ensures text wraps on smaller screens instead of overflowing
+    flexShrink: 1,
   },
 
-  // Email title label
   emailTitle: {
     fontSize: 16,
-    fontWeight: '700',
     color: Colors.black,
+    fontFamily: fonts.BOLD,
   },
 
-  // Email subtitle (user email)
   emailSubTitle: {
     fontSize: 14,
     color: Colors.subTitle,
+    fontFamily: fonts.REGULAR,
   },
-
-  
 });

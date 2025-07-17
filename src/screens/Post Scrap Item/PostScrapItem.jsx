@@ -189,7 +189,7 @@ const PostScrapItem = ({ navigation }) => {
         <PrimaryButton title="Submit" onPress={() => navigation.navigate(screenNames.APP.HOMESCREEN)} />
 
         {/* BottomSheetModal for Image Source */}
-        <BottomSheetModal visible={imageModalVisible} onClose={() => setImageModalVisible(false)}>
+        <BottomSheetModal visible={imageModalVisible} onClose={() => setImageModalVisible(false)} >
           <Text style={{ fontSize: 18, marginBottom: 20, textAlign: 'center' }}>Select Image Source</Text>
 
           <TouchableOpacity

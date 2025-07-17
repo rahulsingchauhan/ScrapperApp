@@ -67,10 +67,10 @@ export const routes = {
       name: screenNames.APP.DETAILSCREEN,
       component: DetailsScreen,
     },
-    {
-      name: screenNames.APP.HOMESCREEN,
-      component: HomeScreen,
-    },
+    // {
+    //   name: screenNames.APP.HOMESCREEN,
+    //   component: HomeScreen,
+    // },
     {
       name: screenNames.APP.POSTSCRAP,
       component: PostScrapItem,

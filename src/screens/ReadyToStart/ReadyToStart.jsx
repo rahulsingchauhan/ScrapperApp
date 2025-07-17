@@ -4,10 +4,12 @@ import { styles } from './Styles';
 import screenNames from '../../utils/screenName';
 import { ImageIndex } from '../../assets/ImageIndex';
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import Colors from '../../theme/colors';
 
 const ReadyToStart = ({ navigation }) => {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
 
       {/* LOGO */}
       <View style={styles.logoContainer}>
@@ -51,10 +53,22 @@ const ReadyToStart = ({ navigation }) => {
           <Text style={styles.buttonText}>Sign In</Text>
         </TouchableOpacity> */}
         <PrimaryButton width='48%' title='Sign Up' onPress={() => navigation.navigate(screenNames.AUTH.SIGNUP)}/>
-        <PrimaryButton width='48%' title='Sign In' onPress={() => navigation.navigate(screenNames.AUTH.LOGIN)}/>
+        <PrimaryButton
+  width="48%"
+  title="Sign In"
+  onPress={() => navigation.navigate(screenNames.AUTH.LOGIN)}
+  style={{
+    backgroundColor: '#fff',
+    borderColor: Colors.primary,
+    borderWidth: 2,
+  }}
+  textStyle={{
+    color: Colors.primary,
+  }}
+/>
       </View>
       
-    </View>
+    </SafeAreaView>
   );
 };
 

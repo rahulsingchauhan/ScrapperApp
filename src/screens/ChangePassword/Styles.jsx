@@ -17,13 +17,14 @@ export const styles = StyleSheet.create({
 
   formContainer: {
     gap: 20,
+    
   },
 
   inputWrapper: {
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F2F2F2',
+    backgroundColor: '#FFF5F4',
     borderRadius: 40,
     paddingHorizontal: 18,
     height: 60,

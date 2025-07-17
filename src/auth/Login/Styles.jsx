@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import fonts from '../../utils/fonts';
 
 export const styles = StyleSheet.create({
   root: {
@@ -9,22 +10,23 @@ export const styles = StyleSheet.create({
   scrollWrapper: {
     flexGrow: 1,
     justifyContent: 'center',
-    paddingHorizontal: '7%', // Padding as % keeps layout fluid on all widths
-    paddingBottom: 60,       // Leaves room for buttons on smaller screens
+    paddingHorizontal: '7%',
+    paddingBottom: 60,
   },
 
   container: {
     alignItems: 'center',
   },
 
-logo: {
-  width: '50%',           // Keeps it responsive
-  aspectRatio: 2,         // Maintains shape
-  maxWidth: 250,          // Prevents it from becoming too wide in landscape
-  maxHeight: 120,         // Prevents it from becoming too tall
-  marginBottom: 25,
-  resizeMode: 'contain',
-},
+  logo: {
+    width: '50%',
+    aspectRatio: 2,
+    maxWidth: 250,
+    maxHeight: 120,
+    marginBottom: 25,
+    resizeMode: 'contain',
+  },
+
   textWrapper: {
     alignItems: 'center',
     marginBottom: 25,
@@ -33,14 +35,16 @@ logo: {
   title: {
     fontSize: 26,
     fontWeight: '700',
-    marginBottom: 10,
     textAlign: 'center',
+    marginBottom: 10,
+    fontFamily: 'Poppins-Bold',
   },
 
   subtitle: {
     fontSize: 17,
     textAlign: 'center',
     color: '#999999',
+    fontFamily: 'Poppins-Regular',
   },
 
   loginForm: {
@@ -64,6 +68,7 @@ logo: {
     flex: 1,
     fontSize: 17,
     color: '#000',
+    fontFamily: 'Poppins-Regular',
   },
 
   icon: {
@@ -83,15 +88,16 @@ logo: {
   forgetPasswordText: {
     color: '#000',
     fontSize: 15,
-    fontWeight: '500',
+    fontWeight: '700',
     textDecorationLine: 'underline',
+    fontFamily: 'Poppins-Bold',
   },
 
   signInButton: {
     width: '100%',
     backgroundColor: '#FB5B2B',
     borderRadius: 18,
-    paddingVertical: 18,      // Increases height while keeping responsiveness
+    paddingVertical: 18,
     alignItems: 'center',
     elevation: 5,
     marginBottom: 25,
@@ -101,11 +107,12 @@ logo: {
     color: '#fff',
     fontWeight: 'bold',
     fontSize: 17,
+    fontFamily: 'Poppins-Bold',
   },
 
   bottomTextWrapper: {
     flexDirection: 'row',
-    flexWrap: 'wrap',         // Ensures text wraps on small screens
+    flexWrap: 'wrap',
     justifyContent: 'center',
     marginTop: 15,
   },
@@ -114,13 +121,14 @@ logo: {
     color: '#999',
     fontSize: 15,
     marginRight: 4,
+    fontFamily: 'Poppins-Regular',
   },
 
   signup: {
     color: '#000',
     fontWeight: 'bold',
     fontSize: 15,
-    textDecorationLine: 'underline',
+    fontFamily: 'Poppins-Bold',
   },
 
   orText: {
@@ -129,6 +137,7 @@ logo: {
     fontSize: 17,
     color: '#333',
     textAlign: 'center',
+    fontFamily: 'Poppins-Bold',
   },
 
   googleIcon: {
@@ -144,5 +153,6 @@ logo: {
     alignSelf: 'flex-start',
     marginBottom: 8,
     marginLeft: 8,
+    fontFamily: 'Poppins-Regular',
   },
 });

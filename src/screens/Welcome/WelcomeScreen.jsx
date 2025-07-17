@@ -11,22 +11,24 @@ import { styles } from './Styles';
 import screenNames from '../../utils/screenName';
 import { ImageIndex } from '../../assets/ImageIndex';
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-const { width, height } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
+
 const slides = [
   {
     key: '1',
     title: 'Welcome to Scrapapp',
     description:
       'ScrapApp connects people who need to get rid of scrap with scrappers who will pick it up for free.',
-    image: ImageIndex.slide1, 
+    image: ImageIndex.slide1,
   },
   {
     key: '2',
     title: 'Pick Up Scrap for Free!',
     description:
       'Browse nearby listings, accept pickups, and recycle for a greener world!',
-    image: ImageIndex.slide2 ,
+    image: ImageIndex.slide2,
   },
 ];
 
@@ -45,7 +47,6 @@ const WelcomeScreen = ({ navigation }) => {
     if (nextIndex < slides.length) {
       flatListRef.current.scrollToIndex({ index: nextIndex });
     } else {
-      // Finish onboarding
       navigation.replace(screenNames.ONBOARDING.CHOOSE_ROLE);
     }
   };
@@ -61,7 +62,7 @@ const WelcomeScreen = ({ navigation }) => {
   );
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <TouchableOpacity onPress={skip} style={styles.skipButton}>
         <Text style={styles.skipText}>Skip</Text>
       </TouchableOpacity>
@@ -77,7 +78,6 @@ const WelcomeScreen = ({ navigation }) => {
       />
 
       <View style={styles.footer}>
-        {/* Dots */}
         <View style={styles.indicatorContainer}>
           {slides.map((_, index) => (
             <View
@@ -90,15 +90,9 @@ const WelcomeScreen = ({ navigation }) => {
           ))}
         </View>
 
-        {/* Next Button */}
-        {/* <TouchableOpacity style={styles.nextButton} onPress={goToNextSlide}>
-          <Text style={styles.nextText}>Next</Text>
-        </TouchableOpacity> */}
-
-       <PrimaryButton title={"Next"} onPress={goToNextSlide}  />
+        <PrimaryButton title="Next" onPress={goToNextSlide} />
       </View>
-       
-    </View>
+    </SafeAreaView>
   );
 };
 

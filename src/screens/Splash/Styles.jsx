@@ -6,7 +6,7 @@ const { width, height } = Dimensions.get('window');
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.backGround, // Background of splash screen
+    backgroundColor: Colors.backGround,
     alignItems: 'center',
     justifyContent: 'center',
   },

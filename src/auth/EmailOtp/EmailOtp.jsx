@@ -5,15 +5,16 @@ import { ImageIndex } from '../../assets/ImageIndex';
 import CustomHeader from '../../components/Header/CustomHeader ';
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
 import screenNames from '../../utils/screenName';
+import Colors from '../../theme/colors'; 
 
 const EmailOtp = ({ navigation }) => {
   const [otp, setOtp] = useState(['', '', '', '']);
+  const [focusedIndex, setFocusedIndex] = useState(null); // track focused input
   const inputs = [useRef(null), useRef(null), useRef(null), useRef(null)];
 
   const handleOtpChange = (text, index) => {
     const newOtp = [...otp];
 
-    // If backspace (text becomes empty)
     if (text === '') {
       newOtp[index] = '';
       setOtp(newOtp);
@@ -21,7 +22,6 @@ const EmailOtp = ({ navigation }) => {
       return;
     }
 
-    // If digit entered
     if (/^\d$/.test(text)) {
       newOtp[index] = text;
       setOtp(newOtp);
@@ -44,47 +44,51 @@ const EmailOtp = ({ navigation }) => {
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.container}>
       <CustomHeader
         onPress={() => navigation.goBack()}
         Icon={ImageIndex.back}
       />
-      <View style={styles.container}>
-        <ScrollView
-          contentContainerStyle={styles.scrollContent}
-          showsVerticalScrollIndicator={false}
-          keyboardShouldPersistTaps="handled"
-        >
-          <View style={styles.titleView}>
-            <Text style={styles.title}>Check Your Mail</Text>
-            <Text style={styles.subTitle}>
-              Please put the 4 digits sent to you
-            </Text>
-          </View>
 
-          <View style={styles.otpContainer}>
-            {otp.map((digit, index) => (
-              <TextInput
-                key={index}
-                ref={inputs[index]}
-                style={styles.otpInput}
-                keyboardType="number-pad"
-                maxLength={1}
-                value={digit}
-                onChangeText={(text) => handleOtpChange(text, index)}
-              />
-            ))}
-          </View>
-        </ScrollView>
+      <ScrollView
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+        keyboardShouldPersistTaps="handled"
+      >
+        <View style={styles.titleView}>
+          <Text style={styles.title}>Check Your Mail</Text>
+          <Text style={styles.subTitle}>
+            Please put the 4 digits sent to you
+          </Text>
+        </View>
 
-        <PrimaryButton
-  title="Submit"
-  onPress={() => {
-    handleSubmit();
-    setOtp(['', '', '', '']); // reset OTP boxes
-  }}
-/>
-      </View>
+        <View style={styles.otpContainer}>
+          {otp.map((digit, index) => (
+            <TextInput
+              key={index}
+              ref={inputs[index]}
+              style={[
+                styles.otpInput,
+                focusedIndex === index && { backgroundColor: Colors.subTitle }
+              ]}
+              keyboardType="number-pad"
+              maxLength={1}
+              value={digit}
+              onChangeText={(text) => handleOtpChange(text, index)}
+              onFocus={() => setFocusedIndex(index)}
+              onBlur={() => setFocusedIndex(null)}
+            />
+          ))}
+        </View>
+      </ScrollView>
+
+      <PrimaryButton
+        title="Submit"
+        onPress={() => {
+          handleSubmit();
+          setOtp(['', '', '', '']); // Reset OTP inputs after submit
+        }}
+      />
     </View>
   );
 };

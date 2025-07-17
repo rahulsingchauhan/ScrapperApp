@@ -3,10 +3,11 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { styles } from './Styles';
 import screenNames from '../../utils/screenName';
 import { ImageIndex } from '../../assets/ImageIndex';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const ChooseYourRole = ({ navigation }) => {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {/* LOGO */}
       <Image
         source={ImageIndex.logo}
@@ -48,7 +49,7 @@ const ChooseYourRole = ({ navigation }) => {
           <Text style={styles.buttonText}>Scrapper</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

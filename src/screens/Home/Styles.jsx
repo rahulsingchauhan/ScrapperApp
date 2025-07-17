@@ -1,11 +1,12 @@
 import { StyleSheet } from 'react-native';
 import Colors from '../../theme/colors';
+import fonts from '../../utils/fonts';
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 15,
-    backgroundColor:'#fff'
+    backgroundColor: '#fff',
   },
 
   titleView: {
@@ -17,30 +18,31 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     color: Colors.subTitle,
+    fontFamily: fonts.REGULAR,
   },
 
   subTitle: {
     fontSize: 24,
-    fontWeight: '700',
     color: Colors.primary,
+    fontFamily: fonts.BOLD,
   },
 
   buttonView: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 20,
+    marginTop: 10,
     borderRadius: 15,
+    paddingVertical:15,
+    paddingHorizontal:10,
     backgroundColor: '#fff',
     gap: 15,
-    paddingHorizontal: 15,
-    paddingVertical: 10,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.05,
     shadowRadius: 10,
     elevation: 2,
-     marginHorizontal: 16,
+   
   },
 
   searchView: {
@@ -55,7 +57,7 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.05,
     shadowRadius: 10,
     elevation: 2,
-    marginHorizontal: 16,
+   
     marginTop: 10,
   },
 
@@ -64,6 +66,7 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     marginLeft: 10,
     color: '#000',
+    fontFamily: fonts.REGULAR,
   },
 
   icon: {
@@ -72,14 +75,12 @@ export const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
 
-  // 🔽 Card Styles Below
   card: {
     flexDirection: 'row',
     backgroundColor: '#fff',
     borderRadius: 20,
     padding: 15,
     marginTop: 16,
-    marginHorizontal: 16,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.05,
@@ -101,14 +102,15 @@ export const styles = StyleSheet.create({
 
   cardTitle: {
     fontSize: 16,
-    fontWeight: 'bold',
     color: '#000',
+    fontFamily: fonts.BOLD,
   },
 
   cardCategory: {
     fontSize: 14,
     color: '#F36A3E',
     marginVertical: 4,
+    fontFamily: fonts.REGULAR,
   },
 
   timeRow: {
@@ -126,30 +128,30 @@ export const styles = StyleSheet.create({
   timeText: {
     fontSize: 14,
     color: '#000',
+    fontFamily: fonts.REGULAR,
   },
+
   fab: {
-  position: 'absolute',
-  bottom: 30,
-  right: 20,
-  width: 80,
-  height: 80,
-  borderRadius: 40,
-  backgroundColor: Colors.primary,
-  justifyContent: 'center',
-  alignItems: 'center',
-  shadowColor: '#000',
-  shadowOffset: { width: 0, height: 2 },
-  shadowOpacity: 0.3,
-  shadowRadius: 4,
-  elevation: 5,
-},
+    position: 'absolute',
+    bottom: 30,
+    right: 20,
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    backgroundColor: Colors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 5,
+  },
 
-fabIcon: {
-  fontSize: 50,
-  lineHeight:80,
-  color: '#fff',
-
-  
-},
-
+  fabIcon: {
+    fontSize: 50,
+    lineHeight: 80,
+    color: '#fff',
+    
+  },
 });

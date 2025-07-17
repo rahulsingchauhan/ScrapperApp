@@ -19,6 +19,7 @@ import * as Yup from 'yup';
 import { styles } from './Styles';
 import screenNames from '../../utils/screenName';
 import { ImageIndex } from '../../assets/ImageIndex';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const { width } = Dimensions.get('window');
 
@@ -46,7 +47,7 @@ const LoginScreen = ({navigation}) => {
           contentContainerStyle={styles.scrollWrapper}
           showsVerticalScrollIndicator={false}
         >
-          <View style={styles.container}>
+          <SafeAreaView style={styles.container}>
             {/* LOGO */}
             <Image
               source={ImageIndex.logo}
@@ -129,7 +130,6 @@ const LoginScreen = ({navigation}) => {
                     <Text style={styles.error}>{errors.password}</Text>
                   )}
 
-                  {/* Forgot Password */}
                   <TouchableOpacity style={styles.forgetPasswordButton} onPress={() =>
                         navigation.navigate(screenNames.AUTH.FORGET_PASSWORD)
                       }>
@@ -142,13 +142,12 @@ const LoginScreen = ({navigation}) => {
                   <TouchableOpacity
                     style={styles.signInButton}
                     // onPress={handleSubmit} API Calling ke Time Ye Wala Chalaenge
-                    onPress={() => navigation.navigate(screenNames.APP.HOMESCREEN)} // ye sirf abhi ke liye hai..
+                    onPress={() => navigation.navigate(screenNames.APP.MAIN_DRAWER)} // ye sirf abhi ke liye hai..
 
                   >
                     <Text style={styles.signInText}>Sign In</Text>
                   </TouchableOpacity>
 
-                  {/* Bottom Text */}
                   <View style={styles.bottomTextWrapper}>
                     <Text style={styles.bottomText}>Don’t have an account? </Text>
                     <TouchableOpacity onPress={() => navigation.navigate(screenNames.AUTH.SIGNUP)}>
@@ -156,7 +155,7 @@ const LoginScreen = ({navigation}) => {
                     </TouchableOpacity>
                   </View>
 
-                  {/* OR */}
+              
                   <Text style={styles.orText}>OR</Text>
 
                   {/* Google Icon */}
@@ -170,7 +169,7 @@ const LoginScreen = ({navigation}) => {
                 </View>
               )}
             </Formik>
-          </View>
+          </SafeAreaView>
         </ScrollView>
       </KeyboardAvoidingView>
     </TouchableWithoutFeedback>

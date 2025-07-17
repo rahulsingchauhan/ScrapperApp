@@ -33,27 +33,28 @@ const CustomHeader = ({ title, onPress, Icon ,  }) => {
 
 const styles = StyleSheet.create({
   headerContainer: {
-    
-    paddingHorizontal: 5,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor:'white',
-    paddingTop:25,
+    backgroundColor: 'white',
+    marginTop:20
+   
   },
   backButton: {
     width: 40,
     height: 40,
+    justifyContent: 'center',
     alignItems: 'center',
   },
   backIcon: {
-    width: 24,
-    height: 24,
+    width: 22,
+    height: 22,
   },
   headerTitle: {
     fontSize: width * 0.05,
     fontWeight: '600',
     color: '#000',
+    textAlign: 'center',
   },
 });
 

@@ -9,47 +9,43 @@ import screenNames from '../../utils/screenName';
 
 const ForgetPassword = ({ navigation }) => {
   return (
-    <View style={{ flex: 1 }}>
-      {/* Custom Header at top with back button */}
+    <View style={styles.container}>
       <CustomHeader
+      
         onPress={() => navigation.goBack()}
         Icon={ImageIndex.back}
+      />{' '}
+      {/* Scrollable content section – keeps layout scrollable on smaller screens and in landscape */}
+      <ScrollView
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+      >
+        {/* Title Section */}
+        <View style={styles.titleView}>
+          <Text style={styles.title}>Password Reset</Text>
+          <Text style={styles.subTitle}>
+            Please put your mobile number to reset your password
+          </Text>
+        </View>
+
+        {/* Email Info Row – responsive row with icon and text */}
+        <View style={styles.infoRow}>
+          <Image
+            source={ImageIndex.email}
+            style={styles.icon}
+            resizeMode="contain"
+          />
+          <View style={styles.textContainer}>
+            <Text style={styles.emailTitle}>Email</Text>
+            <Text style={styles.emailSubTitle}>rahulsingh@email.com</Text>
+          </View>
+        </View>
+      </ScrollView>
+      {/* Sticky Bottom Button – always at bottom regardless of screen size or orientation */}
+      <PrimaryButton 
+        title="Submit"
+        onPress={() => navigation.navigate(screenNames.AUTH.EMAIL_OTP)}
       />
-
-      <View style={styles.container}>
-        {/* Scrollable content section – keeps layout scrollable on smaller screens and in landscape */}
-        <ScrollView
-          contentContainerStyle={styles.scrollContent}
-          showsVerticalScrollIndicator={false}
-        >
-          {/* Title Section */}
-          <View style={styles.titleView}>
-            <Text style={styles.title}>Password Reset</Text>
-            <Text style={styles.subTitle}>
-              Please put your mobile number to reset your password
-            </Text>
-          </View>
-
-          {/* Email Info Row – responsive row with icon and text */}
-          <View style={styles.infoRow}>
-            <Image
-              source={ImageIndex.email}
-              style={styles.icon}
-              resizeMode="contain"
-            />
-            <View style={styles.textContainer}>
-              <Text style={styles.emailTitle}>Email</Text>
-              <Text style={styles.emailSubTitle}>rahulsingh@email.com</Text>
-            </View>
-          </View>
-        </ScrollView>
-
-        {/* Sticky Bottom Button – always at bottom regardless of screen size or orientation */}
-        <PrimaryButton
-  title="Submit"
-  onPress={() => navigation.navigate(screenNames.AUTH.EMAIL_OTP)}
-/>
-      </View>
     </View>
   );
 };

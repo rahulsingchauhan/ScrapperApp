@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import Colors from '../../theme/colors';
+import fonts from '../../utils/fonts';
 
 export const styles = StyleSheet.create({
   root: {
@@ -10,50 +11,51 @@ export const styles = StyleSheet.create({
   scrollWrapper: {
     flexGrow: 1,
     justifyContent: 'center',
-    paddingHorizontal: 20, // Ensures padding is consistent across screen widths
-    paddingBottom: 40,     // Adds space for bottom content on smaller screens
+    paddingHorizontal: 20,
+    paddingBottom: 40,
   },
 
   container: {
-    alignItems: 'center', // Centers child elements horizontally
+    alignItems: 'center',
   },
 
   logo: {
-    width: '50%',          // Takes up 50% of screen width for responsiveness
-    aspectRatio: 2,        // Maintains width/height ratio
-    maxWidth: 250,         // Prevents logo from getting too large on tablets
-    maxHeight: 120,        // Prevents distortion in landscape mode
+    width: '50%',
+    aspectRatio: 2,
+    maxWidth: 250,
+    maxHeight: 120,
     marginBottom: 25,
-    resizeMode: 'contain', // Keeps aspect ratio intact
+    resizeMode: 'contain',
   },
 
   textWrapper: {
-    alignItems: 'center',  // Centers title/subtitle horizontally
+    alignItems: 'center',
     marginBottom: 15,
   },
 
   title: {
-    fontSize: 24,          // Large readable heading
-    fontWeight: '700',
+    fontSize: 24,
     marginBottom: 5,
     color: Colors.title,
+    fontFamily: fonts.BOLD,
   },
 
   subtitle: {
-    fontSize: 16,          // Subheading with readable size
+    fontSize: 16,
     textAlign: 'center',
     color: Colors.subTitle,
+    fontFamily: fonts.REGULAR,
   },
 
   signUpForm: {
-    width: '100%',         // Takes full width to ensure responsiveness
+    width: '100%',
     alignItems: 'center',
     marginTop: 15,
   },
 
   inputWrapper: {
-    width: '100%',         // Makes inputs responsive to screen width
-    flexDirection: 'row',  // Icon + input field inline
+    width: '100%',
+    flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#F2F2F2',
     borderRadius: 12,
@@ -63,21 +65,22 @@ export const styles = StyleSheet.create({
   },
 
   input: {
-    flex: 1,               // Expands to fill available space beside icon
+    flex: 1,
     fontSize: 16,
     color: Colors.black,
+    fontFamily: fonts.REGULAR,
   },
 
   icon: {
-    marginRight: 8,        // Space between icon and input
+    marginRight: 8,
   },
 
   rightIcon: {
-    marginLeft: 8,         // Space between input and eye icon
+    marginLeft: 8,
   },
 
   signUpButton: {
-    width: '100%',         // Full width button for tap-friendly UI
+    width: '100%',
     backgroundColor: Colors.primary,
     borderRadius: 15,
     paddingVertical: 15,
@@ -88,8 +91,8 @@ export const styles = StyleSheet.create({
 
   signUpText: {
     color: Colors.backGround,
-    fontWeight: 'bold',
     fontSize: 16,
+    fontFamily: fonts.BOLD,
   },
 
   error: {
@@ -98,23 +101,25 @@ export const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     marginBottom: 5,
     marginLeft: 5,
+    fontFamily: fonts.REGULAR,
   },
 
   bottomTextWrapper: {
     flexDirection: 'row',
-    flexWrap: 'wrap',      // Ensures text wraps on smaller screens
+    flexWrap: 'wrap',
     justifyContent: 'center',
   },
 
   bottomText: {
     color: Colors.subTitle,
     fontSize: 14,
+    fontFamily: fonts.REGULAR,
   },
 
   login: {
     color: Colors.title,
-    fontWeight: 'bold',
     fontSize: 14,
     textDecorationLine: 'underline',
+    fontFamily: fonts.BOLD,
   },
 });

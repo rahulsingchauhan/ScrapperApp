@@ -48,7 +48,10 @@ const DetailsScreen = ({ route , navigation }) => {
     coordinate={{ latitude: 40.785091, longitude: -73.968285 }}
     title="Grand Park"
     description="New York"
-  />
+  >
+          <Image source={ImageIndex.location}   style={{ width: 40, height: 40 }}  />
+
+    </Marker>
 </MapView>
       {/* Action Buttons */}
       <View style={styles.buttonRow}>

@@ -14,6 +14,7 @@ import screenNames from '../../utils/screenName';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Colors from '../../theme/colors';
 import CustomHeader from '../../components/Header/CustomHeader ';
+import { useNavigation } from '@react-navigation/native';
 
 
 
@@ -26,10 +27,10 @@ const debounce = (func, delay) => {
   };
 };
 
-const HomeScreen = ({navigation}) => {
+const HomeScreen = () => {
   // Active tab: '0' = Active Listings, '1' = Past Listings
   const [active, setActive] = useState('0');
-
+const navigation = useNavigation()
   // State for search query and filtered result
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredData, setFilteredData] = useState([]);
@@ -130,6 +131,7 @@ const HomeScreen = ({navigation}) => {
         <PrimaryButton
           title="Active Listing"
           width="47%"
+          paddingVertical={10}
           onPress={() => {
             setActive('0');
             setFilteredData([]);
@@ -141,6 +143,7 @@ const HomeScreen = ({navigation}) => {
         <PrimaryButton
           title="Past Listing"
           width="47%"
+            paddingVertical={10}
           onPress={() => {
             setActive('1');
             setFilteredData([]);
