@@ -10,6 +10,7 @@ import { DrawerContentScrollView } from '@react-navigation/drawer';
 import { ImageIndex } from '../../assets/ImageIndex';
 import screenNames from '../../utils/screenName';
 import Colors from '../../theme/colors';
+import fonts from '../../utils/fonts';
 
 const DrawerItem = ({ icon, label, onPress }) => (
   <TouchableOpacity style={styles.item} onPress={onPress}>
@@ -60,10 +61,12 @@ const CustomDrawer = ({ navigation }) => {
       </DrawerContentScrollView>
 
       {/* Logout */}
-      <TouchableOpacity style={styles.logout} onPress={() => navigation.navigate(screenNames.AUTH.LOGIN)}>
+      <TouchableOpacity
+        style={styles.logout}
+        onPress={() => navigation.navigate(screenNames.AUTH.LOGIN)}
+      >
         <Image source={ImageIndex.logout} style={styles.icon} />
         <Text style={styles.logoutText}>Log Out</Text>
-        
       </TouchableOpacity>
     </View>
   );
@@ -72,7 +75,7 @@ const CustomDrawer = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.backGround,
     overflow: 'hidden',
   },
   logoContainer: {
@@ -87,7 +90,7 @@ const styles = StyleSheet.create({
   item: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 14,
+    paddingVertical: 10,
     paddingHorizontal: 4,
   },
   icon: {
@@ -104,6 +107,7 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 18,
     color: Colors.black,
+    fontFamily: fonts.MEDIUM,
   },
   logout: {
     flexDirection: 'row',
@@ -111,11 +115,13 @@ const styles = StyleSheet.create({
     padding: 16,
     borderTopWidth: 1,
     borderColor: '#f0f0f0',
+    marginBottom: 40,
   },
   logoutText: {
     fontSize: 18,
-    color: '#FF5A3C',
+    color: Colors.black,
     marginLeft: 16,
+    fontFamily: fonts.MEDIUM,
   },
 });
 

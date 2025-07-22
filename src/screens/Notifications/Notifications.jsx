@@ -6,10 +6,10 @@ import {
   Switch,
 } from 'react-native';
 import { styles } from './Styles.jsx';
-import screenNames from '../../utils/screenName';
 import CustomHeader from '../../components/Header/CustomHeader ';
 import { ImageIndex } from '../../assets/ImageIndex';
 import PrimaryButton from '../../components/Buttons/PrimaryButton.jsx';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Notifications = ({ navigation }) => {
   const [generalNotification, setGeneralNotification] = useState(true);
@@ -18,64 +18,74 @@ const Notifications = ({ navigation }) => {
   const [appUpdates, setAppUpdates] = useState(true);
 
   return (
-    <View style={{ flex: 1 }}>
-      <CustomHeader
+ 
+     
+
+      <SafeAreaView style={styles.container}>
+         <CustomHeader
         title="Notifications"
         onPress={() => navigation.goBack()}
-        backIcon={ImageIndex.back}
+        Icon={ImageIndex.back}
       />
-
-      <View style={styles.container}>
         <ScrollView
           contentContainerStyle={styles.scrollContent}
           showsVerticalScrollIndicator={false}
         >
-          <View style={styles.switchWrapper}>
-            <View style={styles.switchRow}>
-              <Text style={styles.label}>General Notification</Text>
-              <Switch
-                value={generalNotification}
-                onValueChange={setGeneralNotification}
-                thumbColor={generalNotification ? '#fff' : '#fff'}
-                trackColor={{ false: '#ccc', true: '#FF5722' }}
-              />
-            </View>
+        <View style={styles.switchWrapper}>
+  <View style={styles.switchRow}>
+    <Text style={styles.label}>General Notification</Text>
+    <View style={{ transform: [{ scaleX: 1.4 }, { scaleY: 1.2 }] }}>
+      <Switch
+        value={generalNotification}
+        onValueChange={setGeneralNotification}
+        thumbColor={generalNotification ? '#fff' : '#fff'}
+        trackColor={{ false: '#ccc', true: '#FF5722' }}
+      />
+    </View>
+  </View>
 
-            <View style={styles.switchRow}>
-              <Text style={styles.label}>Sound</Text>
-              <Switch
-                value={sound}
-                onValueChange={setSound}
-                thumbColor={sound ? '#fff' : '#fff'}
-                trackColor={{ false: '#ccc', true: '#FF5722' }}
-              />
-            </View>
+  <View style={styles.switchRow}>
+    <Text style={styles.label}>Sound</Text>
+    <View style={{ transform: [{ scaleX: 1.4 }, { scaleY: 1.2 }] }}>
+      <Switch
+        value={sound}
+        onValueChange={setSound}
+        thumbColor={sound ? '#fff' : '#fff'}
+        trackColor={{ false: '#ccc', true: '#FF5722' }}
+      />
+    </View>
+  </View>
 
-            <View style={styles.switchRow}>
-              <Text style={styles.label}>Vibrate</Text>
-              <Switch
-                value={vibrate}
-                onValueChange={setVibrate}
-                thumbColor={vibrate ? '#fff' : '#fff'}
-                trackColor={{ false: '#ccc', true: '#FF5722' }}
-              />
-            </View>
+  <View style={styles.switchRow}>
+    <Text style={styles.label}>Vibrate</Text>
+    <View style={{ transform: [{ scaleX: 1.4 }, { scaleY: 1.2 }] }}>
+      <Switch
+        value={vibrate}
+        onValueChange={setVibrate}
+        thumbColor={vibrate ? '#fff' : '#fff'}
+        trackColor={{ false: '#ccc', true: '#FF5722' }}
+      />
+    </View>
+  </View>
 
-            <View style={styles.switchRow}>
-              <Text style={styles.label}>App Updates</Text>
-              <Switch
-                value={appUpdates}
-                onValueChange={setAppUpdates}
-                thumbColor={appUpdates ? '#fff' : '#fff'}
-                trackColor={{ false: '#ccc', true: '#FF5722' }}
-              />
-            </View>
-          </View>
+  <View style={styles.switchRow}>
+    <Text style={styles.label}>App Updates</Text>
+    <View style={{ transform: [{ scaleX: 1.4 }, { scaleY: 1.2 }] }}>
+      <Switch
+        value={appUpdates}
+        onValueChange={setAppUpdates}
+        thumbColor={appUpdates ? '#fff' : '#fff'}
+        trackColor={{ false: '#ccc', true: '#FF5722' }}
+      />
+    </View>
+  </View>
+</View>
+
         </ScrollView>
 
         <PrimaryButton title="Submit" />
-      </View>
-    </View>
+      </SafeAreaView>
+ 
   );
 };
 

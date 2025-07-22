@@ -8,17 +8,18 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
-import { styles } from './Styles.jsx';
+import { styles } from './Styles.jsx'; 
 
 import { ImageIndex } from '../../assets/ImageIndex';
 import PrimaryButton from '../../components/Buttons/PrimaryButton.jsx';
 import CustomHeader from '../../components/Header/CustomHeader .jsx';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Help = ({ navigation }) => {
   const [message, setMessage] = useState('');
 
   return (
-    <View style={{ flex: 1, backgroundColor: 'white' }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
  <CustomHeader
         title="Help and Support"
         onPress={() => navigation.openDrawer()}
@@ -59,7 +60,7 @@ const Help = ({ navigation }) => {
 
         <PrimaryButton title="Submit" onPress={() => console.log(message)} />
       </KeyboardAvoidingView>
-    </View>
+    </SafeAreaView>
   );
 };
 

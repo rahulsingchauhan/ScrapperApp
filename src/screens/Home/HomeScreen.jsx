@@ -114,7 +114,6 @@ const navigation = useNavigation()
 
       {/* Header with drawer icon */}
     <CustomHeader
-  title="Home"
   onPress={ () => navigation.openDrawer()}
   Icon={ImageIndex.primaryDrawerIcon}
 />
@@ -175,12 +174,13 @@ const navigation = useNavigation()
       </View>
 
       {/* Floating action button to post new scrap */}
-      <TouchableOpacity
-        style={styles.fab}
-        onPress={() => navigation.navigate(screenNames.APP.POSTSCRAP)}
-      >
-        <Text style={styles.fabIcon}>+</Text>
-      </TouchableOpacity>
+   <TouchableOpacity
+  style={styles.fab}
+  onPress={() => navigation.navigate(screenNames.APP.POSTSCRAP)}
+>
+  <Image source={ImageIndex.plus} style={styles.fabImage} />
+</TouchableOpacity>
+
     </SafeAreaView>
   );
 };

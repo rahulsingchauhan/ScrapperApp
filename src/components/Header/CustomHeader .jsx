@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import Colors from '../../theme/colors';
 import { ImageIndex } from '../../assets/ImageIndex';
+import fonts from '../../utils/fonts';
 
 const { width } = Dimensions.get('window');
 
@@ -55,6 +56,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000',
     textAlign: 'center',
+    fontFamily : fonts.BOLD
   },
 });
 

@@ -1,5 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native';
 import Colors from '../../theme/colors';
+import fonts from '../../utils/fonts';
 
 const { width } = Dimensions.get('window');
 
@@ -8,34 +9,42 @@ export const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 16,
     paddingTop: 10,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: Colors.backGround,
   },
+
   scrollContent: {
     flexGrow: 1,
     paddingBottom: 24,
   },
+
   imageView: {
-    alignItems: 'center', },
+    alignItems: 'center',
+  },
+
   helpImage: {
     width: width * 0.8,
     height: 350,
- 
   },
+
   inputView: {
     borderWidth: 1.5,
-    borderColor: '#f15b41',
+    borderColor: Colors.primary,
     borderRadius: 12,
     padding: 20,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.backGround,
   },
+
   label: {
-    color: '#f15b41',
+    color: Colors.primary,
     fontWeight: 'bold',
+    fontFamily: fonts.BOLD,
     fontSize: 16,
   },
+
   textInput: {
     fontSize: 15,
-    color: '#000',
+    fontFamily: fonts.REGULAR,
+    color: Colors.black,
     minHeight: 100,
   },
 });

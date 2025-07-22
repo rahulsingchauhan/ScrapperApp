@@ -1,4 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
+import Colors from '../../theme/colors';
 
 const { width } = Dimensions.get('window');
 
@@ -7,7 +8,7 @@ export const styles = StyleSheet.create({
     flexGrow: 1,
     paddingBottom: 24,
     paddingHorizontal: 16,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: Colors.backGround,
   },
   illustrator: {
     alignItems: 'center',
@@ -24,16 +25,16 @@ export const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: 'bold',
     marginBottom: 8,
-    color: '#000',
+    color: Colors.black,
   },
   subText: {
     fontSize: 15,
-    color: '#666',
+    color: Colors.subTitle,
     marginBottom: 16,
   },
   paragraph: {
     fontSize: 14,
-    color: '#444',
+     color: Colors.subTitle,
     marginBottom: 12,
     lineHeight: 22,
   },

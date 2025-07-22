@@ -62,14 +62,15 @@ const PostScrapItem = ({ navigation }) => {
   };
 
   return (
-    <View style={{ flex: 1 }}>
-      <CustomHeader
+
+    
+      <View style={styles.container}>
+          <CustomHeader
         onPress={() => navigation.goBack()}
         Icon={ImageIndex.back}
         title="Post Scrap Item"
       />
 
-      <View style={styles.container}>
         <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
           <View style={styles.scrapView}>
             {/* Upload Image */}
@@ -207,7 +208,7 @@ const PostScrapItem = ({ navigation }) => {
           </TouchableOpacity>
         </BottomSheetModal>
       </View>
-    </View>
+    
   );
 };
 

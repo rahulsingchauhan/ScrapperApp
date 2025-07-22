@@ -135,23 +135,12 @@ export const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 30,
     right: 20,
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    backgroundColor: Colors.primary,
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
-    elevation: 5,
   },
 
-  fabIcon: {
-    fontSize: 50,
-    lineHeight: 80,
-    color: '#fff',
-    
-  },
+  fabImage: {
+  width: 60,
+  height: 60,
+  resizeMode: 'contain',
+  
+},
 });

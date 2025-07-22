@@ -4,14 +4,14 @@ import PrimaryButton from '../../components/Buttons/PrimaryButton';
 import { ImageIndex } from '../../assets/ImageIndex'; 
 import { styles } from './Styles';
 import MapView, { Marker } from 'react-native-maps';
-import screenNames from '../../utils/screenName';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Colors from '../../theme/colors';
 
 const DetailsScreen = ({ route , navigation }) => {
   const { data } = route.params;
 
   return (
-    <SafeAreaView style={{ flex: 1 }} >
+    
     <View style={styles.container}>
       {/* Product Image */}
       <Image source={data.image} style={styles.image} />
@@ -57,21 +57,21 @@ const DetailsScreen = ({ route , navigation }) => {
       <View style={styles.buttonRow}>
         <PrimaryButton
           title="Decline"
-          backgroundColor="red"
+          backgroundColor={Colors.red}
           width="45%"
           textColor="#fff"
           onPress={() => navigation.goBack()}
         />
         <PrimaryButton
           title="Accept"
-          backgroundColor="green"
+          backgroundColor={Colors.green}
           width="45%"
           textColor="#fff"
           onPress={() => navigation.goBack()}
         />
       </View>
     </View>
-    </SafeAreaView>
+  
   );
 };
 

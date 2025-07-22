@@ -27,4 +27,5 @@ export const ImageIndex = {
   helpIlustrator:require('./images/HelpIlustrator.png'),
   termsIlustrator:require('./images/TermsAndCondition.png'),
    car:require('./images/car.png'),
+   plus:require('./images/Plus.png')
 };
