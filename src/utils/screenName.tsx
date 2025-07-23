@@ -3,8 +3,8 @@ const screenNames = {
     LOGIN: 'Login',
     SIGNUP: 'SignUp',
     FORGET_PASSWORD: 'ForgetPassword',
-    EMAIL_OTP : 'EmailOtp',
-    NEW_PASSWORD : 'NewPassword'
+    EMAIL_OTP: 'EmailOtp',
+    NEW_PASSWORD: 'NewPassword',
   },
   ONBOARDING: {
     SPLASH: 'Splash',
@@ -16,20 +16,21 @@ const screenNames = {
     MAIN_DRAWER: 'MainDrawer',
     HOMESCREEN: 'Home',
     DETAILSCREEN: 'Details',
-    POSTSCRAP: 'PostScrap'
-    
+    POSTSCRAP: 'PostScrap',
+      PAST_LISTING: 'PastListing'
   },
-  DRAWER:{
-SUBSCRIPTION: 'Subscription',
-CHANGE_PASSWORD: 'ChangePassword',
-NOTIFICATION: 'Notification',
-LEGAL_AND_POLICIES: 'Legal',
-HELP_AND_SUPPORT: 'Help',
-  },  
-COMPONENT:{
-MODAL: 'Modal',
+  
+  DRAWER: {
+    SUBSCRIPTION: 'Subscription',
+    CHANGE_PASSWORD: 'ChangePassword',
+    NOTIFICATION: 'Notification',
+    LEGAL_AND_POLICIES: 'Legal',
+    HELP_AND_SUPPORT: 'Help',
+  },
 
-}
+  COMPONENT: {
+    MODAL: 'Modal',
+  },
 };
 
 export default screenNames;

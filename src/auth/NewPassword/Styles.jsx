@@ -5,7 +5,7 @@ import fonts from '../../utils/fonts';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 16,
+    paddingHorizontal: 18,
     backgroundColor: 'white',
   },
 
@@ -14,7 +14,9 @@ export const styles = StyleSheet.create({
   },
 
   titleView: {
+    paddingHorizontal: 10,
     marginBottom: 40,
+    marginTop:20,
     gap: 8,
   },
 
@@ -34,9 +36,9 @@ export const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F2F2F2',
-    borderRadius: 12,
-    paddingHorizontal: 18,
+    backgroundColor: Colors.input,
+    borderRadius: 30,
+    paddingHorizontal: 25,
     height: 60,
     marginBottom: 18,
   },
@@ -44,7 +46,7 @@ export const styles = StyleSheet.create({
   input: {
     flex: 1,
     fontSize: 17,
-    color: '#000',
+    color: Colors.black,
     fontFamily: fonts.REGULAR,
   },
 

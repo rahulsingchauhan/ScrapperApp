@@ -5,29 +5,31 @@ import {
   Image,
   TouchableOpacity,
   StyleSheet,
-  Platform,
-  StatusBar,
   Dimensions,
 } from 'react-native';
-import Colors from '../../theme/colors';
-import { ImageIndex } from '../../assets/ImageIndex';
 import fonts from '../../utils/fonts';
+import Colors from '../../theme/colors';
 
 const { width } = Dimensions.get('window');
 
-const CustomHeader = ({ title, onPress, Icon ,  }) => {
+const CustomHeader = ({ title, onPress, Icon, backgroundColor = 'white', style }) => {
   return (
-    <View style={styles.headerContainer}>
-      <TouchableOpacity onPress={onPress} style={styles.backButton}>
+    <View style={[styles.headerContainer, { backgroundColor }, style]}>
+      
+      {/* Left Icon */}
+      <TouchableOpacity onPress={onPress} style={styles.sideButton}>
         {Icon ? (
-          <Image source={Icon} style={styles.backIcon} resizeMode="contain" />
+          <Image source={Icon} style={styles.Icon} resizeMode="contain" />
         ) : null}
       </TouchableOpacity>
 
-      <Text style={styles.headerTitle}>{title}</Text>
+      {/* Title */}
+      <Text style={styles.headerTitle} numberOfLines={1}>
+        {title || ''}
+      </Text>
 
-      {/* Invisible View to balance layout */}
-      <View style={styles.backButton} />
+      {/* Right Spacer (for symmetry) */}
+      <View style={styles.sideButton} />
     </View>
   );
 };
@@ -37,26 +39,25 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: 'white',
-    marginTop:20
-   
+    paddingVertical: 12,
+    zIndex: 10,
   },
-  backButton: {
+  sideButton: {
     width: 40,
     height: 40,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  backIcon: {
+  Icon: {
     width: 22,
     height: 22,
   },
   headerTitle: {
+    flex: 1,
     fontSize: width * 0.05,
-    fontWeight: '600',
-    color: '#000',
+    fontFamily: fonts.BOLD,
+    color: Colors.black,
     textAlign: 'center',
-    fontFamily : fonts.BOLD
   },
 });
 

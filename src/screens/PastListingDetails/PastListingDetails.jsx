@@ -1,12 +1,14 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, ScrollView } from 'react-native';
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
 import { ImageIndex } from '../../assets/ImageIndex'; 
 import { styles } from './Styles';
 import MapView, { Marker } from 'react-native-maps';
 import Colors from '../../theme/colors';
+import CustomHeader from '../../components/Header/CustomHeader ';
 
-const DetailsScreen = ({ route , navigation }) => {
+
+const PastListingDetails = ({ route , navigation }) => {
   const { data } = route.params;
 
   return (
@@ -14,8 +16,35 @@ const DetailsScreen = ({ route , navigation }) => {
     <View style={styles.container}>
      
       <Image source={data.image} style={styles.image} />
+      <View style={styles.wrapper}>
 
-    
+        {/* ✅ Custom Header */}
+        <View style={styles.headerView}>
+          <CustomHeader
+            onPress={() => navigation.goBack()}
+            Icon={ImageIndex.back}
+            backgroundColor='transparent'
+          />
+        </View>
+
+        {/* ✅ Content View */}
+        <View style={styles.content}>
+          <Text style={styles.title}>{data.title}</Text>
+          <Text style={styles.subtitle}>{data.category}</Text>
+
+          <View style={styles.timeRow}>
+            <Image source={ImageIndex.clock} style={styles.timeIcon} />
+            <Text style={styles.timeText}>{data.time}</Text>
+          </View>
+        </View>
+      </View>
+
+     <ScrollView
+            contentContainerStyle={styles.scrollContent}
+            showsVerticalScrollIndicator={false}
+            
+          >
+            
       <View style={styles.section}>
         <Text style={styles.heading}>Description</Text>
         <Text style={styles.description}>
@@ -52,26 +81,20 @@ const DetailsScreen = ({ route , navigation }) => {
 
     </Marker>
 </MapView>
-      {/* Action Buttons */}
+
+ </ScrollView>
       <View style={styles.buttonRow}>
         <PrimaryButton
-          title="Decline"
-          backgroundColor={Colors.red}
-          width="45%"
+          title="Submit"
+          backgroundColor={Colors.primary}
           textColor="#fff"
           onPress={() => navigation.goBack()}
         />
-        <PrimaryButton
-          title="Accept"
-          backgroundColor={Colors.green}
-          width="45%"
-          textColor="#fff"
-          onPress={() => navigation.goBack()}
-        />
+    
       </View>
     </View>
   
   );
 };
 
-export default DetailsScreen;
+export default PastListingDetails;

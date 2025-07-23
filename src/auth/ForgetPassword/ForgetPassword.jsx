@@ -14,7 +14,7 @@ const ForgetPassword = ({ navigation }) => {
       
         onPress={() => navigation.goBack()}
         Icon={ImageIndex.back}
-      />{' '}
+      />
       {/* Scrollable content section – keeps layout scrollable on smaller screens and in landscape */}
       <ScrollView
         contentContainerStyle={styles.scrollContent}

@@ -18,6 +18,7 @@ export const styles = StyleSheet.create({
   titleView: {
     marginBottom: 16,
     paddingHorizontal: 12,
+    paddingTop:12,
     gap: 8,
   },
 
@@ -50,7 +51,7 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 24,
     color: Colors.black,
-    backgroundColor: '#fff',
+    backgroundColor: '#E9E9E9',
     fontFamily: fonts.MEDIUM,
   },
 });

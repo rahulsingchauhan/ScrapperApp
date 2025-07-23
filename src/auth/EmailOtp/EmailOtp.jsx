@@ -5,7 +5,7 @@ import { ImageIndex } from '../../assets/ImageIndex';
 import CustomHeader from '../../components/Header/CustomHeader ';
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
 import screenNames from '../../utils/screenName';
-import Colors from '../../theme/colors'; 
+import Colors from '../../theme/colors';
 
 const EmailOtp = ({ navigation }) => {
   const [otp, setOtp] = useState(['', '', '', '']);
@@ -69,7 +69,7 @@ const EmailOtp = ({ navigation }) => {
               ref={inputs[index]}
               style={[
                 styles.otpInput,
-                focusedIndex === index && { backgroundColor: Colors.subTitle }
+                focusedIndex === index && { backgroundColor: Colors.backGround}
               ]}
               keyboardType="number-pad"
               maxLength={1}
@@ -86,7 +86,7 @@ const EmailOtp = ({ navigation }) => {
         title="Submit"
         onPress={() => {
           handleSubmit();
-          setOtp(['', '', '', '']); // Reset OTP inputs after submit
+          setOtp(['', '', '', '']); 
         }}
       />
     </View>

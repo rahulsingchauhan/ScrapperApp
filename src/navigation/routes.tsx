@@ -19,6 +19,7 @@ import Notifications from '../screens/Notifications/Notifications';
 import Help from '../screens/HelpAndSupport/Help';
 import LegalAndPolicies from '../screens/LegalAndPolicies/LegalAndPolicies';
 import BottomSheetModal from '../components/Modal/BottomSheetModal';
+import PastListingDetails from '../screens/PastListingDetails/PastListingDetails';
 
 export const routes = {
   StackNavigator: [
@@ -95,6 +96,10 @@ export const routes = {
       {
       name: screenNames.COMPONENT.MODAL,
       component: BottomSheetModal,
+    },
+         {
+      name: screenNames.APP.PAST_LISTING,
+      component: PastListingDetails,
     },
   ],
   DrawerNavigator: [

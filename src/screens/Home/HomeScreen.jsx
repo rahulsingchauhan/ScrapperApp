@@ -16,9 +16,7 @@ import Colors from '../../theme/colors';
 import CustomHeader from '../../components/Header/CustomHeader ';
 import { useNavigation } from '@react-navigation/native';
 
-
-
-// Debounce function to delay API/search calls until user stops typing
+// Debounce function
 const debounce = (func, delay) => {
   let timer;
   return (...args) => {
@@ -28,14 +26,11 @@ const debounce = (func, delay) => {
 };
 
 const HomeScreen = () => {
-  // Active tab: '0' = Active Listings, '1' = Past Listings
   const [active, setActive] = useState('0');
-const navigation = useNavigation()
-  // State for search query and filtered result
+  const navigation = useNavigation();
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredData, setFilteredData] = useState([]);
 
-  // Sample data for active listings
   const activeListings = [
     {
       title: 'Old Metal Pipes',
@@ -51,7 +46,6 @@ const navigation = useNavigation()
     },
   ];
 
-  // Sample data for past listings
   const pastListings = [
     {
       title: 'Broken Washing Machine',
@@ -67,10 +61,8 @@ const navigation = useNavigation()
     },
   ];
 
-  // Get current tab data based on `active` state
   const currentList = active === '0' ? activeListings : pastListings;
 
-  // Debounced search function to filter listing based on `title`
   const handleSearch = useMemo(
     () =>
       debounce((text) => {
@@ -82,18 +74,22 @@ const navigation = useNavigation()
     [active]
   );
 
-  // Called on every keystroke in search bar
   const onChangeSearch = (text) => {
     setSearchQuery(text);
     handleSearch(text);
   };
 
-  // Renders each card (listing)
   const renderCard = (item) => (
     <TouchableOpacity
       key={item.title}
       style={styles.card}
-      onPress={() => navigation.navigate('Details', { data: item })}
+      onPress={() => {
+        if (active === '0') {
+          navigation.navigate(screenNames.APP.DETAILSCREEN, { data: item });
+        } else {
+          navigation.navigate(screenNames.APP.PAST_LISTING, { data: item });
+        }
+      }}
     >
       <Image source={item.image} style={styles.cardImage} />
       <View style={styles.textContainer}>
@@ -108,24 +104,19 @@ const navigation = useNavigation()
   );
 
   return (
-    
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor={'#fff'} barStyle={'dark-content'} />
 
-      {/* Header with drawer icon */}
-    <CustomHeader
-  onPress={ () => navigation.openDrawer()}
-  Icon={ImageIndex.primaryDrawerIcon}
-/>
+      <CustomHeader
+        onPress={() => navigation.openDrawer()}
+        Icon={ImageIndex.primaryDrawerIcon}
+      />
 
-
-      {/* Welcome text */}
       <View style={styles.titleView}>
         <Text style={styles.title}>Hi, Ronaldo</Text>
         <Text style={styles.subTitle}>Welcome Back</Text>
       </View>
 
-      {/* Tab buttons to switch between Active & Past listings */}
       <View style={styles.buttonView}>
         <PrimaryButton
           title="Active Listing"
@@ -142,7 +133,7 @@ const navigation = useNavigation()
         <PrimaryButton
           title="Past Listing"
           width="47%"
-            paddingVertical={10}
+          paddingVertical={10}
           onPress={() => {
             setActive('1');
             setFilteredData([]);
@@ -153,7 +144,6 @@ const navigation = useNavigation()
         />
       </View>
 
-      {/* Search bar with debounced input */}
       <View style={styles.searchView}>
         <Image source={ImageIndex.search} style={styles.icon} />
         <TextInput
@@ -168,19 +158,16 @@ const navigation = useNavigation()
         </TouchableOpacity>
       </View>
 
-      {/* Listing cards based on tab and search */}
       <View>
         {(searchQuery.length > 0 ? filteredData : currentList).map(renderCard)}
       </View>
 
-      {/* Floating action button to post new scrap */}
-   <TouchableOpacity
-  style={styles.fab}
-  onPress={() => navigation.navigate(screenNames.APP.POSTSCRAP)}
->
-  <Image source={ImageIndex.plus} style={styles.fabImage} />
-</TouchableOpacity>
-
+      <TouchableOpacity
+        style={styles.fab}
+        onPress={() => navigation.navigate(screenNames.APP.POSTSCRAP)}
+      >
+        <Image source={ImageIndex.plus} style={styles.fabImage} />
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };

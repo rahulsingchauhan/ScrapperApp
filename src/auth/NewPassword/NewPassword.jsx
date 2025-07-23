@@ -31,14 +31,15 @@ const NewPassword = ({ navigation, onSubmit }) => {
   });
 
   return (
-    <SafeAreaView style={{ flex: 1 , backgroundColor:'#fff'}}>
-      <StatusBar />
+   
+     
+
+      <SafeAreaView style={styles.container}>
+         <StatusBar />
       <CustomHeader
         onPress={() => navigation.goBack()}
         Icon={ImageIndex.back}
       />
-
-      <View style={styles.container}>
         <ScrollView
           contentContainerStyle={styles.scrollContent}
           showsVerticalScrollIndicator={false}
@@ -126,8 +127,8 @@ const NewPassword = ({ navigation, onSubmit }) => {
           title="Submit"
           onPress={() => navigation.navigate(screenNames.APP.MAIN_DRAWER)}
         />
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
+  
   );
 };
 
