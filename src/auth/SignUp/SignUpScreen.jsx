@@ -16,6 +16,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { styles } from './Styles';
 import screenNames from '../../utils/screenName';
+import { ImageIndex } from '../../assets/ImageIndex';
 
 const SignUpScreen = ({ navigation }) => {
   const [secureText, setSecureText] = useState(true);
@@ -44,7 +45,7 @@ const SignUpScreen = ({ navigation }) => {
         >
           <View style={styles.container}>
             <Image
-              source={require('../../assets/images/LOGO.png')}
+              source={ImageIndex.splashLogo}
               style={styles.logo}
               resizeMode="contain"
             />

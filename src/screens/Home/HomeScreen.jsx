@@ -107,10 +107,13 @@ const HomeScreen = () => {
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor={'#fff'} barStyle={'dark-content'} />
 
-      <CustomHeader
-        onPress={() => navigation.openDrawer()}
-        Icon={ImageIndex.primaryDrawerIcon}
-      />
+   <CustomHeader
+  onPress={() => navigation.openDrawer()} // Left Icon
+  Icon={ImageIndex.primaryDrawerIcon}
+  rightIcon={ImageIndex.bellIcon}
+  onRightPress={() => navigation.navigate('NotificationScreen')} // Right Icon
+/>
+
 
       <View style={styles.titleView}>
         <Text style={styles.title}>Hi, Ronaldo</Text>
@@ -127,8 +130,8 @@ const HomeScreen = () => {
             setFilteredData([]);
             setSearchQuery('');
           }}
-          backgroundColor={active === '0' ? Colors.primary : 'white'}
-          textColor={active === '0' ? '#FFF' : 'black'}
+          backgroundColor={active === '0' ? Colors.primary : '#E5E5E5'}
+          textColor={active === '0'? '#FFF' : Colors.primary}
         />
         <PrimaryButton
           title="Past Listing"
@@ -139,8 +142,8 @@ const HomeScreen = () => {
             setFilteredData([]);
             setSearchQuery('');
           }}
-          backgroundColor={active === '1' ? Colors.primary : 'white'}
-          textColor={active === '1' ? '#FFF' : 'black'}
+          backgroundColor={active === '1' ? Colors.primary : '#E5E5E5'}
+          textColor={active === '1' ? '#FFF' : Colors.primary}
         />
       </View>
 

@@ -14,7 +14,7 @@ const ReadyToStart = ({ navigation }) => {
       {/* LOGO */}
       <View style={styles.logoContainer}>
         <Image
-          source={ImageIndex.logo}
+          source={ImageIndex.splashLogo}
           style={styles.logo}
           resizeMode="contain"
         />

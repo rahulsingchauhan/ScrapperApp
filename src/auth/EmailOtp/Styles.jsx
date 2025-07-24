@@ -1,7 +1,10 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet , Dimensions} from 'react-native';
 import Colors from '../../theme/colors';
 import fonts from '../../utils/fonts';
 
+
+
+const { width } = Dimensions.get('window');
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -53,5 +56,13 @@ export const styles = StyleSheet.create({
     color: Colors.black,
     backgroundColor: '#E9E9E9',
     fontFamily: fonts.MEDIUM,
+  },
+    imageView: {
+    alignItems: 'center',
+  },
+
+  helpImage: {
+    width: width * 0.8,
+    height: 350,
   },
 });

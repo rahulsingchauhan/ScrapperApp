@@ -12,7 +12,15 @@ import Colors from '../../theme/colors';
 
 const { width } = Dimensions.get('window');
 
-const CustomHeader = ({ title, onPress, Icon, backgroundColor = 'white', style }) => {
+const CustomHeader = ({
+  title,
+  onPress,
+  Icon,
+  backgroundColor = 'white',
+  style,
+  rightIcon,
+  onRightPress,
+}) => {
   return (
     <View style={[styles.headerContainer, { backgroundColor }, style]}>
       
@@ -28,8 +36,14 @@ const CustomHeader = ({ title, onPress, Icon, backgroundColor = 'white', style }
         {title || ''}
       </Text>
 
-      {/* Right Spacer (for symmetry) */}
-      <View style={styles.sideButton} />
+      {/* Right Icon */}
+      {rightIcon ? (
+        <TouchableOpacity onPress={onRightPress} style={styles.sideButton}>
+          <Image source={rightIcon} style={styles.Icon} resizeMode="contain" />
+        </TouchableOpacity>
+      ) : (
+        <View style={styles.sideButton} />
+      )}
     </View>
   );
 };
@@ -49,8 +63,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   Icon: {
-    width: 22,
-    height: 22,
+    width: 25,
+    height: 25,
   },
   headerTitle: {
     flex: 1,

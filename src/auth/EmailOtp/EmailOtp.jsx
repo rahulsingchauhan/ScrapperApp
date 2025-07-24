@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Text, View, ScrollView, TextInput, Alert, Keyboard } from 'react-native';
+import { Text, View, ScrollView, TextInput, Alert, Keyboard, Image } from 'react-native';
 import { styles } from './Styles';
 import { ImageIndex } from '../../assets/ImageIndex';
 import CustomHeader from '../../components/Header/CustomHeader ';
@@ -80,6 +80,13 @@ const EmailOtp = ({ navigation }) => {
             />
           ))}
         </View>
+        <View style={styles.imageView}>
+            <Image
+              source={ImageIndex.otpIlustrator}
+              style={styles.helpImage}
+              resizeMode="contain"
+            />
+          </View>
       </ScrollView>
 
       <PrimaryButton

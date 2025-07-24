@@ -50,7 +50,7 @@ const LoginScreen = ({navigation}) => {
           <SafeAreaView style={styles.container}>
             {/* LOGO */}
             <Image
-              source={ImageIndex.logo}
+              source={ImageIndex.splashLogo}
               style={styles.logo}
               resizeMode="contain"
             />

@@ -37,7 +37,7 @@ const Help = ({ navigation }) => {
           {/* 🧑‍💻 Support Image */}
           <View style={styles.imageView}>
             <Image
-              source={ImageIndex.helpIlustrator} // Replace with your actual image
+              source={ImageIndex.helpIlustrator}
               style={styles.helpImage}
               resizeMode="contain"
             />

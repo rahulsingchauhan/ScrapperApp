@@ -21,6 +21,7 @@ import LegalAndPolicies from '../screens/LegalAndPolicies/LegalAndPolicies';
 import BottomSheetModal from '../components/Modal/BottomSheetModal';
 import PastListingDetails from '../screens/PastListingDetails/PastListingDetails';
 
+
 export const routes = {
   StackNavigator: [
     {

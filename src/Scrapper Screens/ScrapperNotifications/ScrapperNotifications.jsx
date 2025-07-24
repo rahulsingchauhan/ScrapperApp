@@ -5,6 +5,8 @@ import { styles } from './Styles.jsx';
 import CustomHeader from '../../components/Header/CustomHeader .jsx';
 import { ImageIndex } from '../../assets/ImageIndex.js';
 
+
+
 const ScrapperNotifications = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>

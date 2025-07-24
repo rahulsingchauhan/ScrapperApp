@@ -31,6 +31,10 @@ const screenNames = {
   COMPONENT: {
     MODAL: 'Modal',
   },
+
+  SCRAPPER : {
+SCRAPPER_NOTIFICATION : 'ScrapperNotification'
+  },
 };
 
 export default screenNames;
