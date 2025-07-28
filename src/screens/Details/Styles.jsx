@@ -61,6 +61,7 @@ export const styles = StyleSheet.create({
     resizeMode: 'cover',
     borderRadius: 12,
     backgroundColor: '#eee',
+    
   },
 
   map: {
@@ -68,6 +69,7 @@ export const styles = StyleSheet.create({
     height: 150,
     borderRadius: 12,
     marginTop: 10,
+    
   },
 
   buttonRow: {

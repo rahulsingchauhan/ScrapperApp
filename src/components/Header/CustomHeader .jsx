@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     flex: 1,
-    fontSize: width * 0.05,
+    fontSize: width * 0.06,
     fontFamily: fonts.BOLD,
     color: Colors.black,
     textAlign: 'center',

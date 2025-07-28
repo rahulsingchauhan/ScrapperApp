@@ -67,6 +67,7 @@ const DetailsScreen = ({ route , navigation }) => {
           width="45%"
           textColor="#fff"
           onPress={() => navigation.goBack()}
+          
         />
       </View>
     </View>

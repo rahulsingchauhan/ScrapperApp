@@ -33,7 +33,7 @@ const screenNames = {
   },
 
   SCRAPPER : {
-SCRAPPER_NOTIFICATION : 'ScrapperNotification'
+SCRAPPER_NOTIFICATIONS : 'ScrapperNotification'
   },
 };
 

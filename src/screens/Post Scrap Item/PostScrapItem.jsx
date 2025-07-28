@@ -29,7 +29,7 @@ const PostScrapItem = ({ navigation }) => {
 
   const handleOpenCamera = async () => {
     try {
-      setImageModalVisible(false); // Close modal first
+      setImageModalVisible(false);
       setTimeout(async () => {
         const image = await ImagePicker.openCamera({
           width: 300,
@@ -46,7 +46,7 @@ const PostScrapItem = ({ navigation }) => {
 
   const handleOpenGallery = async () => {
     try {
-      setImageModalVisible(false); // Close modal first
+      setImageModalVisible(false);
       setTimeout(async () => {
         const image = await ImagePicker.openPicker({
           width: 300,
@@ -62,153 +62,164 @@ const PostScrapItem = ({ navigation }) => {
   };
 
   return (
-
-    
-      <View style={styles.container}>
-          <CustomHeader
+    <View style={styles.container}>
+      <CustomHeader
         onPress={() => navigation.goBack()}
         Icon={ImageIndex.back}
         title="Post Scrap Item"
       />
 
-        <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
-          <View style={styles.scrapView}>
-            {/* Upload Image */}
-            <TouchableOpacity style={styles.uploadBox} onPress={() => setImageModalVisible(true)}>
-              <Image source={ImageIndex.upload} style={styles.uploadIcon} />
-              <Text style={styles.uploadText}>Upload Image</Text>
+      <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
+        <View style={styles.scrapView}>
+          {/* Upload Image */}
+          <TouchableOpacity style={styles.uploadBox} onPress={() => setImageModalVisible(true)}>
+            <Image source={ImageIndex.upload} style={styles.uploadIcon} />
+            <Text style={styles.uploadText}>Upload Image</Text>
+          </TouchableOpacity>
+
+          {/* Item Name Input */}
+          <View style={styles.inputBox}>
+            <Text style={styles.inputLabel}>Item Name</Text>
+            <TextInput style={styles.input} placeholder="Enter item name" />
+          </View>
+
+          {/* Description */}
+          <View style={styles.inputBox}>
+            <Text style={styles.inputLabel}>Description</Text>
+            <TextInput
+              style={[styles.input, { height: 120, textAlignVertical: 'top' }]}
+              placeholder="Enter description"
+              multiline
+            />
+          </View>
+
+          {/* Category Dropdown */}
+          <View style={{ marginBottom: 16 }}>
+            <TouchableOpacity
+              style={styles.dropdownBox}
+              onPress={() => {
+                setIsCategoryOpen(!isCategoryOpen);
+                setIsAvailabilityOpen(false);
+              }}
+            >
+              <Text style={styles.dropdownText}>{selectedCategory}</Text>
+              <Image source={ImageIndex.downArrow} style={styles.dropdownIcon} />
             </TouchableOpacity>
 
-            {/* Item Name Input */}
-            <View style={styles.inputBox}>
-              <Text style={styles.inputLabel}>Item Name</Text>
-              <TextInput style={styles.input} placeholder="Enter item name" />
-            </View>
-
-            {/* Description */}
-            <View style={styles.inputBox}>
-              <Text style={styles.inputLabel}>Description</Text>
-              <TextInput
-                style={[styles.input, { height: 120, textAlignVertical: 'top' }]}
-                placeholder="Enter description"
-                multiline
-              />
-            </View>
-
-            {/* Category Dropdown */}
-            <View style={{ marginBottom: 16 }}>
-              <TouchableOpacity
-                style={styles.dropdownBox}
-                onPress={() => {
-                  setIsCategoryOpen(!isCategoryOpen);
-                  setIsAvailabilityOpen(false);
-                }}
-              >
-                <Text style={styles.dropdownText}>{selectedCategory}</Text>
-                <Image source={ImageIndex.downArrow} style={styles.dropdownIcon} />
-              </TouchableOpacity>
-
-              {isCategoryOpen &&
-                categoryOptions.map((option, index) => (
-                  <TouchableOpacity
-                    key={index}
-                    style={{
-                      paddingVertical: 10,
-                      paddingHorizontal: 12,
-                      backgroundColor: '#f0f0f0',
-                      borderBottomWidth: index !== categoryOptions.length - 1 ? 1 : 0,
-                      borderColor: '#ccc',
-                    }}
-                    onPress={() => {
-                      setSelectedCategory(option);
-                      setIsCategoryOpen(false);
-                    }}
-                  >
-                    <Text style={{ fontSize: 16, color: '#444' }}>{option}</Text>
-                  </TouchableOpacity>
-                ))}
-            </View>
-
-            {/* Location */}
-            <View style={styles.inputBox}>
-              <Text style={styles.inputLabel}>Location</Text>
-              <TextInput style={styles.input} placeholder="Enter location" />
-            </View>
-
-            {/* Map */}
-            <View style={styles.mapContainer}>
-              <MapView
-                style={styles.map}
-                initialRegion={{
-                  latitude: 28.6139,
-                  longitude: 77.209,
-                  latitudeDelta: 0.01,
-                  longitudeDelta: 0.01,
-                }}
-              >
-                <Marker coordinate={{ latitude: 28.6139, longitude: 77.209 }} title="Location" />
-              </MapView>
-            </View>
-
-            {/* Availability Dropdown */}
-            <View style={{ marginBottom: 16 }}>
-              <TouchableOpacity
-                style={styles.dropdownBox}
-                onPress={() => {
-                  setIsAvailabilityOpen(!isAvailabilityOpen);
-                  setIsCategoryOpen(false);
-                }}
-              >
-                <Text style={styles.dropdownText}>{selectedAvailability}</Text>
-                <Image source={ImageIndex.downArrow} style={styles.dropdownIcon} />
-              </TouchableOpacity>
-
-              {isAvailabilityOpen &&
-                availabilityOptions.map((option, index) => (
-                  <TouchableOpacity
-                    key={index}
-                    style={{
-                      paddingVertical: 10,
-                      paddingHorizontal: 12,
-                      backgroundColor: '#f0f0f0',
-                      borderBottomWidth: index !== availabilityOptions.length - 1 ? 1 : 0,
-                      borderColor: '#ccc',
-                    }}
-                    onPress={() => {
-                      setSelectedAvailability(option);
-                      setIsAvailabilityOpen(false);
-                    }}
-                  >
-                    <Text style={{ fontSize: 16, color: '#444' }}>{option}</Text>
-                  </TouchableOpacity>
-                ))}
-            </View>
+            {isCategoryOpen &&
+              categoryOptions.map((option, index) => (
+                <TouchableOpacity
+                  key={index}
+                  style={{
+                    paddingVertical: 14,
+                    paddingHorizontal: 18,
+                    backgroundColor: '#ffffff',
+                    borderBottomWidth: index !== categoryOptions.length - 1 ? 1 : 0,
+                    borderColor: '#eee',
+                    borderRadius: index === 0 ? 12 : index === categoryOptions.length - 1 ? 12 : 0,
+                    shadowColor: '#000',
+                    shadowOffset: { width: 0, height: 2 },
+                    shadowOpacity: 0.05,
+                    shadowRadius: 4,
+                    elevation: 2,
+                    marginBottom: index !== categoryOptions.length - 1 ? 10 : 0,
+                  }}
+                  onPress={() => {
+                    setSelectedCategory(option);
+                    setIsCategoryOpen(false);
+                  }}
+                >
+                  <Text style={{ fontSize: 16, color: '#333', fontWeight: '500' }}>{option}</Text>
+                </TouchableOpacity>
+              ))}
           </View>
-        </ScrollView>
 
-        {/* Submit Button */}
-        <PrimaryButton title="Submit" onPress={() => navigation.navigate(screenNames.APP.HOMESCREEN)} />
+          {/* Location */}
+          <View style={styles.inputBox}>
+            <Text style={styles.inputLabel}>Location</Text>
+            <TextInput style={styles.input} placeholder="Enter location" />
+          </View>
 
-        {/* BottomSheetModal for Image Source */}
-        <BottomSheetModal visible={imageModalVisible} onClose={() => setImageModalVisible(false)} >
-          <Text style={{ fontSize: 18, marginBottom: 20, textAlign: 'center' }}>Select Image Source</Text>
+          {/* Map */}
+          <View style={styles.mapContainer}>
+            <MapView
+              style={styles.map}
+              initialRegion={{
+                latitude: 28.6139,
+                longitude: 77.209,
+                latitudeDelta: 0.01,
+                longitudeDelta: 0.01,
+              }}
+            >
+              <Marker coordinate={{ latitude: 28.6139, longitude: 77.209 }} title="Location" />
+            </MapView>
+          </View>
 
-          <TouchableOpacity
-            style={{ padding: 12, backgroundColor: '#eee', borderRadius: 10, marginBottom: 10 }}
-            onPress={handleOpenCamera}
-          >
-            <Text style={{ fontSize: 16 }}>Camera</Text>
-          </TouchableOpacity>
+          {/* Availability Dropdown */}
+          <View style={{ marginBottom: 16 }}>
+            <TouchableOpacity
+              style={styles.dropdownBox}
+              onPress={() => {
+                setIsAvailabilityOpen(!isAvailabilityOpen);
+                setIsCategoryOpen(false);
+              }}
+            >
+              <Text style={styles.dropdownText}>{selectedAvailability}</Text>
+              <Image source={ImageIndex.downArrow} style={styles.dropdownIcon} />
+            </TouchableOpacity>
 
-          <TouchableOpacity
-            style={{ padding: 12, backgroundColor: '#eee', borderRadius: 10 }}
-            onPress={handleOpenGallery}
-          >
-            <Text style={{ fontSize: 16 }}>Gallery</Text>
-          </TouchableOpacity>
-        </BottomSheetModal>
-      </View>
-    
+            {isAvailabilityOpen &&
+              availabilityOptions.map((option, index) => (
+                <TouchableOpacity
+                  key={index}
+                  style={{
+                    paddingVertical: 14,
+                    paddingHorizontal: 18,
+                    backgroundColor: '#ffffff',
+                    borderBottomWidth: index !== availabilityOptions.length - 1 ? 1 : 0,
+                    borderColor: '#eee',
+                    borderRadius: index === 0 ? 12 : index === availabilityOptions.length - 1 ? 12 : 0,
+                    shadowColor: '#000',
+                    shadowOffset: { width: 0, height: 2 },
+                    shadowOpacity: 0.05,
+                    shadowRadius: 4,
+                    elevation: 2,
+                    marginBottom: index !== availabilityOptions.length - 1 ? 10 : 0,
+                  }}
+                  onPress={() => {
+                    setSelectedAvailability(option);
+                    setIsAvailabilityOpen(false);
+                  }}
+                >
+                  <Text style={{ fontSize: 16, color: '#333', fontWeight: '500' }}>{option}</Text>
+                </TouchableOpacity>
+              ))}
+          </View>
+        </View>
+      </ScrollView>
+
+      {/* Submit Button */}
+      <PrimaryButton title="Submit" onPress={() => navigation.navigate(screenNames.APP.HOMESCREEN)} />
+
+      {/* BottomSheetModal for Image Source */}
+      <BottomSheetModal visible={imageModalVisible} onClose={() => setImageModalVisible(false)}>
+        <Text style={{ fontSize: 18, marginBottom: 20, textAlign: 'center' }}>Select Image Source</Text>
+
+        <TouchableOpacity
+          style={{ padding: 12, backgroundColor: '#eee', borderRadius: 10, marginBottom: 10 }}
+          onPress={handleOpenCamera}
+        >
+          <Text style={{ fontSize: 16 }}>Camera</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={{ padding: 12, backgroundColor: '#eee', borderRadius: 10 }}
+          onPress={handleOpenGallery}
+        >
+          <Text style={{ fontSize: 16 }}>Gallery</Text>
+        </TouchableOpacity>
+      </BottomSheetModal>
+    </View>
   );
 };
 

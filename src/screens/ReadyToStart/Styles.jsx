@@ -17,12 +17,12 @@ export const styles = StyleSheet.create({
   // Logo Section
   logoContainer: {
     alignItems: 'center',
-    marginBottom: height * 0.12,
+    marginBottom: height * 0.05,
   },
   logo: {
     width: width * 0.3,
-    height: height * 0.075,
-    resizeMode: 'contain',
+    height: height * 0.12,
+    marginBottom: height * 0.07,
   },
 
   // Illustration Section
@@ -60,7 +60,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     width: '100%',
     paddingHorizontal: width * 0.012,
-    marginTop: height * 0.14,
+    marginTop: height * 0.08,
   },
 
   row: {

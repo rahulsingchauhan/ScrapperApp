@@ -111,7 +111,7 @@ const HomeScreen = () => {
   onPress={() => navigation.openDrawer()} // Left Icon
   Icon={ImageIndex.primaryDrawerIcon}
   rightIcon={ImageIndex.bellIcon}
-  onRightPress={() => navigation.navigate('NotificationScreen')} // Right Icon
+  onRightPress={() => navigation.navigate(screenNames.SCRAPPER.SCRAPPER_NOTIFICATIONS)} // Right Icon
 />
 
 
