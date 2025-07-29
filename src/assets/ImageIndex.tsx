@@ -29,6 +29,6 @@ export const ImageIndex = {
    car:require('./images/car.png'),
    plus:require('./images/Plus.png'),
    otpIlustrator:require('./images/otpIlust.png'),
-   bellIcon:require('./images/BellIcon.png'),
+  bellIcon:require('./images/BellIcon.png'),
    Scrappernotification:require('./images/NotificationIcon.png')
 };

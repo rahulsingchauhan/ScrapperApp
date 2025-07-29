@@ -13,7 +13,7 @@ import MapView, {
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
 import { ImageIndex } from '../../assets/ImageIndex';
 import { styles } from './Styles';
-
+import Colors from '../../theme/colors';
 
 const AcceptDecline = () => {
   const source = { latitude: 22.7196, longitude: 75.8577 };
@@ -35,30 +35,28 @@ const AcceptDecline = () => {
     })
   ).current;
 
-  // Animate car movement step-by-step
   useEffect(() => {
-  let index = 0;
+    let index = 0;
 
-  const interval = setInterval(() => {
-    index++;
-    if (index >= routeCoordinates.length) {
-      clearInterval(interval);
-      return;
-    }
+    const interval = setInterval(() => {
+      index++;
+      if (index >= routeCoordinates.length) {
+        clearInterval(interval);
+        return;
+      }
 
-    const nextCoord = routeCoordinates[index];
+      const nextCoord = routeCoordinates[index];
 
-    carPosition.timing({
-      latitude: nextCoord.latitude,
-      longitude: nextCoord.longitude,
-      duration: 1000,
-      useNativeDriver: false,
-    }).start();
-  }, 1500);
+      carPosition.timing({
+        latitude: nextCoord.latitude,
+        longitude: nextCoord.longitude,
+        duration: 1000,
+        useNativeDriver: false,
+      }).start();
+    }, 1500);
 
-  return () => clearInterval(interval);
-}, []);
-
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -80,18 +78,12 @@ const AcceptDecline = () => {
         <Marker coordinate={destination} title="Drop Location" />
 
         {/* Animated Car Marker */}
-        <Marker.Animated coordinate={carPosition}>
-          <Image
-            source={ImageIndex.car}
-            style={{ width: 100, height: 100, resizeMode: 'contain',  }}
-
-          />
-        </Marker.Animated>
+        <Marker.Animated coordinate={carPosition} image={ImageIndex.car} />
 
         {/* Route Polyline */}
         <Polyline
           coordinates={routeCoordinates}
-          strokeColor="#FF5722"
+          strokeColor={Colors.primary}
           strokeWidth={4}
         />
       </MapView>
@@ -110,25 +102,25 @@ const AcceptDecline = () => {
             <Text style={styles.itemSubtitle}>Metal Scrap</Text>
           </View>
         </View>
+      </View>
 
-        <View style={styles.buttonRow}>
-          <PrimaryButton
-            title="Decline"
-            onPress={() => {}}
-            backgroundColor="#FF3B30"
-            style={styles.buttonStyle}
-          />
-          <PrimaryButton
-            title="Pickup"
-            onPress={() => {}}
-            backgroundColor="#FF5722"
-            style={styles.buttonStyle}
-          />
-        </View>
+      {/* Buttons below the card */}
+      <View style={styles.buttonRowBelowCard}>
+        <PrimaryButton
+          title="Decline"
+          onPress={() => {}}
+          backgroundColor={Colors.red}
+          style={styles.buttonStyle}
+        />
+        <PrimaryButton
+          title="Pickup"
+          onPress={() => {}}
+          backgroundColor={Colors.primary}
+          style={styles.buttonStyle}
+        />
       </View>
     </View>
   );
 };
 
 export default AcceptDecline;
-

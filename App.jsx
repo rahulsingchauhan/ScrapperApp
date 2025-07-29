@@ -3,6 +3,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import StackNavigator from './src/navigation/StackNavigator';
 
+
 const App = () => {
   return (
     <View style={{ flex: 1, backgroundColor: '#FFFFFF', fontFamily: 'Poppins-Bold'}}>
@@ -13,6 +14,7 @@ const App = () => {
       <NavigationContainer>
         <StackNavigator />
       </NavigationContainer>
+  
     </View>
   );
 };
