@@ -119,7 +119,7 @@ export const styles = StyleSheet.create({
   login: {
     color: Colors.title,
     fontSize: 14,
-    textDecorationLine: 'underline',
+  
     fontFamily: fonts.BOLD,
   },
 });

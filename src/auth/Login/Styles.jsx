@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native';
 import fonts from '../../utils/fonts';
+import Colors from '../../theme/colors';
 
 export const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.backGround,
   },
 
   scrollWrapper: {
@@ -23,6 +24,7 @@ export const styles = StyleSheet.create({
     aspectRatio: 2,
     maxWidth: 250,
     maxHeight: 120,
+    marginTop: 20,
     marginBottom: 25,
     resizeMode: 'contain',
   },
@@ -34,17 +36,16 @@ export const styles = StyleSheet.create({
 
   title: {
     fontSize: 26,
-    fontWeight: '700',
+    fontFamily: fonts.BOLD,
     textAlign: 'center',
     marginBottom: 10,
-    fontFamily: 'Poppins-Bold',
   },
 
   subtitle: {
     fontSize: 17,
     textAlign: 'center',
-    color: '#999999',
-    fontFamily: 'Poppins-Regular',
+    color: Colors.subTitle,
+    fontFamily: fonts.REGULAR,
   },
 
   loginForm: {
@@ -57,7 +58,7 @@ export const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F2F2F2',
+    backgroundColor: Colors.input,
     borderRadius: 12,
     paddingHorizontal: 18,
     height: 60,
@@ -67,8 +68,8 @@ export const styles = StyleSheet.create({
   input: {
     flex: 1,
     fontSize: 17,
-    color: '#000',
-    fontFamily: 'Poppins-Regular',
+    color: Colors.black,
+    fontFamily: fonts.REGULAR,
   },
 
   icon: {
@@ -86,28 +87,11 @@ export const styles = StyleSheet.create({
   },
 
   forgetPasswordText: {
-    color: '#000',
+    color: Colors.black,
     fontSize: 15,
     fontWeight: '700',
     textDecorationLine: 'underline',
-    fontFamily: 'Poppins-Bold',
-  },
-
-  signInButton: {
-    width: '100%',
-    backgroundColor: '#FB5B2B',
-    borderRadius: 18,
-    paddingVertical: 18,
-    alignItems: 'center',
-    elevation: 5,
-    marginBottom: 25,
-  },
-
-  signInText: {
-    color: '#fff',
-    fontWeight: 'bold',
-    fontSize: 17,
-    fontFamily: 'Poppins-Bold',
+    fontFamily: fonts.BOLD,
   },
 
   bottomTextWrapper: {
@@ -118,26 +102,26 @@ export const styles = StyleSheet.create({
   },
 
   bottomText: {
-    color: '#999',
+    color: Colors.subTitle,
     fontSize: 15,
     marginRight: 4,
-    fontFamily: 'Poppins-Regular',
+    fontFamily: fonts.REGULAR,
   },
 
   signup: {
-    color: '#000',
+    color: Colors.black,
     fontWeight: 'bold',
     fontSize: 15,
-    fontFamily: 'Poppins-Bold',
+    fontFamily: fonts.BOLD,
   },
 
   orText: {
     fontWeight: 'bold',
     marginVertical: 16,
     fontSize: 17,
-    color: '#333',
+    color: Colors.black,
     textAlign: 'center',
-    fontFamily: 'Poppins-Bold',
+    fontFamily: fonts.BOLD,
   },
 
   googleIcon: {
@@ -148,7 +132,7 @@ export const styles = StyleSheet.create({
   },
 
   error: {
-    color: 'red',
+    color: Colors.red,
     fontSize: 13,
     alignSelf: 'flex-start',
     marginBottom: 8,

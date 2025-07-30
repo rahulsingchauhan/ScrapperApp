@@ -58,14 +58,14 @@ const DetailsScreen = ({ route , navigation }) => {
           title="Decline"
           backgroundColor={Colors.red}
           width="45%"
-          textColor="#fff"
+          textColor={Colors.backGround}
           onPress={() => navigation.goBack()}
         />
         <PrimaryButton
           title="Accept"
           backgroundColor={Colors.green}
           width="45%"
-          textColor="#fff"
+          textColor={Colors.backGround}
           onPress={() => navigation.goBack()}
           
         />

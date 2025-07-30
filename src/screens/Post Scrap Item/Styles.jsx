@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 10,
     paddingTop: 25,
-    backgroundColor: 'white',
+    backgroundColor: Colors.backGround,
     paddingBottom: 25,
   },
 
@@ -15,15 +15,19 @@ export const styles = StyleSheet.create({
     flexGrow: 1,
   },
 
+  scrapView: {
+    paddingBottom: 20,
+  },
+
   uploadBox: {
     alignItems: 'center',
     paddingVertical: 30,
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: Colors.input,
     borderStyle: 'dashed',
     borderRadius: 10,
     marginBottom: 20,
-    backgroundColor: Colors.input
+    backgroundColor: Colors.input,
   },
 
   uploadIcon: {
@@ -34,18 +38,17 @@ export const styles = StyleSheet.create({
 
   uploadText: {
     fontSize: 16,
-    color: '#888',
-    fontFamily: fonts.REGULAR,
+    color: Colors.subTitle,
+    fontFamily: fonts.BOLD,
   },
 
   inputBox: {
     marginBottom: 16,
- 
   },
 
   inputLabel: {
     fontSize: 14,
-    color: '#666',
+    color: Colors.subTitle,
     marginBottom: 4,
     fontFamily: fonts.REGULAR,
   },
@@ -69,7 +72,7 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 12,
     marginBottom: 16,
-        backgroundColor: Colors.input
+    backgroundColor: Colors.input,
   },
 
   dropdownText: {
@@ -84,6 +87,23 @@ export const styles = StyleSheet.create({
     tintColor: '#888',
   },
 
+  dropdownOption: {
+    paddingVertical: 14,
+    paddingHorizontal: 18,
+    backgroundColor: Colors.backGround,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+
+  dropdownOptionText: {
+    fontSize: 16,
+    color: '#333',
+    fontWeight: '500',
+  },
+
   mapContainer: {
     height: 150,
     borderRadius: 10,
@@ -93,5 +113,24 @@ export const styles = StyleSheet.create({
 
   map: {
     flex: 1,
+  },
+
+  imageSourceText: {
+    fontSize: 18,
+    marginBottom: 20,
+    textAlign: 'center',
+  },
+
+  imageSourceButton: {
+    padding: 12,
+    backgroundColor: '#eee',
+    borderRadius: 10,
+    marginBottom: 10,
+  },
+
+  imageSourceButtonLast: {
+    padding: 12,
+    backgroundColor: '#eee',
+    borderRadius: 10,
   },
 });

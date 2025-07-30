@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 15,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.backGround,
   },
 
   titleView: {
@@ -48,11 +48,11 @@ export const styles = StyleSheet.create({
   searchView: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: Colors.backGround,
     borderRadius: 20,
     paddingHorizontal: 15,
     paddingVertical: 10,
-    shadowColor: '#000',
+    shadowColor: Colors.black,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.05,
     shadowRadius: 10,
@@ -65,7 +65,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     fontSize: 16,
     marginLeft: 10,
-    color: '#000',
+    color: Colors.black,
     fontFamily: fonts.REGULAR,
   },
 
@@ -77,11 +77,11 @@ export const styles = StyleSheet.create({
 
   card: {
     flexDirection: 'row',
-    backgroundColor: '#fff',
+    backgroundColor: Colors.backGround,
     borderRadius: 20,
     padding: 15,
     marginTop: 16,
-    shadowColor: '#000',
+    shadowColor: Colors.black,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.05,
     shadowRadius: 4,
@@ -102,13 +102,13 @@ export const styles = StyleSheet.create({
 
   cardTitle: {
     fontSize: 16,
-    color: '#000',
+    color: Colors.black,
     fontFamily: fonts.BOLD,
   },
 
   cardCategory: {
     fontSize: 14,
-    color: '#F36A3E',
+    color: Colors.primary,
     marginVertical: 4,
     fontFamily: fonts.REGULAR,
   },
@@ -122,12 +122,12 @@ export const styles = StyleSheet.create({
     width: 16,
     height: 16,
     marginRight: 6,
-    tintColor: '#F36A3E',
+    tintColor: Colors.primary,
   },
 
   timeText: {
     fontSize: 14,
-    color: '#000',
+    color: Colors.black,
     fontFamily: fonts.REGULAR,
   },
 

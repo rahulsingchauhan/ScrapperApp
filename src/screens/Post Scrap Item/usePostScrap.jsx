@@ -1,14 +1,13 @@
-import { useState } from "react";
+import { useState } from 'react';
 import ImagePicker from 'react-native-image-crop-picker';
 
-const usePostScrap =()=>{
-
-
-
-     const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+const usePostScrap = () => {
+  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const [isAvailabilityOpen, setIsAvailabilityOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('Category');
-  const [selectedAvailability, setSelectedAvailability] = useState('Set Item Availability');
+  const [selectedAvailability, setSelectedAvailability] = useState(
+    'Set Item Availability',
+  );
   const [imageModalVisible, setImageModalVisible] = useState(false);
 
   const categoryOptions = ['Plastic', 'Metal', 'Electronics', 'Glass'];
@@ -48,13 +47,21 @@ const usePostScrap =()=>{
     }
   };
 
-
   return {
-handleOpenGallery,
-handleOpenCamera,
-isCategoryOpen,
-
-  }
-}
+    handleOpenGallery,
+    handleOpenCamera,
+    isCategoryOpen,
+    setIsCategoryOpen,
+    isAvailabilityOpen,
+    selectedCategory,
+    setSelectedCategory,
+    setIsAvailabilityOpen,
+    selectedAvailability,
+    setSelectedAvailability,
+    imageModalVisible,
+    categoryOptions,
+    availabilityOptions,
+  };
+};
 
 export default usePostScrap;

@@ -17,6 +17,7 @@ import * as Yup from 'yup';
 import { styles } from './Styles';
 import screenNames from '../../utils/screenName';
 import { ImageIndex } from '../../assets/ImageIndex';
+import Colors from '../../theme/colors';
 
 const SignUpScreen = ({ navigation }) => {
   const [secureText, setSecureText] = useState(true);
@@ -77,13 +78,13 @@ const SignUpScreen = ({ navigation }) => {
                     <Icon
                       name="account"
                       size={20}
-                      color="#999"
+                      color={Colors.subTitle}
                       style={styles.icon}
                     />
                     <TextInput
                       placeholder="Full Name"
                       style={styles.input}
-                      placeholderTextColor="#999"
+                      placeholderTextColor={Colors.subTitle}
                       onChangeText={handleChange('fullName')}
                       onBlur={handleBlur('fullName')}
                       value={values.fullName}
@@ -97,13 +98,13 @@ const SignUpScreen = ({ navigation }) => {
                     <Icon
                       name="email-outline"
                       size={20}
-                      color="#999"
+                      color={Colors.subTitle}
                       style={styles.icon}
                     />
                     <TextInput
                       placeholder="Email Address / Mobile number"
                       style={styles.input}
-                      placeholderTextColor="#999"
+                      placeholderTextColor={Colors.subTitle}
                       onChangeText={handleChange('email')}
                       onBlur={handleBlur('email')}
                       value={values.email}
@@ -117,14 +118,14 @@ const SignUpScreen = ({ navigation }) => {
                     <Feather
                       name="lock"
                       size={20}
-                      color="#999"
+                      color={Colors.subTitle}
                       style={styles.icon}
                     />
                     <TextInput
                       placeholder="Password"
                       secureTextEntry={secureText}
                       style={styles.input}
-                      placeholderTextColor="#999"
+                      placeholderTextColor={Colors.subTitle}
                       onChangeText={handleChange('password')}
                       onBlur={handleBlur('password')}
                       value={values.password}
@@ -136,7 +137,7 @@ const SignUpScreen = ({ navigation }) => {
                       <Feather
                         name={secureText ? 'eye-off' : 'eye'}
                         size={20}
-                        color="#999"
+                        color={Colors.subTitle}
                       />
                     </TouchableOpacity>
                   </View>

@@ -9,11 +9,12 @@ import { styles } from './Styles';
 import { ImageIndex } from '../../assets/ImageIndex';
 import CustomHeader from '../../components/Header/CustomHeader ';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Colors from '../../theme/colors';
 
 
 const LegalAndPolicies = ({ navigation }) => {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: Colors.backGround }}>
       <CustomHeader
         title="Legal & Policies"
         onPress={() => navigation.openDrawer()}

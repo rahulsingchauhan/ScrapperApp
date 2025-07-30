@@ -16,6 +16,7 @@ import CustomHeader from '../../components/Header/CustomHeader ';
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
 import screenNames from '../../utils/screenName';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Colors from '../../theme/colors';
 
 const NewPassword = ({ navigation, onSubmit }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -67,12 +68,12 @@ const NewPassword = ({ navigation, onSubmit }) => {
 
                   {/* Password */}
                   <View style={styles.inputWrapper}>
-                    <Feather name="lock" size={20} color="#999" style={styles.icon} />
+                    <Feather name="lock" size={20} color={Colors.subTitle} style={styles.icon} />
                     <TextInput
                       placeholder="Password"
                       secureTextEntry={!showPassword}
                       style={styles.input}
-                      placeholderTextColor="#999"
+                      placeholderTextColor={Colors.subTitle}
                       onChangeText={handleChange('password')}
                       onBlur={handleBlur('password')}
                       value={values.password}
@@ -84,7 +85,7 @@ const NewPassword = ({ navigation, onSubmit }) => {
                       <Feather
                         name={showPassword ? 'eye-off' : 'eye'}
                         size={20}
-                        color="#999"
+                        color={Colors.subTitle}
                       />
                     </TouchableOpacity>
                   </View>
@@ -94,9 +95,10 @@ const NewPassword = ({ navigation, onSubmit }) => {
 
                   {/* Confirm Password */}
                   <View style={styles.inputWrapper}>
-                    <Feather name="lock" size={20} color="#999" style={styles.icon} />
+                    <Feather name="lock" size={20} color={Colors.subTitle} style={styles.icon} />
                     <TextInput
                       placeholder="Confirm Password"
+                      placeholderTextColor={Colors.subTitle}
                       secureTextEntry={!showConfirm}
                       onChangeText={handleChange('confirmPassword')}
                       onBlur={handleBlur('confirmPassword')}
@@ -110,7 +112,7 @@ const NewPassword = ({ navigation, onSubmit }) => {
                       <Feather
                         name={showConfirm ? 'eye-off' : 'eye'}
                         size={20}
-                        color="#999"
+                        color={Colors.subTitle}
                       />
                     </TouchableOpacity>
                   </View>

@@ -105,7 +105,7 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar backgroundColor={'#fff'} barStyle={'dark-content'} />
+      <StatusBar backgroundColor={Colors.backGround} barStyle={'dark-content'} />
 
    <CustomHeader
   onPress={() => navigation.openDrawer()} // Left Icon
@@ -143,7 +143,7 @@ const HomeScreen = () => {
             setSearchQuery('');
           }}
           backgroundColor={active === '1' ? Colors.primary : '#E5E5E5'}
-          textColor={active === '1' ? '#FFF' : Colors.primary}
+          textColor={active === '1' ? Colors.backGround : Colors.primary}
         />
       </View>
 
@@ -152,7 +152,7 @@ const HomeScreen = () => {
         <TextInput
           style={styles.input}
           placeholder="Search"
-          placeholderTextColor="#000"
+          placeholderTextColor={Colors.black}
           value={searchQuery}
           onChangeText={onChangeSearch}
         />

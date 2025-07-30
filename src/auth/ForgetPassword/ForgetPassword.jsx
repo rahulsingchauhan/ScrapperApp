@@ -41,7 +41,7 @@ const ForgetPassword = ({ navigation }) => {
           </View>
         </View>
       </ScrollView>
-      {/* Sticky Bottom Button – always at bottom regardless of screen size or orientation */}
+     
       <PrimaryButton 
         title="Submit"
         onPress={() => navigation.navigate(screenNames.AUTH.EMAIL_OTP)}

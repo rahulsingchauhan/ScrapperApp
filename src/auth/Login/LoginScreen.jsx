@@ -20,10 +20,12 @@ import { styles } from './Styles';
 import screenNames from '../../utils/screenName';
 import { ImageIndex } from '../../assets/ImageIndex';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Colors from '../../theme/colors';
+import PrimaryButton from '../../components/Buttons/PrimaryButton';
 
 const { width } = Dimensions.get('window');
 
-const LoginScreen = ({navigation}) => {
+const LoginScreen = ({ navigation }) => {
   const [secureText, setSecureText] = useState(true);
 
   const LoginSchema = Yup.object().shape({
@@ -82,13 +84,13 @@ const LoginScreen = ({navigation}) => {
                     <Icon
                       name="email-outline"
                       size={20}
-                      color="#999"
+                      color={Colors.subTitle}
                       style={styles.icon}
                     />
                     <TextInput
                       placeholder="Email Address / Mobile number"
                       style={styles.input}
-                      placeholderTextColor="#999"
+                      placeholderTextColor={Colors.subTitle}
                       onChangeText={handleChange('email')}
                       onBlur={handleBlur('email')}
                       value={values.email}
@@ -103,14 +105,14 @@ const LoginScreen = ({navigation}) => {
                     <Feather
                       name="lock"
                       size={20}
-                      color="#999"
+                      color={Colors.subTitle}
                       style={styles.icon}
                     />
                     <TextInput
                       placeholder="Password"
                       secureTextEntry={secureText}
                       style={styles.input}
-                      placeholderTextColor="#999"
+                      placeholderTextColor={Colors.subTitle}
                       onChangeText={handleChange('password')}
                       onBlur={handleBlur('password')}
                       value={values.password}
@@ -122,7 +124,7 @@ const LoginScreen = ({navigation}) => {
                       <Feather
                         name={secureText ? 'eye-off' : 'eye'}
                         size={20}
-                        color="#999"
+                        color={Colors.subTitle}
                       />
                     </TouchableOpacity>
                   </View>
@@ -130,38 +132,44 @@ const LoginScreen = ({navigation}) => {
                     <Text style={styles.error}>{errors.password}</Text>
                   )}
 
-                  <TouchableOpacity style={styles.forgetPasswordButton} onPress={() =>
-                        navigation.navigate(screenNames.AUTH.FORGET_PASSWORD)
-                      }>
+                  <TouchableOpacity
+                    style={styles.forgetPasswordButton}
+                    onPress={() =>
+                      navigation.navigate(screenNames.AUTH.FORGET_PASSWORD)
+                    }
+                  >
                     <Text style={styles.forgetPasswordText}>
                       Forgot your password?
                     </Text>
                   </TouchableOpacity>
 
-                  {/* Sign In Button */}
-                  <TouchableOpacity
-                    style={styles.signInButton}
-                    // onPress={handleSubmit} API Calling ke Time Ye Wala Chalaenge
-                    onPress={() => navigation.navigate(screenNames.APP.MAIN_DRAWER)} // ye sirf abhi ke liye hai..
-
-                  >
-                    <Text style={styles.signInText}>Sign In</Text>
-                  </TouchableOpacity>
+                  <PrimaryButton // onPress={handleSubmit} API Calling ke Time Ye Wala Chalaenge
+                    title="Sign In"
+                    borderRadius={18}
+                    onPress={() =>
+                      navigation.navigate(screenNames.APP.MAIN_DRAWER)
+                    }
+                  />
 
                   <View style={styles.bottomTextWrapper}>
-                    <Text style={styles.bottomText}>Don’t have an account? </Text>
-                    <TouchableOpacity onPress={() => navigation.navigate(screenNames.AUTH.SIGNUP)}>
+                    <Text style={styles.bottomText}>
+                      Don’t have an account?{' '}
+                    </Text>
+                    <TouchableOpacity
+                      onPress={() =>
+                        navigation.navigate(screenNames.AUTH.SIGNUP)
+                      }
+                    >
                       <Text style={styles.signup}>Sign up</Text>
                     </TouchableOpacity>
                   </View>
 
-              
                   <Text style={styles.orText}>OR</Text>
 
                   {/* Google Icon */}
                   <TouchableOpacity>
                     <Image
-                      source={require('../../assets/icons/GoogleLogo.png')}
+                      source={ImageIndex.google}
                       style={styles.googleIcon}
                       resizeMode="contain"
                     />
@@ -177,4 +185,3 @@ const LoginScreen = ({navigation}) => {
 };
 
 export default LoginScreen;
-

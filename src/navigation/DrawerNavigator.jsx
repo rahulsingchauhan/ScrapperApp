@@ -6,6 +6,7 @@ import CustomDrawer from '../components/Drawer/CustomDrawer';
 import ChangePassword from '../screens/ChangePassword/ChangePassword';
 import Help from '../screens/HelpAndSupport/Help';
 import LegalAndPolicies from '../screens/LegalAndPolicies/LegalAndPolicies';
+import Notifications from '../screens/Notifications/Notifications';
 
 const Drawer = createDrawerNavigator();
 
@@ -25,6 +26,7 @@ const DrawerNavigator = () => {
       initialRouteName={screenNames.APP.HOMESCREEN}
     >
       <Drawer.Screen name={screenNames.APP.HOMESCREEN} component={HomeScreen} />
+         <Drawer.Screen name={screenNames.DRAWER.NOTIFICATION} component={Notifications}/>
        <Drawer.Screen name={screenNames.DRAWER.HELP_AND_SUPPORT} component={Help}/>
        <Drawer.Screen name={screenNames.DRAWER.CHANGE_PASSWORD} component={ChangePassword} />
 <Drawer.Screen name={screenNames.DRAWER.LEGAL_AND_POLICIES} component={LegalAndPolicies}/>

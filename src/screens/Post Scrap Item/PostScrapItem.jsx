@@ -94,7 +94,7 @@ const PostScrapItem = ({ navigation }) => {
           </View>
 
           {/* Category Dropdown */}
-          <View style={{ marginBottom: 16 }}>
+          <View style={styles.inputBox}>
             <TouchableOpacity
               style={styles.dropdownBox}
               onPress={() => {
@@ -110,26 +110,21 @@ const PostScrapItem = ({ navigation }) => {
               categoryOptions.map((option, index) => (
                 <TouchableOpacity
                   key={index}
-                  style={{
-                    paddingVertical: 14,
-                    paddingHorizontal: 18,
-                    backgroundColor: '#ffffff',
-                    borderBottomWidth: index !== categoryOptions.length - 1 ? 1 : 0,
-                    borderColor: '#eee',
-                    borderRadius: index === 0 ? 12 : index === categoryOptions.length - 1 ? 12 : 0,
-                    shadowColor: '#000',
-                    shadowOffset: { width: 0, height: 2 },
-                    shadowOpacity: 0.05,
-                    shadowRadius: 4,
-                    elevation: 2,
-                    marginBottom: index !== categoryOptions.length - 1 ? 10 : 0,
-                  }}
+                  style={[
+                    styles.dropdownOption,
+                    {
+                      borderBottomWidth: index !== categoryOptions.length - 1 ? 1 : 0,
+                      borderColor: '#eee',
+                      borderRadius: index === 0 ? 12 : index === categoryOptions.length - 1 ? 12 : 0,
+                      marginBottom: index !== categoryOptions.length - 1 ? 10 : 0,
+                    },
+                  ]}
                   onPress={() => {
                     setSelectedCategory(option);
                     setIsCategoryOpen(false);
                   }}
                 >
-                  <Text style={{ fontSize: 16, color: '#333', fontWeight: '500' }}>{option}</Text>
+                  <Text style={styles.dropdownOptionText}>{option}</Text>
                 </TouchableOpacity>
               ))}
           </View>
@@ -151,12 +146,12 @@ const PostScrapItem = ({ navigation }) => {
                 longitudeDelta: 0.01,
               }}
             >
-              <Marker coordinate={{ latitude: 28.6139, longitude: 77.209 }} title="Location" />
+              <Marker image={ImageIndex.locationTag} coordinate={{ latitude: 28.6139, longitude: 77.209 }} title="Location" />
             </MapView>
           </View>
 
           {/* Availability Dropdown */}
-          <View style={{ marginBottom: 16 }}>
+          <View style={styles.inputBox}>
             <TouchableOpacity
               style={styles.dropdownBox}
               onPress={() => {
@@ -172,51 +167,39 @@ const PostScrapItem = ({ navigation }) => {
               availabilityOptions.map((option, index) => (
                 <TouchableOpacity
                   key={index}
-                  style={{
-                    paddingVertical: 14,
-                    paddingHorizontal: 18,
-                    backgroundColor: '#ffffff',
-                    borderBottomWidth: index !== availabilityOptions.length - 1 ? 1 : 0,
-                    borderColor: '#eee',
-                    borderRadius: index === 0 ? 12 : index === availabilityOptions.length - 1 ? 12 : 0,
-                    shadowColor: '#000',
-                    shadowOffset: { width: 0, height: 2 },
-                    shadowOpacity: 0.05,
-                    shadowRadius: 4,
-                    elevation: 2,
-                    marginBottom: index !== availabilityOptions.length - 1 ? 10 : 0,
-                  }}
+                  style={[
+                    styles.dropdownOption,
+                    {
+                      borderBottomWidth: index !== availabilityOptions.length - 1 ? 1 : 0,
+                      borderColor: '#eee',
+                      borderRadius: index === 0 ? 12 : index === availabilityOptions.length - 1 ? 12 : 0,
+                      marginBottom: index !== availabilityOptions.length - 1 ? 10 : 0,
+                    },
+                  ]}
                   onPress={() => {
                     setSelectedAvailability(option);
                     setIsAvailabilityOpen(false);
                   }}
                 >
-                  <Text style={{ fontSize: 16, color: '#333', fontWeight: '500' }}>{option}</Text>
+                  <Text style={styles.dropdownOptionText}>{option}</Text>
                 </TouchableOpacity>
               ))}
           </View>
         </View>
       </ScrollView>
 
-      {/* Submit Button */}
       <PrimaryButton title="Submit" onPress={() => navigation.navigate(screenNames.APP.HOMESCREEN)} />
 
       {/* BottomSheetModal for Image Source */}
       <BottomSheetModal visible={imageModalVisible} onClose={() => setImageModalVisible(false)}>
-        <Text style={{ fontSize: 18, marginBottom: 20, textAlign: 'center' }}>Select Image Source</Text>
+        <Text style={styles.imageSourceText}>Select Image Source</Text>
 
-        <TouchableOpacity
-          style={{ padding: 12, backgroundColor: '#eee', borderRadius: 10, marginBottom: 10 }}
-          onPress={handleOpenCamera}
-        >
-          <Text style={{ fontSize: 16 }}>Camera</Text>
+        <TouchableOpacity style={styles.imageSourceButton} onPress={handleOpenCamera}>
+          <Text style={styles.dropdownText}>Camera</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          style={{ padding: 12, backgroundColor: '#eee', borderRadius: 10 }}
-          onPress={handleOpenGallery}
-        >
-          <Text style={{ fontSize: 16 }}>Gallery</Text>
+        <TouchableOpacity style={styles.imageSourceButtonLast} onPress={handleOpenGallery}>
+          <Text style={styles.dropdownText}>Gallery</Text>
         </TouchableOpacity>
       </BottomSheetModal>
     </View>

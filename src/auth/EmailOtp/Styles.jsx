@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 10,
     paddingTop: 25,
-    backgroundColor: 'white',
+    backgroundColor: Colors.backGround,
     paddingBottom: 25,
   },
 
@@ -54,7 +54,7 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 24,
     color: Colors.black,
-    backgroundColor: '#E9E9E9',
+    backgroundColor: Colors.input,
     fontFamily: fonts.MEDIUM,
   },
     imageView: {

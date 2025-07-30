@@ -87,7 +87,7 @@ const PastListingDetails = ({ route , navigation }) => {
         <PrimaryButton
           title="Submit"
           backgroundColor={Colors.primary}
-          textColor="#fff"
+          textColor= {Colors.backGround}
           onPress={() => navigation.goBack()}
         />
     

@@ -9,6 +9,7 @@ import {
   Platform,
   TouchableWithoutFeedback,
 } from 'react-native';
+import Colors from '../../theme/colors';
 
 const { height } = Dimensions.get('window');
 
@@ -115,14 +116,14 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   sheet: {
-    backgroundColor: '#fff',
+    backgroundColor: Colors.backGround,
     borderTopLeftRadius: 22,
     borderTopRightRadius: 22,
     paddingTop: 12,
     paddingBottom: Platform.OS === 'ios' ? 30 : 20,
     paddingHorizontal: 20,
     minHeight: 200,
-    shadowColor: '#000',
+    shadowColor: Colors.black,
     shadowOffset: { width: 0, height: -2 },
     shadowOpacity: 0.2,
     shadowRadius: 12,
