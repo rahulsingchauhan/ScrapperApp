@@ -15,27 +15,20 @@ import {
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Feather from 'react-native-vector-icons/Feather';
 import { Formik } from 'formik';
-import * as Yup from 'yup';
 import { styles } from './Styles';
 import screenNames from '../../utils/screenName';
 import { ImageIndex } from '../../assets/ImageIndex';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Colors from '../../theme/colors';
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
+import LoginSchema from '../../schema/LoginSchema';
 
 const { width } = Dimensions.get('window');
 
 const LoginScreen = ({ navigation }) => {
   const [secureText, setSecureText] = useState(true);
 
-  const LoginSchema = Yup.object().shape({
-    email: Yup.string()
-      .email('Invalid email')
-      .required('Email or mobile is required'),
-    password: Yup.string()
-      .min(6, 'Password must be at least 6 characters')
-      .required('Password is required'),
-  });
+
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>

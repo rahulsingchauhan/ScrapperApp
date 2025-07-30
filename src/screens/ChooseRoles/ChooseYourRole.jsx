@@ -44,6 +44,7 @@ const ChooseYourRole = ({ navigation }) => {
           style={styles.roleButton}
           onPress={() =>
             navigation.navigate(screenNames.ONBOARDING.READY_TO_START)
+            
           }>
           <Image source={ImageIndex.scrapper} style={styles.roleIcon} resizeMode="contain" />
           <Text style={styles.buttonText}>Scrapper</Text>

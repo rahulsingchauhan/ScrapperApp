@@ -1,47 +1,23 @@
-import React, { useRef, useState } from 'react';
-import { Text, View, ScrollView, TextInput, Alert, Keyboard, Image } from 'react-native';
+import React from 'react';
+import { Text, View, ScrollView, TextInput, Image } from 'react-native';
 import { styles } from './Styles';
 import { ImageIndex } from '../../assets/ImageIndex';
 import CustomHeader from '../../components/Header/CustomHeader ';
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
-import screenNames from '../../utils/screenName';
 import Colors from '../../theme/colors';
+import useOtpHandler from './useOtpHandler'; 
 
 const EmailOtp = ({ navigation }) => {
-  const [otp, setOtp] = useState(['', '', '', '']);
-  const [focusedIndex, setFocusedIndex] = useState(null); // track focused input
-  const inputs = [useRef(null), useRef(null), useRef(null), useRef(null)];
 
-  const handleOtpChange = (text, index) => {
-    const newOtp = [...otp];
-
-    if (text === '') {
-      newOtp[index] = '';
-      setOtp(newOtp);
-      if (index > 0) inputs[index - 1].current.focus();
-      return;
-    }
-
-    if (/^\d$/.test(text)) {
-      newOtp[index] = text;
-      setOtp(newOtp);
-      if (index < 3) {
-        inputs[index + 1].current.focus();
-      } else {
-        Keyboard.dismiss();
-      }
-    }
-  };
-
-  const handleSubmit = () => {
-    if (otp.includes('')) {
-      Alert.alert('Error', 'Please enter all 4 digits of the OTP.');
-      return;
-    }
-    const fullOtp = otp.join('');
-    console.log('Entered OTP:', fullOtp);
-    navigation.navigate(screenNames.AUTH.NEW_PASSWORD);
-  };
+  const {
+    otp,
+    setOtp,
+    focusedIndex,
+    setFocusedIndex,
+    inputs,
+    handleOtpChange,
+    handleSubmit,
+  } = useOtpHandler(navigation);
 
   return (
     <View style={styles.container}>

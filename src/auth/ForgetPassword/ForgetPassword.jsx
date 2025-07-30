@@ -11,11 +11,9 @@ const ForgetPassword = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <CustomHeader
-      
         onPress={() => navigation.goBack()}
         Icon={ImageIndex.back}
       />
-      {/* Scrollable content section – keeps layout scrollable on smaller screens and in landscape */}
       <ScrollView
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
@@ -41,8 +39,8 @@ const ForgetPassword = ({ navigation }) => {
           </View>
         </View>
       </ScrollView>
-     
-      <PrimaryButton 
+
+      <PrimaryButton
         title="Submit"
         onPress={() => navigation.navigate(screenNames.AUTH.EMAIL_OTP)}
       />
