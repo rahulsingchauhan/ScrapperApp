@@ -13,28 +13,16 @@ import {
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Feather from 'react-native-vector-icons/Feather';
 import { Formik } from 'formik';
-import * as Yup from 'yup';
 import { styles } from './Styles';
 import screenNames from '../../utils/screenName';
 import { ImageIndex } from '../../assets/ImageIndex';
 import Colors from '../../theme/colors';
+import SignUpSchema from '../../schema/SignUpSchema';
 
 const SignUpScreen = ({ navigation }) => {
   const [secureText, setSecureText] = useState(true);
 
-  const SignUpSchema = Yup.object().shape({
-    fullName: Yup.string()
-      .required('Full name is required')
-      .min(3, 'Full name must be at least 3 characters')
-      .max(50, 'Full name must be less than 50 characters')
-      .matches(/^[a-zA-Z\s]+$/, 'Only alphabets and spaces are allowed'),
-    email: Yup.string()
-      .email('Invalid email')
-      .required('Email or mobile is required'),
-    password: Yup.string()
-      .min(6, 'Password must be at least 6 characters')
-      .required('Password is required'),
-  });
+
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
