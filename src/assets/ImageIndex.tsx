@@ -33,4 +33,5 @@ export const ImageIndex = {
    Scrappernotification:require('./images/NotificationIcon.png'),
   google:require('./icons/GoogleLogo.png'),
   locationTag:require('./images/PostLocationTag.png'),
+    trackScrapper:require('./images/TrackScrapper.png'),
 };

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   View,
   Text,
@@ -15,8 +15,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Colors from '../../theme/colors';
 import CustomHeader from '../../components/Header/CustomHeader ';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// Debounce function
 const debounce = (func, delay) => {
   let timer;
   return (...args) => {
@@ -30,6 +30,20 @@ const HomeScreen = () => {
   const navigation = useNavigation();
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredData, setFilteredData] = useState([]);
+  const [userType, setUserType] = useState(''); 
+
+  // ✅ Fetch userType from AsyncStorage on component mount
+  useEffect(() => {
+    const fetchUserType = async () => {
+      try {
+        const storedType = await AsyncStorage.getItem('userType');
+        setUserType(storedType || '');
+      } catch (error) {
+        console.log('Error fetching userType:', error);
+      }
+    };
+    fetchUserType();
+  }, []);
 
   const activeListings = [
     {
@@ -107,13 +121,14 @@ const HomeScreen = () => {
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor={Colors.backGround} barStyle={'dark-content'} />
 
-   <CustomHeader
-  onPress={() => navigation.openDrawer()} // Left Icon
-  Icon={ImageIndex.primaryDrawerIcon}
-  rightIcon={ImageIndex.bellIcon}
-  onRightPress={() => navigation.navigate(screenNames.SCRAPPER.SCRAPPER_NOTIFICATIONS)} // Right Icon
-/>
-
+      <CustomHeader
+        onPress={() => navigation.openDrawer()}
+        Icon={ImageIndex.primaryDrawerIcon}
+        rightIcon={ImageIndex.bellIcon}
+        onRightPress={() =>
+          navigation.navigate(screenNames.SCRAPPER.SCRAPPER_NOTIFICATIONS)
+        }
+      />
 
       <View style={styles.titleView}>
         <Text style={styles.title}>Hi, Ronaldo</Text>
@@ -131,7 +146,7 @@ const HomeScreen = () => {
             setSearchQuery('');
           }}
           backgroundColor={active === '0' ? Colors.primary : '#E5E5E5'}
-          textColor={active === '0'? '#FFF' : Colors.primary}
+          textColor={active === '0' ? '#FFF' : Colors.primary}
         />
         <PrimaryButton
           title="Past Listing"
@@ -165,12 +180,15 @@ const HomeScreen = () => {
         {(searchQuery.length > 0 ? filteredData : currentList).map(renderCard)}
       </View>
 
-      <TouchableOpacity
-        style={styles.fab}
-        onPress={() => navigation.navigate(screenNames.APP.POSTSCRAP)}
-      >
-        <Image source={ImageIndex.plus} style={styles.fabImage} />
-      </TouchableOpacity>
+      {/* ✅ Floating Button only if userType !== 'scrapper' */}
+      {userType !== 'scrapper' && (
+        <TouchableOpacity
+          style={styles.fab}
+          onPress={() => navigation.navigate(screenNames.APP.POSTSCRAP)}
+        >
+          <Image source={ImageIndex.plus} style={styles.fabImage} />
+        </TouchableOpacity>
+      )}
     </SafeAreaView>
   );
 };

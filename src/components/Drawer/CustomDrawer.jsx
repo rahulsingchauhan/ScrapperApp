@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -11,6 +11,7 @@ import { ImageIndex } from '../../assets/ImageIndex';
 import screenNames from '../../utils/screenName';
 import Colors from '../../theme/colors';
 import fonts from '../../utils/fonts';
+import AsyncStorage from '@react-native-async-storage/async-storage'; // ✅ Import AsyncStorage
 
 const DrawerItem = ({ icon, label, onPress }) => (
   <TouchableOpacity style={styles.item} onPress={onPress}>
@@ -21,6 +22,22 @@ const DrawerItem = ({ icon, label, onPress }) => (
 );
 
 const CustomDrawer = ({ navigation }) => {
+  const [userType, setUserType] = useState('');
+
+  // ✅ Fetch userType from AsyncStorage when drawer mounts
+  useEffect(() => {
+    const getUserType = async () => {
+      try {
+        const type = await AsyncStorage.getItem('userType');
+        setUserType(type || '');
+      } catch (err) {
+        console.log('Failed to fetch userType:', err);
+      }
+    };
+
+    getUserType();
+  }, []);
+
   return (
     <View style={styles.container}>
       <DrawerContentScrollView
@@ -32,16 +49,30 @@ const CustomDrawer = ({ navigation }) => {
           <Image source={ImageIndex.splashLogo} style={styles.logo} />
         </View>
 
-        <DrawerItem
-          icon={ImageIndex.subscription}
-          label="Subscription"
-          onPress={() => navigation.navigate('Subscription')}
-        />
-        
+        {/* 🔽 Conditional Drawer Item based on userType */}
+        {userType === 'scrapper' ? (
+          <DrawerItem
+            icon={ImageIndex.trackScrapper}
+            label="Track Scrapper"
+            onPress={() =>
+              navigation.navigate(screenNames.DRAWER.SCRAPPER_TRACKING)
+            }
+          />
+        ) : (
+          <DrawerItem
+            icon={ImageIndex.subscription}
+            label="Subscription"
+            onPress={() => navigation.navigate('Subscription')}
+          />
+        )}
+
+        {/* Common Drawer Items */}
         <DrawerItem
           icon={ImageIndex.changePassword}
           label="Change Password"
-          onPress={() => navigation.navigate(screenNames.DRAWER.CHANGE_PASSWORD)}
+          onPress={() =>
+            navigation.navigate(screenNames.DRAWER.CHANGE_PASSWORD)
+          }
         />
         <DrawerItem
           icon={ImageIndex.notification}
@@ -62,12 +93,20 @@ const CustomDrawer = ({ navigation }) => {
 
       {/* Logout */}
       <TouchableOpacity
-        style={styles.logout}
-        onPress={() => navigation.navigate(screenNames.AUTH.LOGIN)}
-      >
-        <Image source={ImageIndex.logout} style={styles.icon} />
-        <Text style={styles.logoutText}>Log Out</Text>
-      </TouchableOpacity>
+  style={styles.logout}
+  onPress={async () => {
+    try {
+      await AsyncStorage.removeItem('userType'); // 🧹 Remove user type
+      navigation.navigate(screenNames.ONBOARDING.CHOOSE_ROLE);
+    } catch (error) {
+      console.log('Logout error:', error);
+    }
+  }}
+>
+  <Image source={ImageIndex.logout} style={styles.icon} />
+  <Text style={styles.logoutText}>Log Out</Text>
+</TouchableOpacity>
+
     </View>
   );
 };

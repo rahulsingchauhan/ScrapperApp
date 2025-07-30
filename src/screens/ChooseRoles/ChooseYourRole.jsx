@@ -4,51 +4,70 @@ import { styles } from './Styles';
 import screenNames from '../../utils/screenName';
 import { ImageIndex } from '../../assets/ImageIndex';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import AsyncStorage from '@react-native-async-storage/async-storage'; 
 
 const ChooseYourRole = ({ navigation }) => {
+
+  // 🔹 Function to handle role selection and save it in AsyncStorage
+  const handleRoleSelection = async (role) => {
+    try {
+      await AsyncStorage.setItem('userType', role); //Save the selected role
+      console.log(role)
+      navigation.navigate(screenNames.ONBOARDING.READY_TO_START); 
+    } catch (error) {
+      console.log('Error saving userType:', error); 
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
-      {/* LOGO */}
+      
+   
       <Image
         source={ImageIndex.splashLogo}
         style={styles.logo}
         resizeMode="contain"
       />
 
-    {/* Title */}
-<View style={styles.textWrapper}>
-  <Text style={styles.title}>Choose Your Role</Text>
-  <Text style={styles.subtitle}>Select how you want to use ScrapApp</Text>
-</View>
+  
+      <View style={styles.textWrapper}>
+        <Text style={styles.title}>Choose Your Role</Text>
+        <Text style={styles.subtitle}>Select how you want to use ScrapApp</Text>
+      </View>
 
-
-      {/* Illustration */}
+    
       <Image
         source={ImageIndex.role}
         style={styles.illustration}
         resizeMode="contain"
       />
 
-      {/* Role Buttons */}
       <View style={styles.buttonRow}>
+        
+     
         <TouchableOpacity
           style={styles.roleButton}
-          onPress={() =>
-            navigation.navigate(screenNames.ONBOARDING.READY_TO_START)
-          }>
-          <Image source={ImageIndex.customer} style={styles.roleIcon} resizeMode="contain" />
+          onPress={() => handleRoleSelection('customer')}>
+          <Image
+            source={ImageIndex.customer}
+            style={styles.roleIcon}
+            resizeMode="contain"
+          />
           <Text style={styles.buttonText}>Customer</Text>
         </TouchableOpacity>
 
+     
         <TouchableOpacity
           style={styles.roleButton}
-          onPress={() =>
-            navigation.navigate(screenNames.ONBOARDING.READY_TO_START)
-            
-          }>
-          <Image source={ImageIndex.scrapper} style={styles.roleIcon} resizeMode="contain" />
+          onPress={() => handleRoleSelection('scrapper')}>
+          <Image
+            source={ImageIndex.scrapper}
+            style={styles.roleIcon}
+            resizeMode="contain"
+          />
           <Text style={styles.buttonText}>Scrapper</Text>
         </TouchableOpacity>
+
       </View>
     </SafeAreaView>
   );

@@ -7,6 +7,7 @@ import ChangePassword from '../screens/ChangePassword/ChangePassword';
 import Help from '../screens/HelpAndSupport/Help';
 import LegalAndPolicies from '../screens/LegalAndPolicies/LegalAndPolicies';
 import Notifications from '../screens/Notifications/Notifications';
+import ScrapperTracking from '../Scrapper Screens/ScrapperTracking/ScrapperTracking';
 
 const Drawer = createDrawerNavigator();
 
@@ -30,6 +31,8 @@ const DrawerNavigator = () => {
        <Drawer.Screen name={screenNames.DRAWER.HELP_AND_SUPPORT} component={Help}/>
        <Drawer.Screen name={screenNames.DRAWER.CHANGE_PASSWORD} component={ChangePassword} />
 <Drawer.Screen name={screenNames.DRAWER.LEGAL_AND_POLICIES} component={LegalAndPolicies}/>
+
+<Drawer.Screen name={screenNames.DRAWER.SCRAPPER_TRACKING} component={ScrapperTracking}/>
       
     </Drawer.Navigator>
   );

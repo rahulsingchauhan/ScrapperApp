@@ -26,6 +26,8 @@ const screenNames = {
     NOTIFICATION: 'Notification',
     LEGAL_AND_POLICIES: 'Legal',
     HELP_AND_SUPPORT: 'Help',
+    SCRAPPER_TRACKING : 'Tracking'
+
   },
 
   COMPONENT: {
@@ -33,7 +35,11 @@ const screenNames = {
   },
 
   SCRAPPER : {
-SCRAPPER_NOTIFICATIONS : 'ScrapperNotification'
+SCRAPPER_NOTIFICATIONS : 'ScrapperNotification',
+ ACCEPT_DECLINE: 'ScrapperNotification',
+
+
+
   },
 };
 

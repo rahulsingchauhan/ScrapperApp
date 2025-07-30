@@ -21,6 +21,7 @@ import LegalAndPolicies from '../screens/LegalAndPolicies/LegalAndPolicies';
 import BottomSheetModal from '../components/Modal/BottomSheetModal';
 import PastListingDetails from '../screens/PastListingDetails/PastListingDetails';
 import ScrapperNotifications from '../Scrapper Screens/ScrapperNotifications/ScrapperNotifications';
+import ScrapperTracking from '../Scrapper Screens/ScrapperTracking/ScrapperTracking';
 
 
 export const routes = {
@@ -106,6 +107,10 @@ export const routes = {
          {
       name: screenNames.SCRAPPER.SCRAPPER_NOTIFICATIONS,
       component: ScrapperNotifications,
+    },
+          {
+      name: screenNames.DRAWER.SCRAPPER_TRACKING,
+      component: ScrapperTracking,
     },
   ],
   DrawerNavigator: [

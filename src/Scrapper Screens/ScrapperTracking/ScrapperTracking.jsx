@@ -7,8 +7,9 @@ import PrimaryButton from '../../components/Buttons/PrimaryButton.jsx';
 
 import CustomHeader from '../../components/Header/CustomHeader .jsx';
 import { ImageIndex } from '../../assets/ImageIndex.tsx';
+import Colors from '../../theme/colors.tsx';
 
-const ScrapperTracking = (navigation) => {
+const ScrapperTracking = ({navigation}) => {
   const delhi = { latitude: 28.6139, longitude: 77.209 };
   const mumbai = { latitude: 19.076, longitude: 72.8777 };
 
@@ -32,12 +33,12 @@ const ScrapperTracking = (navigation) => {
         <Marker coordinate={mumbai} title="Mumbai" description="Financial Capital of India" pinColor="blue" />
 
         {/* Polyline between Delhi and Mumbai */}
-        <Polyline coordinates={[delhi, mumbai]} strokeColor="#FF5733" strokeWidth={3} />
+        <Polyline coordinates={[delhi, mumbai]} strokeColor={Colors.primary} strokeWidth={3} />
       </MapView>
 
       <View style={styles.card}>
         <View style={styles.topRow}>
-        <Image source={require('../../assets/images/location.png')} style={styles.icon} />
+        <Image source={ImageIndex.location} style={styles.icon} />
           <View>
             <Text style={styles.title}>Scrapper</Text>
             <Text style={styles.subtitle}>On the way · 24 June</Text>
