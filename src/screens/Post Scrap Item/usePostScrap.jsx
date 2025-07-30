@@ -59,6 +59,7 @@ const usePostScrap = () => {
     selectedAvailability,
     setSelectedAvailability,
     imageModalVisible,
+    setImageModalVisible,
     categoryOptions,
     availabilityOptions,
   };

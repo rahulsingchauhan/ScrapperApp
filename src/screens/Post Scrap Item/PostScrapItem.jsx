@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Text,
   View,
@@ -9,57 +9,30 @@ import {
 } from 'react-native';
 import { styles } from './Styles';
 import { ImageIndex } from '../../assets/ImageIndex';
-
+import usePostScrap from './usePostScrap';
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
 import screenNames from '../../utils/screenName';
 import MapView, { Marker } from 'react-native-maps';
 import BottomSheetModal from '../../components/Modal/BottomSheetModal';
-import ImagePicker from 'react-native-image-crop-picker';
 import CustomHeader from '../../components/Header/CustomHeader ';
 
 const PostScrapItem = ({ navigation }) => {
-  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
-  const [isAvailabilityOpen, setIsAvailabilityOpen] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState('Category');
-  const [selectedAvailability, setSelectedAvailability] = useState('Set Item Availability');
-  const [imageModalVisible, setImageModalVisible] = useState(false);
-
-  const categoryOptions = ['Plastic', 'Metal', 'Electronics', 'Glass'];
-  const availabilityOptions = ['Available', 'Not Available'];
-
-  const handleOpenCamera = async () => {
-    try {
-      setImageModalVisible(false);
-      setTimeout(async () => {
-        const image = await ImagePicker.openCamera({
-          width: 300,
-          height: 400,
-          cropping: true,
-          mediaType: 'photo',
-        });
-        console.log('Camera Image:', image);
-      }, 300);
-    } catch (err) {
-      console.warn('Camera cancelled or error:', err.message || err);
-    }
-  };
-
-  const handleOpenGallery = async () => {
-    try {
-      setImageModalVisible(false);
-      setTimeout(async () => {
-        const image = await ImagePicker.openPicker({
-          width: 300,
-          height: 400,
-          cropping: true,
-          mediaType: 'photo',
-        });
-        console.log('Gallery Image:', image);
-      }, 300);
-    } catch (err) {
-      console.warn('Gallery cancelled or error:', err.message || err);
-    }
-  };
+  const {
+    handleOpenGallery,
+    handleOpenCamera,
+    isCategoryOpen,
+    setIsCategoryOpen,
+    isAvailabilityOpen,
+    setIsAvailabilityOpen,
+    selectedCategory,
+    setSelectedCategory,
+    selectedAvailability,
+    setSelectedAvailability,
+    imageModalVisible,
+    setImageModalVisible,
+    categoryOptions,
+    availabilityOptions,
+  } = usePostScrap();
 
   return (
     <View style={styles.container}>
