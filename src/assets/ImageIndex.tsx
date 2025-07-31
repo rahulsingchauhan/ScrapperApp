@@ -34,4 +34,5 @@ export const ImageIndex = {
   google:require('./icons/GoogleLogo.png'),
   locationTag:require('./images/PostLocationTag.png'),
     trackScrapper:require('./images/TrackScrapper.png'),
+    green:require('./images/iconicon.png')
 };

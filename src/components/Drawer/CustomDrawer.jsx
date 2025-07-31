@@ -11,7 +11,7 @@ import { ImageIndex } from '../../assets/ImageIndex';
 import screenNames from '../../utils/screenName';
 import Colors from '../../theme/colors';
 import fonts from '../../utils/fonts';
-import AsyncStorage from '@react-native-async-storage/async-storage'; // ✅ Import AsyncStorage
+import AsyncStorage from '@react-native-async-storage/async-storage'; 
 
 const DrawerItem = ({ icon, label, onPress }) => (
   <TouchableOpacity style={styles.item} onPress={onPress}>
@@ -24,7 +24,7 @@ const DrawerItem = ({ icon, label, onPress }) => (
 const CustomDrawer = ({ navigation }) => {
   const [userType, setUserType] = useState('');
 
-  // ✅ Fetch userType from AsyncStorage when drawer mounts
+  //Fetch userType from AsyncStorage when drawer mounts
   useEffect(() => {
     const getUserType = async () => {
       try {
@@ -49,7 +49,7 @@ const CustomDrawer = ({ navigation }) => {
           <Image source={ImageIndex.splashLogo} style={styles.logo} />
         </View>
 
-        {/* 🔽 Conditional Drawer Item based on userType */}
+        {/* Conditional Drawer Item based on userType */}
         {userType === 'scrapper' ? (
           <DrawerItem
             icon={ImageIndex.trackScrapper}
