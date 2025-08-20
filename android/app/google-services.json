@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "545846967390",
+    "project_id": "scrap-bc879",
+    "storage_bucket": "scrap-bc879.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545846967390:android:286344eaaab785c4b188cf",
+        "android_client_info": {
+          "package_name": "com.scrapperapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuXDNKD_NhJDuRSFAK90Gv6QC1rzAcAEo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
